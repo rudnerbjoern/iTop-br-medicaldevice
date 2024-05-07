@@ -22,13 +22,14 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Class: MedicalDeviceType
 //
-
+/*
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceType' => 'Medizingerätetyp',
     'Class:MedicalDeviceType+' => '',
     'Class:MedicalDeviceType/Attribute:medicaldevices_list' => 'Medizinische Geräte',
     'Class:MedicalDeviceType/Attribute:medicaldevices_list+' => 'Alle medizinischen Geräte von diesem Typ',
 ));
+*/
 
 //
 // Class: MedicalDevice
@@ -77,4 +78,13 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
     'Class:MedicalDeviceRefrigerator+' => '',
+));
+
+//
+// Class: MedicalDeviceIncubator
+//
+
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDeviceIncubator' => 'Brutschrank',
+    'Class:MedicalDeviceIncubator+' => '',
 ));

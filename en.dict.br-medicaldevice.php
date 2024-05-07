@@ -33,7 +33,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Class: MedicalDevice
 //
-
+/*
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice' => 'Medical Device',
     'Class:MedicalDevice+' => '',
@@ -42,6 +42,7 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice/Attribute:medicaldevicetype_name' => 'Medical Device Type Name',
     'Class:MedicalDevice/Attribute:medicaldevicetype_name+' => '',
 ));
+*/
 
 //
 // Class: MedicalDeviceAnalyser
@@ -77,4 +78,13 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
     'Class:MedicalDeviceRefrigerator+' => '',
+));
+
+//
+// Class: MedicalDeviceIncubator
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceIncubator' => 'Incubator',
+    'Class:MedicalDeviceIncubator+' => '',
 ));
