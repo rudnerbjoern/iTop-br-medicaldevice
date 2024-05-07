@@ -20,28 +20,16 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 ));
 
 //
-// Class: MedicalDeviceType
-//
-/*
-Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Class:MedicalDeviceType' => 'Medizingerätetyp',
-    'Class:MedicalDeviceType+' => '',
-    'Class:MedicalDeviceType/Attribute:medicaldevices_list' => 'Medizinische Geräte',
-    'Class:MedicalDeviceType/Attribute:medicaldevices_list+' => 'Alle medizinischen Geräte von diesem Typ',
-));
-*/
-
-//
 // Class: MedicalDevice
 //
 
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDevice' => 'Medizingerät',
     'Class:MedicalDevice+' => '',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_id' => 'Medizingerättyp',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_id+' => '',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_name' => 'Medizingerättyp Name',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_name+' => '',
+    'Class:MedicalDevice/Attribute:medicalmodel_id' => 'Modell',
+    'Class:MedicalDevice/Attribute:medicalmodel_id+' => '',
+    'Class:MedicalDevice/Attribute:medicalmodel_name' => 'Modell Name',
+    'Class:MedicalDevice/Attribute:medicalmodel_name+' => '',
 ));
 
 //

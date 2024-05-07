@@ -20,29 +20,17 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
-// Class: MedicalDeviceType
-//
-
-Dict::Add('EN US', 'English', 'English', array(
-    'Class:MedicalDeviceType' => 'Medical Device Type',
-    'Class:MedicalDeviceType+' => '',
-    'Class:MedicalDeviceType/Attribute:medicaldevices_list' => 'Medical devices',
-    'Class:MedicalDeviceType/Attribute:medicaldevices_list+' => 'All the medical devices corresponding to this type',
-));
-
-//
 // Class: MedicalDevice
 //
-/*
+
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice' => 'Medical Device',
     'Class:MedicalDevice+' => '',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_id' => 'Medical Device Type',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_id+' => '',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_name' => 'Medical Device Type Name',
-    'Class:MedicalDevice/Attribute:medicaldevicetype_name+' => '',
+    'Class:MedicalDevice/Attribute:medicalmodel_id' => 'Model',
+    'Class:MedicalDevice/Attribute:medicalmodel_id+' => '',
+    'Class:MedicalDevice/Attribute:medicalmodel_name' => 'Model Name',
+    'Class:MedicalDevice/Attribute:medicalmodel_name+' => '',
 ));
-*/
 
 //
 // Class: MedicalDeviceAnalyser
