@@ -22,3 +22,5 @@ This Extension uses Icons from:
 [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
 
 [Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
+
+[Biosafety Cabinet Icon](https://www.freepik.com/icon/biosafety-cabinet_9569504) by Freepik

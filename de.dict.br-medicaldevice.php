@@ -85,3 +85,12 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceIncubator' => 'Brutschrank',
     'Class:MedicalDeviceIncubator+' => '',
 ));
+
+//
+// Class: MedicalDeviceSafetyCabinet
+//
+
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDeviceSafetyCabinet' => 'Sicherheitswerkbank',
+    'Class:MedicalDeviceSafetyCabinet+' => 'Safety Cabinet',
+));

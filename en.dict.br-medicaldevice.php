@@ -74,7 +74,7 @@ Dict::Add('EN US', 'English', 'English', array(
 
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
-    'Class:MedicalDeviceRefrigerator+' => '',
+    'Class:MedicalDeviceRefrigerator+' => 'Refrigerator and Freezer',
 ));
 
 //
@@ -84,4 +84,13 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceIncubator' => 'Incubator',
     'Class:MedicalDeviceIncubator+' => '',
+));
+
+//
+// Class: MedicalDeviceSafetyCabinet
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceSafetyCabinet' => 'Safety Cabinet',
+    'Class:MedicalDeviceSafetyCabinet+' => '',
 ));
