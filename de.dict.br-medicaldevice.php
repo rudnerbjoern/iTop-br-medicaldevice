@@ -47,7 +47,16 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceTubeSorter' => 'Probensortierer',
-    'Class:MedicalDeviceTubeSorter+' => '',
+    'Class:MedicalDeviceTubeSorter+' => 'Tube Sorter',
+));
+
+//
+// Class: MedicalDeviceLiquidHandlingSystem
+//
+
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDeviceLiquidHandlingSystem' => 'Pipettierroboter',
+    'Class:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
 ));
 
 //
@@ -56,7 +65,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceCentrifuge' => 'Zentrifuge',
-    'Class:MedicalDeviceCentrifuge+' => '',
+    'Class:MedicalDeviceCentrifuge+' => 'Zentrifuge und Schüttler',
 ));
 
 //
@@ -65,7 +74,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
-    'Class:MedicalDeviceRefrigerator+' => '',
+    'Class:MedicalDeviceRefrigerator+' => 'Kühl- und Gefrierschrank',
 ));
 
 //

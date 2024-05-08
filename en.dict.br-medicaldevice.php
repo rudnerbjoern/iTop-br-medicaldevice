@@ -51,6 +51,15 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
+// Class: MedicalDeviceLiquidHandlingSystem
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceLiquidHandlingSystem' => 'Liquid Handling System',
+    'Class:MedicalDeviceLiquidHandlingSystem+' => '',
+));
+
+//
 // Class: MedicalDeviceCentrifuge
 //
 

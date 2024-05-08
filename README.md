@@ -20,3 +20,5 @@ This Extension uses Icons from:
 [Medical Icon](https://iconscout.com/icons/medical) by Jemis Mali
 
 [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
+
+[Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
