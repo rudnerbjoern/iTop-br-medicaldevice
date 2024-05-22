@@ -94,3 +94,12 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceSafetyCabinet' => 'Sicherheitswerkbank',
     'Class:MedicalDeviceSafetyCabinet+' => 'Safety Cabinet',
 ));
+
+//
+// Class: MedicalDevicePOCT
+//
+
+Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDevicePOCT' => 'POCT Gerät',
+    'Class:MedicalDevicePOCT+' => 'Point of care testing',
+));

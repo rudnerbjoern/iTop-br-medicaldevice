@@ -15,6 +15,8 @@ This Extension uses Icons from:
 
 [Lab-Test Icon](https://iconscout.com/icons/lab-test) by IconScout Store
 
+[Blood-Test Icon](https://iconscout.com/icons/blood-test) by Surangkana Jomjunyong
+
 [Blood-Tube Icon](https://iconscout.com/icons/blood-tube) by M. Faisal
 
 [Medical Icon](https://iconscout.com/icons/medical) by Jemis Mali
