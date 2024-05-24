@@ -103,3 +103,12 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
 ));
+
+//
+// Class: MedicalDeviceSamplePreparation
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceSamplePreparation' => 'Sample Preparation',
+    'Class:MedicalDeviceSamplePreparation+' => 'Devices for Sample Preparation',
+));
