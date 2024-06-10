@@ -159,7 +159,7 @@
                         <item id="type">
                             <rank>30</rank>
                         </item>
-                        <item id="physicaldevices_list">
+                        <item id="medicaldevices_list">
                             <rank>40</rank>
                         </item>
                     </items>
