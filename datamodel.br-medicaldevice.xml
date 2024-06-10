@@ -5,6 +5,191 @@
     * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
     -->
     <classes>
+        <!-- ***************** Typology ***************** -->
+        <class id="MedicalBrand" _delta="define">
+            <parent>Typology</parent>
+            <properties>
+                <category>bizmodel,searchable</category>
+                <abstract>false</abstract>
+                <key_type>autoincrement</key_type>
+                <db_table>medicalbrand</db_table>
+                <db_key_field>id</db_key_field>
+                <db_final_class_field />
+                <naming>
+                    <attributes>
+                        <attribute id="name" />
+                    </attributes>
+                </naming>
+                <display_template />
+                <icon />
+                <reconciliation>
+                    <attributes>
+                        <attribute id="name" />
+                    </attributes>
+                </reconciliation>
+                <uniqueness_rules>
+                    <rule id="name">
+                        <attributes>
+                            <attribute id="name" />
+                        </attributes>
+                        <is_blocking>true</is_blocking>
+                    </rule>
+                </uniqueness_rules>
+            </properties>
+            <fields>
+                <field id="physicaldevices_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>PhysicalDevice</linked_class>
+                    <ext_key_to_me>medicalbrand_id</ext_key_to_me>
+                    <edit_mode>add_only</edit_mode>
+                    <count_min>0</count_min>
+                    <count_max>0</count_max>
+                    <duplicates />
+                </field>
+            </fields>
+            <methods />
+            <presentation>
+                <details>
+                    <items>
+                        <item id="name">
+                            <rank>10</rank>
+                        </item>
+                        <item id="physicaldevices_list">
+                            <rank>20</rank>
+                        </item>
+                    </items>
+                </details>
+                <search>
+                    <items>
+                        <item id="name">
+                            <rank>10</rank>
+                        </item>
+                    </items>
+                </search>
+                <list>
+                    <items>
+                        <item id="name">
+                            <rank>10</rank>
+                        </item>
+                    </items>
+                </list>
+            </presentation>
+        </class>
+        <class id="MedicalModel" _delta="define">
+            <parent>Typology</parent>
+            <properties>
+                <category>bizmodel,searchable</category>
+                <abstract>false</abstract>
+                <key_type>autoincrement</key_type>
+                <db_table>medicalmodel</db_table>
+                <db_key_field>id</db_key_field>
+                <db_final_class_field />
+                <naming>
+                    <attributes>
+                        <attribute id="name" />
+                    </attributes>
+                </naming>
+                <display_template />
+                <icon />
+                <reconciliation>
+                    <attributes>
+                        <attribute id="name" />
+                        <attribute id="medicalbrand_id" />
+                        <attribute id="medicalbrand_name" />
+                        <attribute id="type" />
+                    </attributes>
+                </reconciliation>
+                <uniqueness_rules>
+                    <rule id="name_medicalbrand">
+                        <attributes>
+                            <attribute id="name" />
+                            <attribute id="medicalbrand_id" />
+                        </attributes>
+                        <is_blocking>true</is_blocking>
+                    </rule>
+                </uniqueness_rules>
+            </properties>
+            <fields>
+                <field id="medicalbrand_id" xsi:type="AttributeExternalKey">
+                    <sql>medicalbrand_id</sql>
+                    <target_class>MedicalBrand</target_class>
+                    <is_null_allowed>false</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="medicalbrand_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>medicalbrand_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
+                <field id="type" xsi:type="AttributeEnum">
+                    <values>
+                        <value id="MedicalDevice">MedicalDevice</value>
+                        <value id="MedicalDeviceAnalyser">MedicalDeviceAnalyser</value>
+                        <value id="MedicalDeviceCentrifuge">MedicalDeviceCentrifuge</value>
+                        <value id="MedicalDeviceIncubator">MedicalDeviceIncubator</value>
+                        <value id="MedicalDeviceLiquidHandlingSystem">MedicalDeviceLiquidHandlingSystem</value>
+                        <value id="MedicalDevicePOCT">MedicalDevicePOCT</value>
+                        <value id="MedicalDeviceRefrigerator">MedicalDeviceRefrigerator</value>
+                        <value id="MedicalDeviceSafetyCabinet">MedicalDeviceSafetyCabinet</value>
+                        <value id="MedicalDeviceSamplePreparation">MedicalDeviceSamplePreparation</value>
+                        <value id="MedicalDeviceTubeSorter">MedicalDeviceTubeSorter</value>
+                    </values>
+                    <sql>type</sql>
+                    <default_value />
+                    <is_null_allowed>false</is_null_allowed>
+                    <display_style>list</display_style>
+                </field>
+                <field id="physicaldevices_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>PhysicalDevice</linked_class>
+                    <ext_key_to_me>medicalmodel_id</ext_key_to_me>
+                    <edit_mode>add_only</edit_mode>
+                    <count_min>0</count_min>
+                    <count_max>0</count_max>
+                    <duplicates />
+                </field>
+            </fields>
+            <methods />
+            <presentation>
+                <details>
+                    <items>
+                        <item id="name">
+                            <rank>10</rank>
+                        </item>
+                        <item id="medicalbrand_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="type">
+                            <rank>30</rank>
+                        </item>
+                        <item id="physicaldevices_list">
+                            <rank>40</rank>
+                        </item>
+                    </items>
+                </details>
+                <search>
+                    <items>
+                        <item id="name">
+                            <rank>10</rank>
+                        </item>
+                        <item id="type">
+                            <rank>20</rank>
+                        </item>
+                    </items>
+                </search>
+                <list>
+                    <items>
+                        <item id="name">
+                            <rank>10</rank>
+                        </item>
+                        <item id="medicalbrand_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="type">
+                            <rank>30</rank>
+                        </item>
+                    </items>
+                </list>
+            </presentation>
+        </class>
+        <!-- ***************** Medical Devices ***************** -->
         <class id="MedicalDevice" _delta="define">
             <parent>ConnectableCI</parent>
             <properties>
@@ -38,13 +223,23 @@
                 </obsolescence>
             </properties>
             <fields>
+                <field id="medicalbrand_id" xsi:type="AttributeExternalKey">
+                    <sql>medicalbrand_id</sql>
+                    <target_class>MedicalBrand</target_class>
+                    <is_null_allowed>true</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="medicalbrand_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>medicalbrand_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
                 <field id="medicalmodel_id" xsi:type="AttributeExternalKey">
-                    <dependencies>
-                        <attribute id="brand_id" />
-                    </dependencies>
-                    <filter><![CDATA[SELECT Model WHERE brand_id=:this->brand_id AND type='MedicalDevice']]></filter>
                     <sql>medicalmodel_id</sql>
-                    <target_class>Model</target_class>
+                    <target_class>MedicalModel</target_class>
+                    <dependencies>
+                        <attribute id="medicalbrand_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT MedicalModel WHERE medicalbrand_id=:this->medicalbrand_id AND type=:this->finalclass]]></filter>
                     <is_null_allowed>true</is_null_allowed>
                     <on_target_delete>DEL_MANUAL</on_target_delete>
                 </field>
@@ -85,7 +280,7 @@
                                         <item id="finalclass">
                                             <rank>10</rank>
                                         </item>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -165,7 +360,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -205,7 +400,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -279,7 +474,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -359,7 +554,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -396,7 +591,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -470,7 +665,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -550,7 +745,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -587,7 +782,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -661,7 +856,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -741,7 +936,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -778,7 +973,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -852,7 +1047,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -932,7 +1127,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -969,7 +1164,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1043,7 +1238,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -1123,7 +1318,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1160,7 +1355,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1234,7 +1429,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -1314,7 +1509,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1351,7 +1546,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1425,7 +1620,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -1505,7 +1700,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1542,7 +1737,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1616,7 +1811,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -1696,7 +1891,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1733,7 +1928,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1807,7 +2002,7 @@
                                 <item id="fieldset:Server:moreinfo">
                                     <rank>20</rank>
                                     <items>
-                                        <item id="brand_id">
+                                        <item id="medicalbrand_id">
                                             <rank>20</rank>
                                         </item>
                                         <item id="medicalmodel_id">
@@ -1887,7 +2082,7 @@
                         <item id="location_id">
                             <rank>50</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>60</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1924,7 +2119,7 @@
                         <item id="location_id">
                             <rank>40</rank>
                         </item>
-                        <item id="brand_id">
+                        <item id="medicalbrand_id">
                             <rank>50</rank>
                         </item>
                         <item id="medicalmodel_id">
@@ -1937,18 +2132,6 @@
                 </list>
             </presentation>
             <methods />
-        </class>
-
-
-
-        <class id="Model" _delta="must_exist">
-            <fields>
-                <field id="type" xsi:type="AttributeEnum" _delta="must_exist">
-                    <values>
-                        <value id="MedicalDevice" _delta="define">MedicalDevice</value>
-                    </values>
-                </field>
-            </fields>
         </class>
     </classes>
     <!-- ***************** Menus ***************** -->
@@ -2019,6 +2202,24 @@
                             </dashlet>
                         </dashlets>
                     </cell>
+                    <cell id="meddev-200">
+                        <rank>2</rank>
+                        <dashlets>
+                            <dashlet id="meddev-201" xsi:type="DashletHeaderStatic">
+                                <rank>201</rank>
+                                <title>Menu:MedicalDeviceSpace:Options</title>
+                                <icon>iTop-br-medicaldevice/images/cardiogram.png</icon>
+                            </dashlet>
+                            <dashlet id="meddev-210" xsi:type="DashletBadge">
+                                <rank>210</rank>
+                                <class>MedicalBrand</class>
+                            </dashlet>
+                            <dashlet id="meddev-220" xsi:type="DashletBadge">
+                                <rank>220</rank>
+                                <class>MedicalModel</class>
+                            </dashlet>
+                        </dashlets>
+                    </cell>
                 </cells>
             </definition>
         </menu>
@@ -2043,6 +2244,12 @@
                     <class id="MedicalDevice" />
                 </classes>
             </group>
+            <group id="MedicalTypology" _delta="define">
+                <classes>
+                    <class id="MedicalBrand" />
+                    <class id="MedicalModel" />
+                </classes>
+            </group>
             <group id="MedicalDeviceDocumentAndLinks" _delta="define">
                 <classes>
                     <class id="Document" />
@@ -2063,6 +2270,16 @@
                             <action id="action:delete">allow</action>
                         </actions>
                     </group>
+                    <group id="MedicalTypology">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">deny</action>
+                            <action id="action:bulk write">deny</action>
+                            <action id="action:delete">deny</action>
+                            <action id="action:bulk delete">deny</action>
+                        </actions>
+                    </group>
                     <group id="MedicalDeviceDocumentAndLinks">
                         <actions>
                             <action id="action:read">allow</action>
@@ -2078,6 +2295,16 @@
                 <description>Person dealing with medical devices - Admin Level</description>
                 <groups>
                     <group id="MedicalDevice">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:bulk write">allow</action>
+                            <action id="action:delete">allow</action>
+                            <action id="action:bulk delete">allow</action>
+                        </actions>
+                    </group>
+                    <group id="MedicalTypology">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
