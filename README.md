@@ -19,6 +19,8 @@ This Extension uses Icons from:
 
 [Blood-Tube Icon](https://iconscout.com/icons/blood-tube) by M. Faisal
 
+[Sample-Preparation Icon](https://www.vecteezy.com/free-vector/container) by Vecteezy
+
 [Medical Icon](https://iconscout.com/icons/medical) by Jemis Mali
 
 [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
