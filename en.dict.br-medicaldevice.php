@@ -20,12 +20,65 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
+// Typology
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalBrand' => 'Medical Brand',
+    'Class:MedicalBrand+' => '',
+    'Class:MedicalBrand/Attribute:name' => 'Name',
+    'Class:MedicalBrand/Attribute:name+' => '',
+    'Class:MedicalBrand/Attribute:medicaldevices_list' => 'Medical Devices',
+    'Class:MedicalBrand/Attribute:medicaldevices_list+' => 'All the medical devices corresponding to this brand',
+    'Class:MedicalBrand/UniquenessRule:name+' => 'The name must be unique',
+    'Class:MedicalBrand/UniquenessRule:name' => 'This medical brand already exists',
+    'Class:MedicalModel' => 'Medical Model',
+    'Class:MedicalModel+' => '',
+    'Class:MedicalModel/Attribute:name' => 'Name',
+    'Class:MedicalModel/Attribute:name+' => '',
+    'Class:MedicalModel/Attribute:medicalbrand_id' => 'Brand',
+    'Class:MedicalModel/Attribute:medicalbrand_id+' => '',
+    'Class:MedicalModel/Attribute:medicalbrand_name' => 'Brand Name',
+    'Class:MedicalModel/Attribute:medicalbrand_name+' => '',
+    'Class:MedicalModel/Attribute:medicaldevices_list' => 'Medical Devices',
+    'Class:MedicalModel/Attribute:medicaldevices_list+' => 'All the medical devices corresponding to this model',
+    'Class:MedicalModel/UniquenessRule:name_brand+' => 'Name must be unique in the brand',
+    'Class:MedicalModel/UniquenessRule:name_brand' => 'this model already exists for this brand',
+    'Class:MedicalModel/Attribute:type' => 'Device type',
+    'Class:MedicalModel/Attribute:type+' => '',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDevice' => 'Medical Device',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDevice+' => 'Medical Device',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceAnalyser' => 'Analyser',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceAnalyser+' => 'Analyser',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceCentrifuge' => 'Centrifuge',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceCentrifuge+' => 'Centrifuge',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceIncubator' => 'Incubator',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceIncubator+' => 'Incubator',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem' => 'Liquid Handling System',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'POCT device',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Point of care testing device',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Refrigerator',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator+' => 'Refrigerator and Freezer',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSafetyCabinet' => 'Safety Cabinet',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSafetyCabinet+' => 'Safety Cabinet',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSamplePreparation' => 'Sample Preparation Device',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSamplePreparation+' => 'Sample Preparation Device',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter' => 'Tube Sorter',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter+' => 'Tube Sorter',
+));
+
+//
 // Class: MedicalDevice
 //
 
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice' => 'Medical Device',
     'Class:MedicalDevice+' => '',
+    'Class:MedicalDevice/Attribute:medicalbrand_id' => 'Brand',
+    'Class:MedicalDevice/Attribute:medicalbrand_id+' => '',
+    'Class:MedicalDevice/Attribute:medicalbrand_name' => 'Brand Name',
+    'Class:MedicalDevice/Attribute:medicalbrand_name+' => '',
     'Class:MedicalDevice/Attribute:medicalmodel_id' => 'Model',
     'Class:MedicalDevice/Attribute:medicalmodel_id+' => '',
     'Class:MedicalDevice/Attribute:medicalmodel_name' => 'Model Name',
