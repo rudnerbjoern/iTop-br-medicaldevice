@@ -37,8 +37,8 @@
                 </uniqueness_rules>
             </properties>
             <fields>
-                <field id="physicaldevices_list" xsi:type="AttributeLinkedSet">
-                    <linked_class>PhysicalDevice</linked_class>
+                <field id="medicaldevices_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>MedicalDevice</linked_class>
                     <ext_key_to_me>medicalbrand_id</ext_key_to_me>
                     <edit_mode>add_only</edit_mode>
                     <count_min>0</count_min>
@@ -53,7 +53,7 @@
                         <item id="name">
                             <rank>10</rank>
                         </item>
-                        <item id="physicaldevices_list">
+                        <item id="medicaldevices_list">
                             <rank>20</rank>
                         </item>
                     </items>
@@ -137,8 +137,8 @@
                     <is_null_allowed>false</is_null_allowed>
                     <display_style>list</display_style>
                 </field>
-                <field id="physicaldevices_list" xsi:type="AttributeLinkedSet">
-                    <linked_class>PhysicalDevice</linked_class>
+                <field id="medicaldevices_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>MedicalDevice</linked_class>
                     <ext_key_to_me>medicalmodel_id</ext_key_to_me>
                     <edit_mode>add_only</edit_mode>
                     <count_min>0</count_min>
