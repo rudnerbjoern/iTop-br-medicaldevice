@@ -223,7 +223,10 @@
                 </obsolescence>
             </properties>
             <fields>
-                <field id="brand_name" _delta="delete" xsi:type="AttributeExternalField" />
+                <field id="brand_name" _delta="delete" xsi:type="AttributeExternalField">
+                    <extkey_attcode>brand_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
                 <field id="brand_id" _delta="delete" xsi:type="AttributeExternalKey">
                     <sql>brand_id</sql>
                 </field>
