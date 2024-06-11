@@ -223,6 +223,10 @@
                 </obsolescence>
             </properties>
             <fields>
+                <field id="brand_name" _delta="delete" />
+                <field id="brand_id" _delta="delete" />
+                <field id="model_name" _delta="delete" />
+                <field id="model_id" _delta="delete" />
                 <field id="medicalbrand_id" xsi:type="AttributeExternalKey">
                     <sql>medicalbrand_id</sql>
                     <target_class>MedicalBrand</target_class>
