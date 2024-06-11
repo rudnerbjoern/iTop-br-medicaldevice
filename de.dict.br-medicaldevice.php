@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2024-05-07
+ * @version     2024-06-11
  *
  * Localized data
  */
@@ -11,7 +11,6 @@
 //
 // Application Menu
 //
-
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Menu:MedicalDeviceManagement' => 'Medizingeräte Verwaltung',
     'Menu:MedicalDeviceSpace' => 'Medizingeräte Space',
@@ -26,7 +25,6 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Typology
 //
-
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalBrand' => 'Medizinische Marke',
     'Class:MedicalBrand+' => '',
@@ -75,7 +73,6 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Class: MedicalDevice
 //
-
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDevice' => 'Medizingerät',
     'Class:MedicalDevice+' => '',
@@ -90,82 +87,27 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 ));
 
 //
-// Class: MedicalDeviceAnalyser
+// Devices
 //
-
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceAnalyser' => 'Analysegerät',
     'Class:MedicalDeviceAnalyser+' => '',
-));
-
-//
-// Class: MedicalDeviceTubeSorter
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Class:MedicalDeviceTubeSorter' => 'Probensortierer',
-    'Class:MedicalDeviceTubeSorter+' => 'Tube Sorter',
-));
-
-//
-// Class: MedicalDeviceLiquidHandlingSystem
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDeviceCentrifuge' => 'Zentrifuge',
+    'Class:MedicalDeviceCentrifuge+' => 'Zentrifuge',
+    'Class:MedicalDeviceIncubator' => 'Brutschrank',
+    'Class:MedicalDeviceIncubator+' => 'Brutschrank',
     'Class:MedicalDeviceLiquidHandlingSystem' => 'Pipettierroboter',
     'Class:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
-));
-
-//
-// Class: MedicalDeviceCentrifuge
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Class:MedicalDeviceCentrifuge' => 'Zentrifuge',
-    'Class:MedicalDeviceCentrifuge+' => 'Zentrifuge und Schüttler',
-));
-
-//
-// Class: MedicalDeviceRefrigerator
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
-    'Class:MedicalDeviceRefrigerator+' => 'Kühl- und Gefrierschrank',
-));
-
-//
-// Class: MedicalDeviceIncubator
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Class:MedicalDeviceIncubator' => 'Brutschrank',
-    'Class:MedicalDeviceIncubator+' => '',
-));
-
-//
-// Class: MedicalDeviceSafetyCabinet
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Class:MedicalDeviceSafetyCabinet' => 'Sicherheitswerkbank',
-    'Class:MedicalDeviceSafetyCabinet+' => 'Safety Cabinet',
-));
-
-//
-// Class: MedicalDevicePOCT
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDeviceMicroscope' => 'Mikroskop',
+    'Class:MedicalDeviceMicroscope+' => 'Mikroskop',
     'Class:MedicalDevicePOCT' => 'POCT Gerät',
     'Class:MedicalDevicePOCT+' => 'Point of care testing',
-));
-
-//
-// Class: MedicalDeviceSamplePreparation
-//
-
-Dict::Add('DE DE', 'German', 'Deutsch', array(
+    'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
+    'Class:MedicalDeviceRefrigerator+' => 'Kühl- und Gefrierschrank',
+    'Class:MedicalDeviceSafetyCabinet' => 'Sicherheitswerkbank',
+    'Class:MedicalDeviceSafetyCabinet+' => 'Safety Cabinet',
     'Class:MedicalDeviceSamplePreparation' => 'Probenvorbereitung',
     'Class:MedicalDeviceSamplePreparation+' => 'Geräte zur Probenvorbereitung',
+    'Class:MedicalDeviceTubeSorter' => 'Probensortierer',
+    'Class:MedicalDeviceTubeSorter+' => 'Tube Sorter',
 ));

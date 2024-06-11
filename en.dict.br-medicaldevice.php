@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2024-05-07
+ * @version     2024-06-11
  *
  * Localized data
  */
@@ -11,7 +11,6 @@
 //
 // Application Menu
 //
-
 Dict::Add('EN US', 'English', 'English', array(
     'Menu:MedicalDeviceManagement' => 'Medical Device Management',
     'Menu:MedicalDeviceSpace' => 'Medical Device Space',
@@ -26,7 +25,6 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Typology
 //
-
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalBrand' => 'Medical Brand',
     'Class:MedicalBrand+' => '',
@@ -60,6 +58,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceIncubator+' => 'Incubator',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem' => 'Liquid Handling System',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope' => 'Microscope',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope+' => 'Microscope',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'POCT device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Refrigerator',
@@ -75,7 +75,6 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Class: MedicalDevice
 //
-
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice' => 'Medical Device',
     'Class:MedicalDevice+' => '',
@@ -90,82 +89,28 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
-// Class: MedicalDeviceAnalyser
+// Devices
 //
 
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceAnalyser' => 'Analyser',
     'Class:MedicalDeviceAnalyser+' => '',
-));
-
-//
-// Class: MedicalDeviceTubeSorter
-//
-
-Dict::Add('EN US', 'English', 'English', array(
-    'Class:MedicalDeviceTubeSorter' => 'Tube Sorter',
-    'Class:MedicalDeviceTubeSorter+' => '',
-));
-
-//
-// Class: MedicalDeviceLiquidHandlingSystem
-//
-
-Dict::Add('EN US', 'English', 'English', array(
-    'Class:MedicalDeviceLiquidHandlingSystem' => 'Liquid Handling System',
-    'Class:MedicalDeviceLiquidHandlingSystem+' => '',
-));
-
-//
-// Class: MedicalDeviceCentrifuge
-//
-
-Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceCentrifuge' => 'Centrifuge',
     'Class:MedicalDeviceCentrifuge+' => '',
-));
-
-//
-// Class: MedicalDeviceRefrigerator
-//
-
-Dict::Add('EN US', 'English', 'English', array(
-    'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
-    'Class:MedicalDeviceRefrigerator+' => 'Refrigerator and Freezer',
-));
-
-//
-// Class: MedicalDeviceIncubator
-//
-
-Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceIncubator' => 'Incubator',
     'Class:MedicalDeviceIncubator+' => '',
-));
-
-//
-// Class: MedicalDeviceSafetyCabinet
-//
-
-Dict::Add('EN US', 'English', 'English', array(
-    'Class:MedicalDeviceSafetyCabinet' => 'Safety Cabinet',
-    'Class:MedicalDeviceSafetyCabinet+' => '',
-));
-
-//
-// Class: MedicalDevicePOCT
-//
-
-Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceLiquidHandlingSystem' => 'Liquid Handling System',
+    'Class:MedicalDeviceLiquidHandlingSystem+' => '',
+    'Class:MedicalDeviceMicroscope' => 'Microscope',
+    'Class:MedicalDeviceMicroscope+' => '',
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
-));
-
-//
-// Class: MedicalDeviceSamplePreparation
-//
-
-Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
+    'Class:MedicalDeviceRefrigerator+' => 'Refrigerator and Freezer',
+    'Class:MedicalDeviceSafetyCabinet' => 'Safety Cabinet',
+    'Class:MedicalDeviceSafetyCabinet+' => '',
     'Class:MedicalDeviceSamplePreparation' => 'Sample Preparation',
     'Class:MedicalDeviceSamplePreparation+' => 'Devices for Sample Preparation',
+    'Class:MedicalDeviceTubeSorter' => 'Tube Sorter',
+    'Class:MedicalDeviceTubeSorter+' => '',
 ));
