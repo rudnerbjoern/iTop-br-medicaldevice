@@ -230,7 +230,10 @@
                 <field id="brand_id" _delta="delete" xsi:type="AttributeExternalKey">
                     <sql>brand_id</sql>
                 </field>
-                <field id="model_name" _delta="delete" xsi:type="AttributeExternalField" />
+                <field id="model_name" _delta="delete" xsi:type="AttributeExternalField">
+                    <extkey_attcode>model_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
                 <field id="model_id" _delta="delete" xsi:type="AttributeExternalKey">
                     <sql>model_id</sql>
                 </field>
