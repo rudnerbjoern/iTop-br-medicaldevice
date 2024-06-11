@@ -189,16 +189,6 @@
                 </list>
             </presentation>
         </class>
-        <!-- HACK: Leve this for update compatibility-->
-        <class id="Model" _delta="must_exist">
-            <fields>
-                <field id="type" xsi:type="AttributeEnum" _delta="must_exist">
-                    <values>
-                        <value id="MedicalDevice" _delta="define">MedicalDevice</value>
-                    </values>
-                </field>
-            </fields>
-        </class>
         <!-- ***************** Medical Devices ***************** -->
         <class id="MedicalDevice" _delta="define">
             <parent>ConnectableCI</parent>
