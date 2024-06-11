@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2024-05-07
+ * @version     2024-06-11
  *
  * Localized data
  */
@@ -60,6 +60,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceIncubator+' => 'Incubator',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem' => 'Liquid Handling System',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope' => 'Microscope',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope+' => 'Microscope',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'POCT device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Refrigerator',
@@ -159,6 +161,15 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
+));
+
+//
+// Class: MedicalDeviceMicroscope
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDeviceMicroscope' => 'Microscope',
+    'Class:MedicalDeviceMicroscope+' => '',
 ));
 
 //
