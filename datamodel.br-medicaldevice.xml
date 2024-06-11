@@ -223,20 +223,6 @@
                 </obsolescence>
             </properties>
             <fields>
-                <field id="brand_name" _delta="delete" xsi:type="AttributeExternalField">
-                    <extkey_attcode>brand_id</extkey_attcode>
-                    <target_attcode>name</target_attcode>
-                </field>
-                <field id="brand_id" _delta="delete" xsi:type="AttributeExternalKey">
-                    <sql>brand_id</sql>
-                </field>
-                <field id="model_name" _delta="delete" xsi:type="AttributeExternalField">
-                    <extkey_attcode>model_id</extkey_attcode>
-                    <target_attcode>name</target_attcode>
-                </field>
-                <field id="model_id" _delta="delete" xsi:type="AttributeExternalKey">
-                    <sql>model_id</sql>
-                </field>
                 <field id="medicalbrand_id" xsi:type="AttributeExternalKey">
                     <sql>medicalbrand_id</sql>
                     <target_class>MedicalBrand</target_class>
@@ -2237,14 +2223,14 @@
                 </cells>
             </definition>
         </menu>
-        <menu id="MedicalDeviceShortCut" xsi:type="TemplateMenuNode" _delta="define">
+        <menu id="MedicalDevice:Shortcuts" xsi:type="TemplateMenuNode" _delta="define">
             <rank>40</rank>
             <parent>MedicalDeviceManagement</parent>
             <template_file />
         </menu>
         <menu id="MedicalDevice" xsi:type="OQLMenuNode" _delta="define">
             <rank>10</rank>
-            <parent>MedicalDeviceShortCut</parent>
+            <parent>MedicalDevice:Shortcuts</parent>
             <oql>SELECT MedicalDevice</oql>
             <do_search>1</do_search>
             <auto_reload>fast</auto_reload>
