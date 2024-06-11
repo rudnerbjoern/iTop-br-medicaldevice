@@ -2223,14 +2223,14 @@
                 </cells>
             </definition>
         </menu>
-        <menu id="MedicalDeviceShortCut" xsi:type="TemplateMenuNode" _delta="define">
+        <menu id="MedicalDevice:Shortcuts" xsi:type="TemplateMenuNode" _delta="define">
             <rank>40</rank>
             <parent>MedicalDeviceManagement</parent>
             <template_file />
         </menu>
         <menu id="MedicalDevice" xsi:type="OQLMenuNode" _delta="define">
             <rank>10</rank>
-            <parent>MedicalDeviceShortCut</parent>
+            <parent>MedicalDevice:Shortcuts</parent>
             <oql>SELECT MedicalDevice</oql>
             <do_search>1</do_search>
             <auto_reload>fast</auto_reload>
