@@ -17,6 +17,10 @@ Dict::Add('EN US', 'English', 'English', array(
     'Menu:MedicalDeviceSpace' => 'Medical Device Space',
     'Menu:MedicalDeviceSpace:Devices' => 'Medical Devices',
     'Menu:MedicalDeviceSpace:Options' => 'Options',
+    'Menu:MedicalDevice' => 'Medical Devices',
+    'Menu:MedicalDevice+' => 'Medical Devices',
+    'Menu:MedicalDevice:Shortcuts' => 'Shortcuts',
+    'Menu:MedicalDevice:Shortcuts+' => '',
 ));
 
 //
@@ -36,9 +40,9 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalModel+' => '',
     'Class:MedicalModel/Attribute:name' => 'Name',
     'Class:MedicalModel/Attribute:name+' => '',
-    'Class:MedicalModel/Attribute:medicalbrand_id' => 'Brand',
+    'Class:MedicalModel/Attribute:medicalbrand_id' => 'Medical Brand',
     'Class:MedicalModel/Attribute:medicalbrand_id+' => '',
-    'Class:MedicalModel/Attribute:medicalbrand_name' => 'Brand Name',
+    'Class:MedicalModel/Attribute:medicalbrand_name' => 'Medical Brand Name',
     'Class:MedicalModel/Attribute:medicalbrand_name+' => '',
     'Class:MedicalModel/Attribute:medicaldevices_list' => 'Medical Devices',
     'Class:MedicalModel/Attribute:medicaldevices_list+' => 'All the medical devices corresponding to this model',
@@ -75,13 +79,13 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice' => 'Medical Device',
     'Class:MedicalDevice+' => '',
-    'Class:MedicalDevice/Attribute:medicalbrand_id' => 'Brand',
+    'Class:MedicalDevice/Attribute:medicalbrand_id' => 'Medical Brand',
     'Class:MedicalDevice/Attribute:medicalbrand_id+' => '',
-    'Class:MedicalDevice/Attribute:medicalbrand_name' => 'Brand Name',
+    'Class:MedicalDevice/Attribute:medicalbrand_name' => 'Medical Brand Name',
     'Class:MedicalDevice/Attribute:medicalbrand_name+' => '',
-    'Class:MedicalDevice/Attribute:medicalmodel_id' => 'Model',
+    'Class:MedicalDevice/Attribute:medicalmodel_id' => 'Medical Model',
     'Class:MedicalDevice/Attribute:medicalmodel_id+' => '',
-    'Class:MedicalDevice/Attribute:medicalmodel_name' => 'Model Name',
+    'Class:MedicalDevice/Attribute:medicalmodel_name' => 'Medical Model Name',
     'Class:MedicalDevice/Attribute:medicalmodel_name+' => '',
 ));
 
