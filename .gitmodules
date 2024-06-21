@@ -1,0 +1,3 @@
+[submodule "iTop-br-costcenter"]
+	path = iTop-br-costcenter
+	url = https://github.com/rudnerbjoern/iTop-br-costcenter.git

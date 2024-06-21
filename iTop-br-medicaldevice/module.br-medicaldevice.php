@@ -21,6 +21,7 @@ SetupWebPage::AddModule(
         //
         'dependencies' => array(
             '(itop-config-mgmt/2.5.0 & itop-config-mgmt/<3.0.0)||itop-structure/3.0.0',
+            'br-costcenter/0.0.1',
         ),
         'mandatory' => false,
         'visible' => true,
