@@ -45,8 +45,6 @@
                     <count_max>0</count_max>
                     <duplicates />
                 </field>
-            </fields>
-            <fields>
                 <field id="medicaldevices_list" xsi:type="AttributeLinkedSet">
                     <linked_class>MedicalDevice</linked_class>
                     <ext_key_to_me>medicalbrand_id</ext_key_to_me>
