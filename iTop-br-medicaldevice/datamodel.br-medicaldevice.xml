@@ -37,6 +37,16 @@
                 </uniqueness_rules>
             </properties>
             <fields>
+                <field id="medicalmodels_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>MedicalModel</linked_class>
+                    <ext_key_to_me>medicalbrand_id</ext_key_to_me>
+                    <edit_mode>add_only</edit_mode>
+                    <count_min>0</count_min>
+                    <count_max>0</count_max>
+                    <duplicates />
+                </field>
+            </fields>
+            <fields>
                 <field id="medicaldevices_list" xsi:type="AttributeLinkedSet">
                     <linked_class>MedicalDevice</linked_class>
                     <ext_key_to_me>medicalbrand_id</ext_key_to_me>
@@ -53,8 +63,11 @@
                         <item id="name">
                             <rank>10</rank>
                         </item>
+                        <item id="medicalmodels_list">
+                            <rank>100</rank>
+                        </item>
                         <item id="medicaldevices_list">
-                            <rank>20</rank>
+                            <rank>110</rank>
                         </item>
                     </items>
                 </details>
@@ -85,6 +98,7 @@
                 <db_final_class_field />
                 <naming>
                     <attributes>
+                        <attribute id="medicalbrand_name" />
                         <attribute id="name" />
                     </attributes>
                 </naming>
@@ -314,6 +328,14 @@
                                         </item>
                                     </items>
                                 </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
+                                        </item>
+                                    </items>
+                                </item>
                                 <item id="fieldset:Server:otherinfo">
                                     <rank>30</rank>
                                     <items>
@@ -508,6 +530,14 @@
                                         </item>
                                     </items>
                                 </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
+                                        </item>
+                                    </items>
+                                </item>
                                 <item id="fieldset:Server:otherinfo">
                                     <rank>30</rank>
                                     <items>
@@ -696,6 +726,14 @@
                                         </item>
                                         <item id="end_of_warranty">
                                             <rank>30</rank>
+                                        </item>
+                                    </items>
+                                </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
                                         </item>
                                     </items>
                                 </item>
@@ -890,6 +928,14 @@
                                         </item>
                                     </items>
                                 </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
+                                        </item>
+                                    </items>
+                                </item>
                                 <item id="fieldset:Server:otherinfo">
                                     <rank>30</rank>
                                     <items>
@@ -1078,6 +1124,14 @@
                                         </item>
                                         <item id="end_of_warranty">
                                             <rank>30</rank>
+                                        </item>
+                                    </items>
+                                </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
                                         </item>
                                     </items>
                                 </item>
@@ -1272,6 +1326,14 @@
                                         </item>
                                     </items>
                                 </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
+                                        </item>
+                                    </items>
+                                </item>
                                 <item id="fieldset:Server:otherinfo">
                                     <rank>30</rank>
                                     <items>
@@ -1460,6 +1522,14 @@
                                         </item>
                                         <item id="end_of_warranty">
                                             <rank>30</rank>
+                                        </item>
+                                    </items>
+                                </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
                                         </item>
                                     </items>
                                 </item>
@@ -1654,6 +1724,14 @@
                                         </item>
                                     </items>
                                 </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
+                                        </item>
+                                    </items>
+                                </item>
                                 <item id="fieldset:Server:otherinfo">
                                     <rank>30</rank>
                                     <items>
@@ -1842,6 +1920,14 @@
                                         </item>
                                         <item id="end_of_warranty">
                                             <rank>30</rank>
+                                        </item>
+                                    </items>
+                                </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
                                         </item>
                                     </items>
                                 </item>
@@ -2036,6 +2122,14 @@
                                         </item>
                                     </items>
                                 </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
+                                        </item>
+                                    </items>
+                                </item>
                                 <item id="fieldset:Server:otherinfo">
                                     <rank>30</rank>
                                     <items>
@@ -2224,6 +2318,14 @@
                                         </item>
                                         <item id="end_of_warranty">
                                             <rank>30</rank>
+                                        </item>
+                                    </items>
+                                </item>
+                                <item id="fieldset:CostCenter">
+                                    <rank>15</rank>
+                                    <items>
+                                        <item id="costcenter_id">
+                                            <rank>10</rank>
                                         </item>
                                     </items>
                                 </item>
