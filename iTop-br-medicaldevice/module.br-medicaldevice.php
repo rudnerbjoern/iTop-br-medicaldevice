@@ -10,7 +10,7 @@
 
 SetupWebPage::AddModule(
     __FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-    'br-medicaldevice/0.6.0',
+    'br-medicaldevice/0.6.1',
     array(
         // Identification
         //
@@ -21,7 +21,7 @@ SetupWebPage::AddModule(
         //
         'dependencies' => array(
             '(itop-config-mgmt/2.5.0 & itop-config-mgmt/<3.0.0)||itop-structure/3.0.0',
-            'br-costcenter/0.0.2',
+            'br-costcenter/0.0.4',
         ),
         'mandatory' => false,
         'visible' => true,
