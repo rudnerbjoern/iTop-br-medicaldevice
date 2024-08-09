@@ -9,8 +9,6 @@ Manage Medical Devices with iTop CMDB
 
 ## Dependencies
 
-This extension needs the additional extension [iTop-br-costcenter](https://github.com/rudnerbjoern/iTop-br-costcenter)
-
 ## Attribution
 
 This Extension uses Icons from:
