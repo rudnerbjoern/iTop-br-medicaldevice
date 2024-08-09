@@ -326,16 +326,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -528,16 +520,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -727,16 +711,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -926,16 +902,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -1125,16 +1093,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -1324,16 +1284,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -1523,16 +1475,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -1722,16 +1666,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -1921,16 +1857,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -2120,16 +2048,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
@@ -2319,16 +2239,8 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:CostCenter">
-                                    <rank>15</rank>
-                                    <items>
-                                        <item id="costcenter_id">
-                                            <rank>10</rank>
-                                        </item>
-                                    </items>
-                                </item>
                                 <item id="fieldset:Server:otherinfo">
-                                    <rank>30</rank>
+                                    <rank>20</rank>
                                     <items>
                                         <item id="description">
                                             <rank>10</rank>
