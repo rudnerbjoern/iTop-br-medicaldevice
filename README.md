@@ -19,7 +19,7 @@ This Extension uses Icons from:
 
 [Cardiogram Icon](https://iconscout.com/icons/cardiogram) by IconScout Store
 
-[Lab-Test Icon](https://iconscout.com/icons/lab-test) by IconScout Store
+[Test-Tube Icon](https://iconscout.com/icons/test-tube) by HJ Project
 
 [Microscope Icon](https://iconscout.com/icons/microscope) by Rank Sol on IconScout
 

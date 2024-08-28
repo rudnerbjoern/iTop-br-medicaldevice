@@ -444,6 +444,9 @@
                 <fields_semantic>
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
+                <style>
+                    <icon>images/cardiogram.svg</icon>
+                </style>
                 <icon>images/cardiogram.png</icon>
                 <reconciliation>
                     <attributes>
@@ -635,7 +638,10 @@
                 <fields_semantic>
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
-                <icon>images/lab-test.png</icon>
+                <style>
+                    <icon>images/test-tube.svg</icon>
+                </style>
+                <icon>images/test-tube.png</icon>
                 <reconciliation>
                     <attributes>
                         <attribute id="name" />
@@ -1972,6 +1978,9 @@
                 <fields_semantic>
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
+                <style>
+                    <icon>images/microscope.svg</icon>
+                </style>
                 <icon>images/microscope.png</icon>
                 <reconciliation>
                     <attributes>
