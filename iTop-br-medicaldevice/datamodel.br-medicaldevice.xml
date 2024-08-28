@@ -207,6 +207,17 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>20</rank>
+                    </item>
+                    <item id="type">
+                        <rank>30</rank>
+                    </item>
+                </summary>
             </presentation>
         </class>
         <!-- ***************** Medical Devices ***************** -->
@@ -434,6 +445,32 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="finalclass">
+                        <rank>20</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -628,6 +665,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -822,6 +882,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -1016,6 +1099,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -1210,6 +1316,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -1404,6 +1533,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -1598,6 +1750,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -1792,6 +1967,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -1986,6 +2184,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -2180,6 +2401,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
@@ -2374,6 +2618,29 @@
                         </item>
                     </items>
                 </list>
+                <summary>
+                    <item id="name">
+                        <rank>10</rank>
+                    </item>
+                    <item id="status">
+                        <rank>30</rank>
+                    </item>
+                    <item id="medicalbrand_id">
+                        <rank>40</rank>
+                    </item>
+                    <item id="medicalmodel_id">
+                        <rank>50</rank>
+                    </item>
+                    <item id="org_id">
+                        <rank>60</rank>
+                    </item>
+                    <item id="location_id">
+                        <rank>70</rank>
+                    </item>
+                    <item id="asset_number">
+                        <rank>80</rank>
+                    </item>
+                </summary>
             </presentation>
             <methods />
         </class>
