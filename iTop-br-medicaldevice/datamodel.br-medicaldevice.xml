@@ -2653,7 +2653,7 @@
             <enable_admin_only _delta="define">0</enable_admin_only>
             <enable_action _delta="define">UR_ACTION_MODIFY</enable_action>
             <style>
-                <decoration_classes>fas fa-vial-circle-check</decoration_classes>
+                <decoration_classes>fas fa-vials</decoration_classes>
             </style>
         </menu>
         <menu id="MedicalDeviceSpace" xsi:type="DashboardMenuNode" _delta="define">
