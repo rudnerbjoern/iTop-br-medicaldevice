@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2024-06-11
+ * @version     2024-08-28
  *
  * Localized data
  */
@@ -38,6 +38,7 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalBrand/UniquenessRule:name' => 'This medical brand already exists',
     'Class:MedicalModel' => 'Medical Model',
     'Class:MedicalModel+' => '',
+    'Class:MedicalModel/ComplementaryName' => 'Brand: %1$s',
     'Class:MedicalModel/Attribute:name' => 'Name',
     'Class:MedicalModel/Attribute:name+' => '',
     'Class:MedicalModel/Attribute:medicalbrand_id' => 'Medical Brand',
