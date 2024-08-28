@@ -38,6 +38,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalBrand/UniquenessRule:name' => 'Diese medizinische Marke existiert bereits',
     'Class:MedicalModel' => 'Medizinisches Produkt',
     'Class:MedicalModel+' => '',
+    'Class:MedicalModel/ComplementaryName' => 'Marke: %1$s',
     'Class:MedicalModel/Attribute:name' => 'Name',
     'Class:MedicalModel/Attribute:name+' => '',
     'Class:MedicalModel/Attribute:medicalbrand_id' => 'Medizinische Marke',

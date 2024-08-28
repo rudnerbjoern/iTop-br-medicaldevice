@@ -101,6 +101,9 @@
                         <attribute id="medicalbrand_name" />
                         <attribute id="name" />
                     </attributes>
+                    <complementary_attributes>
+                        <attribute id="medicalbrand_name" />
+                    </complementary_attributes>
                 </naming>
                 <style>
                     <icon>images/medical.png</icon>
