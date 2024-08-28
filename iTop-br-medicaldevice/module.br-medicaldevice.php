@@ -9,7 +9,7 @@
 
 SetupWebPage::AddModule(
     __FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-    'br-medicaldevice/0.7.1',
+    'br-medicaldevice/0.8.0',
     array(
         // Identification
         //
