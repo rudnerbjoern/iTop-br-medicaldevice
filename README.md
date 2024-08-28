@@ -9,6 +9,10 @@ Manage Medical Devices with iTop CMDB
 
 ## Dependencies
 
+## iTop Compatibility
+
+The extension was tested on iTop 2.7.11
+
 ## Attribution
 
 This Extension uses Icons from:
