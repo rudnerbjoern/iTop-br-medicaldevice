@@ -16,7 +16,7 @@
         <![CDATA[Adds CIs to document Medical Devices]]>
     </description>
     <version>
-        <![CDATA[2.7.9]]>
+        <![CDATA[3.1.9]]>
     </version>
     <release_date>
         <![CDATA[2024-09-05]]>
@@ -25,7 +25,7 @@
         <![CDATA[]]>
     </version_description>
     <itop_version_min>
-        <![CDATA[2.7.0]]>
+        <![CDATA[3.1.0]]>
     </itop_version_min>
     <status>stable</status>
     <mandatory>false</mandatory>

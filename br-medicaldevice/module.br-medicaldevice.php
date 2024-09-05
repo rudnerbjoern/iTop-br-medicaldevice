@@ -9,7 +9,7 @@
 
 SetupWebPage::AddModule(
     __FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-    'br-medicaldevice/2.7.9',
+    'br-medicaldevice/3.1.9',
     array(
         // Identification
         //
@@ -19,16 +19,14 @@ SetupWebPage::AddModule(
         // Setup
         //
         'dependencies' => array(
-            '(itop-config-mgmt/2.5.0 & itop-config-mgmt/<3.0.0)||itop-structure/3.0.0',
+            'itop-structure/3.0.0',
         ),
         'mandatory' => false,
         'visible' => true,
 
         // Components
         //
-        'datamodel' => array(
-            'model.br-medicaldevice.php',
-        ),
+        'datamodel' => array(),
         'webservice' => array(),
         'data.struct' => array(
             // add your 'structure' definition XML files here,
