@@ -140,17 +140,39 @@
                 </field>
                 <field id="type" xsi:type="AttributeEnum">
                     <values>
-                        <value id="MedicalDevice">MedicalDevice</value>
-                        <value id="MedicalDeviceAnalyser">MedicalDeviceAnalyser</value>
-                        <value id="MedicalDeviceCentrifuge">MedicalDeviceCentrifuge</value>
-                        <value id="MedicalDeviceIncubator">MedicalDeviceIncubator</value>
-                        <value id="MedicalDeviceLiquidHandlingSystem">MedicalDeviceLiquidHandlingSystem</value>
-                        <value id="MedicalDeviceMicroscope">MedicalDeviceMicroscope</value>
-                        <value id="MedicalDevicePOCT">MedicalDevicePOCT</value>
-                        <value id="MedicalDeviceRefrigerator">MedicalDeviceRefrigerator</value>
-                        <value id="MedicalDeviceSafetyCabinet">MedicalDeviceSafetyCabinet</value>
-                        <value id="MedicalDeviceSamplePreparation">MedicalDeviceSamplePreparation</value>
-                        <value id="MedicalDeviceTubeSorter">MedicalDeviceTubeSorter</value>
+                        <value id="MedicalDevice">
+                            <code>MedicalDevice</code>
+                        </value>
+                        <value id="MedicalDeviceAnalyser">
+                            <code>MedicalDeviceAnalyser</code>
+                        </value>
+                        <value id="MedicalDeviceCentrifuge">
+                            <code>MedicalDeviceCentrifuge</code>
+                        </value>
+                        <value id="MedicalDeviceIncubator">
+                            <code>MedicalDeviceIncubator</code>
+                        </value>
+                        <value id="MedicalDeviceLiquidHandlingSystem">
+                            <code>MedicalDeviceLiquidHandlingSystem</code>
+                        </value>
+                        <value id="MedicalDeviceMicroscope">
+                            <code>MedicalDeviceMicroscope</code>
+                        </value>
+                        <value id="MedicalDevicePOCT">
+                            <code>MedicalDevicePOCT</code>
+                        </value>
+                        <value id="MedicalDeviceRefrigerator">
+                            <code>MedicalDeviceRefrigerator</code>
+                        </value>
+                        <value id="MedicalDeviceSafetyCabinet">
+                            <code>MedicalDeviceSafetyCabinet</code>
+                        </value>
+                        <value id="MedicalDeviceSamplePreparation">
+                            <code>MedicalDeviceSamplePreparation</code>
+                        </value>
+                        <value id="MedicalDeviceTubeSorter">
+                            <code>MedicalDeviceTubeSorter</code>
+                        </value>
                     </values>
                     <sql>type</sql>
                     <default_value />
