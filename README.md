@@ -37,6 +37,26 @@ Each subclass inherits from `ConnectableCI` and supports standard CMDB relations
 - Full integration with iTop CMDB ecosystem
 - Easy extension for additional device types (via XML)
 
+## Relations
+
+```mermaid
+graph TD
+
+  FCI(FunctionalCI) --> Phys
+  Phys(PhysicalDevice) --> Con(ConnectableCI)
+  NetInt(NetWorkInterface) --> Con
+  Con --> Dev(MedicalDevice)
+  Brand(MedicalBrand) --> Dev
+  Model(MedicalModel) --> Dev
+  Loc(Location) --> Phys
+  Cont(Contact) --> FCI
+  Dev --> MDA(MedicalDeviceAnalyser)
+  Dev --> MDLHS(MedicalDeviceLiquidHandlingSystem)
+  Dev --> MDPOCT(MedicalDevicePOCT)
+  Dev --> MDMIE(MedicalDeviceMIE)
+  Dev --> MDother(...)
+```
+
 ## Installation
 
 Place this extension in the `extensions` folder of your iTop installation and run the setup again. Be sure to enable the extension during setup.
