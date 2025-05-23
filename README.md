@@ -42,3 +42,5 @@ This Extension uses Icons from:
 [Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
 
 [Biosafety Cabinet Icon](https://www.freepik.com/icon/biosafety-cabinet_9569504) by Freepik
+
+[CT Scanner Icon](https://iconscout.com/icons/ct-scan) by Pendimarfuad Adv
