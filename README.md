@@ -10,7 +10,7 @@ This extension adds structured management for **medical devices** in iTop. It in
 ### Core entities
 
 - **MedicalBrand**: Manufacturer or brand (e.g. Siemens, Roche)
-- **MedicalModel**: Model name and type (e.g. Centrifuge, Incubator, Analyser, Medical Imagin)
+- **MedicalModel**: Model name and type (e.g. Centrifuge, Incubator, Analyser, Medical Imaging Equipment)
 - **MedicalDevice**: Individual device instance with location, status, and technical identifiers
 
 ### Subclasses of `MedicalDevice`
