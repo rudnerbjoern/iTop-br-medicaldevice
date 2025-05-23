@@ -5,9 +5,45 @@ Copyright (c) 2024-2025 Björn Rudner
 
 ## What?
 
-Manage Medical Devices with iTop CMDB
+This extension adds structured management for **medical devices** in iTop. It introduces specific classes and attributes to support laboratory and clinical equipment, including model hierarchy and type classification.
 
-## Dependencies
+### Core entities
+
+- **MedicalBrand**: Manufacturer or brand (e.g. Siemens, Roche)
+- **MedicalModel**: Model name and type (e.g. Centrifuge, Incubator, Analyser, Medical Imagin)
+- **MedicalDevice**: Individual device instance with location, status, and technical identifiers
+
+### Subclasses of `MedicalDevice`
+
+- `MedicalDeviceAnalyser`
+- `MedicalDeviceCentrifuge`
+- `MedicalDeviceIncubator`
+- `MedicalDeviceLiquidHandlingSystem`
+- `MedicalDeviceMicroscope`
+- `MedicalDeviceMIE`
+- `MedicalDevicePOCT`
+- `MedicalDeviceRefrigerator`
+- `MedicalDeviceSafetyCabinet`
+- `MedicalDeviceSamplePreparation`
+- `MedicalDeviceTubeSorter`
+
+Each subclass inherits from `ConnectableCI` and supports standard CMDB relationships (location, contracts, contacts, network interfaces, etc.).
+
+## Features
+
+- Separate typologies for **brand** and **model**
+- Device-to-model relation
+- Optional model filtering based on device class
+- Full integration with iTop CMDB ecosystem
+- Easy extension for additional device types (via XML)
+
+## Installation
+
+Place this extension in the `extensions` folder of your iTop installation and run the setup again. Be sure to enable the extension during setup.
+
+## Status
+
+This extension is under active development. Feedback and contributions are welcome.
 
 ## iTop Compatibility
 
@@ -23,24 +59,24 @@ The extension was tested on iTop 2.7.10 and 3.2.1
 
 This Extension uses Icons from:
 
-[Cardiogram Icon](https://iconscout.com/icons/cardiogram) by IconScout Store
+![Cardiogram Icon](br-medicaldevice/images/cardiogram.png) [Cardiogram Icon](https://iconscout.com/icons/cardiogram) by IconScout Store
 
-[Test-Tube Icon](https://iconscout.com/icons/test-tube) by HJ Project
+![Test-Tube Icon](br-medicaldevice/images/test-tube.png) [Test-Tube Icon](https://iconscout.com/icons/test-tube) by HJ Project
 
-[Microscope Icon](https://iconscout.com/icons/microscope) by Rank Sol on IconScout
+![Microscope Icon](br-medicaldevice/images/microscope.png) [Microscope Icon](https://iconscout.com/icons/microscope) by Rank Sol on IconScout
 
-[Blood-Test Icon](https://iconscout.com/icons/blood-test) by Surangkana Jomjunyong
+![Blood-Test Icon](br-medicaldevice/images/blood-test.png) [Blood-Test Icon](https://iconscout.com/icons/blood-test) by Surangkana Jomjunyong
 
-[Blood-Tube Icon](https://iconscout.com/icons/blood-tube) by M. Faisal
+![Blood-Tube Icon](br-medicaldevice/images/blood-tube.png) [Blood-Tube Icon](https://iconscout.com/icons/blood-tube) by M. Faisal
 
-[Sample-Preparation Icon](https://www.vecteezy.com/free-vector/container) by Vecteezy
+![Sample-Preparation Icon](br-medicaldevice/images/vortex-mixer.png) [Sample-Preparation Icon](https://www.vecteezy.com/free-vector/container) by Vecteezy
 
-[Medical Icon](https://iconscout.com/icons/medical) by Jemis Mali
+![Medical Icon](br-medicaldevice/images//medical.png) [Medical Icon](https://iconscout.com/icons/medical) by Jemis Mali
 
-[Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
+![Freezer Icon](br-medicaldevice/images/freezer.png) [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
 
-[Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
+![Liquid Dropper Icon](br-medicaldevice/images/liquid-dropper.png) [Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
 
-[Biosafety Cabinet Icon](https://www.freepik.com/icon/biosafety-cabinet_9569504) by Freepik
+![Biosafety Cabinet Icon](br-medicaldevice/images/biosafety-cabinet.png) [Biosafety Cabinet Icon](https://www.freepik.com/icon/biosafety-cabinet_9569504) by Freepik
 
-[CT Scanner Icon](https://iconscout.com/icons/ct-scan) by Pendimarfuad Adv
+![CT Scanner Icon](br-medicaldevice/images/ct-scan.png) [CT Scanner Icon](https://iconscout.com/icons/ct-scan) by Pendimarfuad Adv
