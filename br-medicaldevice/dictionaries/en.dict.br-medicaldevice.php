@@ -63,6 +63,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope' => 'Microscope',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope+' => 'Microscope',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMIE' => 'Medical Imaging Equipment',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMIE+' => 'Medical Imaging Equipment, like CT, MRI, PET, X-ray',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'POCT device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Refrigerator',
