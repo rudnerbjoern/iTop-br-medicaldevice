@@ -108,6 +108,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceLiquidHandlingSystem+' => '',
     'Class:MedicalDeviceMicroscope' => 'Microscope',
     'Class:MedicalDeviceMicroscope+' => '',
+    'Class:MedicalDeviceMIE' => 'Medical Imaging Equipment',
+    'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, like CT, MRI, PET, X-ray',
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
