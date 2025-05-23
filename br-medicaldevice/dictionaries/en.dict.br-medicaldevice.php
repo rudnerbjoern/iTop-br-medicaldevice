@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @copyright   Copyright (C) 2024 Björn Rudner
+ * @copyright   Copyright (C) 2024-2025 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2024-09-05
+ * @version     2025-05-23
  *
  * Localized data
  */
@@ -63,6 +63,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope' => 'Microscope',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope+' => 'Microscope',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMIE' => 'Medical Imaging Equipment',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMIE+' => 'Medical Imaging Equipment, like CT, MRI, PET, X-ray',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'POCT device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Refrigerator',
@@ -106,6 +108,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceLiquidHandlingSystem+' => '',
     'Class:MedicalDeviceMicroscope' => 'Microscope',
     'Class:MedicalDeviceMicroscope+' => '',
+    'Class:MedicalDeviceMIE' => 'Medical Imaging Equipment',
+    'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, like CT, MRI, PET, X-ray',
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalDeviceRefrigerator' => 'Refrigerator',

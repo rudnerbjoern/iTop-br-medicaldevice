@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @copyright   Copyright (C) 2024 Björn Rudner
+ * @copyright   Copyright (C) 2024-2025 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2024-09-05
+ * @version     2025-05-23
  *
  * Localized data
  */
@@ -61,6 +61,10 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceIncubator+' => 'Brutschrank',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem' => 'Pipettierroboter',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope' => 'Mikroskop',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMicroscope+' => 'Mikroskop',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMIE' => 'Medizinisches Bildgebungsgerät',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceMIE+' => 'Medical Imaging Equipment, z. B. CT, MRT, PET, Röntgen',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'POCT-Gerät',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Point-of-Care-Testgerät',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Kühlschrank',
@@ -103,6 +107,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceLiquidHandlingSystem+' => 'Liquid Handling System',
     'Class:MedicalDeviceMicroscope' => 'Mikroskop',
     'Class:MedicalDeviceMicroscope+' => 'Mikroskop',
+    'Class:MedicalDeviceMIE' => 'Medizinisches Bildgebungsgerät',
+    'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, z. B. CT, MRT, PET, Röntgen',
     'Class:MedicalDevicePOCT' => 'POCT Gerät',
     'Class:MedicalDevicePOCT+' => 'Point of care testing',
     'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
