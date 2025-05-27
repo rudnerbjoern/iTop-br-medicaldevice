@@ -121,3 +121,37 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceTubeSorter' => 'Tube Sorter',
     'Class:MedicalDeviceTubeSorter+' => '',
 ));
+
+//
+// Class: MedicalDicomApplicationEntity
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
+    'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'AE Title',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => 'Must be 1–16 characters: uppercase letters (A–Z), digits (0–9), or underscore (_). No spaces or special characters allowed.',
+    'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organization',
+    'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Medical Imaging Equipment',
+    'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'IP Address',
+    'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modality',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Computed Tomography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:MR' => 'MR - Magnetic Resonance',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:US' => 'US - Ultrasound',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:XA' => 'XA - Angiography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:NM' => 'NM - Nuclear Medicine',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CR' => 'CR - Computed Radiography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:DX' => 'DX - Digital Radiography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:PT' => 'PT - PET',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:SC' => 'SC - Secondary Capture',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:OT' => 'OT - Other',
+    'Class:MedicalDicomApplicationEntity/Attribute:role' => 'Role',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:BOTH' => 'BOTH',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:BOTH+' => 'BOTH',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCP' => 'SCP',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCP+' => 'Service Class Provider',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU' => 'SCU',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU+' => 'Service Class User',
+    'Class:MedicalDicomApplicationEntity/Attribute:description' => 'Description',
+));
