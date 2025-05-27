@@ -34,8 +34,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalBrand/Attribute:medicalmodels_list+' => 'All the medical models corresponding to this brand',
     'Class:MedicalBrand/Attribute:medicaldevices_list' => 'Medical Devices',
     'Class:MedicalBrand/Attribute:medicaldevices_list+' => 'All the medical devices corresponding to this brand',
-    'Class:MedicalBrand/UniquenessRule:name+' => 'The name must be unique',
     'Class:MedicalBrand/UniquenessRule:name' => 'This medical brand already exists',
+    'Class:MedicalBrand/UniquenessRule:name+' => 'The name must be unique',
     'Class:MedicalModel' => 'Medical Model',
     'Class:MedicalModel+' => '',
     'Class:MedicalModel/ComplementaryName' => 'Brand: %1$s',
@@ -96,7 +96,6 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Devices
 //
-
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceAnalyser' => 'Analyser',
     'Class:MedicalDeviceAnalyser+' => '',
@@ -110,6 +109,7 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceMicroscope+' => '',
     'Class:MedicalDeviceMIE' => 'Medical Imaging Equipment',
     'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, like CT, MRI, PET, X-ray',
+    'Class:MedicalDeviceMIE/Attribute:dicomae_list' => 'DICOM AE(s)',
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
@@ -154,4 +154,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU' => 'SCU',
     'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU+' => 'Service Class User',
     'Class:MedicalDicomApplicationEntity/Attribute:description' => 'Description',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle' => 'There is already an AE with the same title in the "$this->org_id_friendlyname$" organization',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle+' => 'The AE Title must be unique',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'There is already an AE with the same ip address and port in the "$this->org_id_friendlyname$" organization',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port+' => 'The combination of IP address and port must be unique',
 ));

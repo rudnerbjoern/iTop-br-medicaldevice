@@ -109,6 +109,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceMicroscope+' => 'Mikroskop',
     'Class:MedicalDeviceMIE' => 'Medizinisches Bildgebungsgerät',
     'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, z. B. CT, MRT, PET, Röntgen',
+    'Class:MedicalDeviceMIE/Attribute:dicomae_list' => 'DICOM AE(s)',
     'Class:MedicalDevicePOCT' => 'POCT Gerät',
     'Class:MedicalDevicePOCT+' => 'Point of care testing',
     'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
@@ -119,4 +120,43 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceSamplePreparation+' => 'Gerät zur Probenvorbereitung',
     'Class:MedicalDeviceTubeSorter' => 'Probensortierer',
     'Class:MedicalDeviceTubeSorter+' => 'Tube Sorter',
+));
+
+
+//
+// Class: MedicalDicomApplicationEntity
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
+    'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'AE-Titel',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1–16 Zeichen: nur Großbuchstaben (A–Z), Ziffern (0–9) oder Unterstrich (_). Keine Leerzeichen oder Sonderzeichen erlaubt.',
+    'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organisation',
+    'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Medizinisches Bildgebungsgerät',
+    'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'IP-Adresse',
+    'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modalität',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Computertomographie',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:MR' => 'MR - Magnetresonanztomographie',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:US' => 'US - Ultraschall',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:XA' => 'XA - Angiographie',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:NM' => 'NM - Nuklearmedizin',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CR' => 'CR - Computerradiographie',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:DX' => 'DX - Digitale Radiographie',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:PT' => 'PT - PET (Positronen-Emissions-Tomographie)',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:SC' => 'SC - Sekundärerfassung',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:OT' => 'OT - Andere',
+    'Class:MedicalDicomApplicationEntity/Attribute:role' => 'Rolle',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:BOTH' => 'BEIDES',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:BOTH+' => 'Service Class User und Provider',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCP' => 'SCP',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCP+' => 'Service Class Provider (Empfänger)',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU' => 'SCU',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU+' => 'Service Class User (Sender)',
+    'Class:MedicalDicomApplicationEntity/Attribute:description' => 'Beschreibung',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle' => 'Es existiert bereits eine AE mit demselben Titel in der Organisation "$this->org_id_friendlyname$"',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle+' => 'Der AE-Titel muss eindeutig sein',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'Es existiert bereits eine AE mit derselben IP-Adresse und demselben Port in der Organisation "$this->org_id_friendlyname$"',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port+' => 'Die Kombination aus IP-Adresse und Port muss eindeutig sein',
 ));
