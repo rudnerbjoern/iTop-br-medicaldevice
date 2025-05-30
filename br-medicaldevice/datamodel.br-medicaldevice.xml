@@ -264,7 +264,7 @@
                     </complementary_attributes>
                 </naming>
                 <style>
-                    <icon>../../images/icons/icons8-hierarchy.svg</icon>
+                    <icon>images/dicom.png</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -314,6 +314,10 @@
                 <field id="medicaldevicemie_id" xsi:type="AttributeExternalKey">
                     <sql>medicaldevicemie_id</sql>
                     <target_class>MedicalDeviceMIE</target_class>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT MedicalDeviceMIE AS mie WHERE mie.org_id = :this->org_id]]></filter>
                     <is_null_allowed>true</is_null_allowed>
                     <on_target_delete>DEL_MANUAL</on_target_delete>
                 </field>
@@ -322,11 +326,11 @@
                     <target_attcode>name</target_attcode>
                 </field>
                 <field id="ipaddress_id" xsi:type="AttributeExternalKey" _delta="define">
-                    <filter><![CDATA[SELECT IPAddress AS ip JOIN Organization AS child ON ip.org_id = child.id JOIN Organization AS root ON child.parent_id BELOW root.id WHERE root.id=:this->org_id]]></filter>
+                    <sql>ipaddress_id</sql>
                     <dependencies>
                         <attribute id="org_id" />
                     </dependencies>
-                    <sql>ipaddress_id</sql>
+                    <filter><![CDATA[SELECT IPAddress AS ip JOIN Organization AS child ON ip.org_id = child.id JOIN Organization AS root ON child.parent_id BELOW root.id WHERE root.id = :this->org_id]]></filter>
                     <is_null_allowed>true</is_null_allowed>
                     <target_class>IPAddress</target_class>
                     <on_target_delete>DEL_MANUAL</on_target_delete>
@@ -553,7 +557,7 @@
                     <dependencies>
                         <attribute id="medicalbrand_id" />
                     </dependencies>
-                    <filter><![CDATA[SELECT MedicalModel WHERE medicalbrand_id=:this->medicalbrand_id AND type=:this->finalclass]]></filter>
+                    <filter><![CDATA[SELECT MedicalModel WHERE medicalbrand_id = :this->medicalbrand_id AND type = :this->finalclass]]></filter>
                     <is_null_allowed>true</is_null_allowed>
                     <on_target_delete>DEL_MANUAL</on_target_delete>
                 </field>
