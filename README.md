@@ -12,6 +12,7 @@ This extension adds structured management for **medical devices** in iTop. It in
 - **MedicalBrand**: Manufacturer or brand (e.g. Siemens, Roche)
 - **MedicalModel**: Model name and type (e.g. Centrifuge, Incubator, Analyser, Medical Imaging Equipment)
 - **MedicalDevice**: Individual device instance with location, status, and technical identifiers
+- **MedicalDicomApplicationEntity**: DICOM AE / Application Entity
 
 ### Subclasses of `MedicalDevice`
 
@@ -34,6 +35,7 @@ Each subclass inherits from `ConnectableCI` and supports standard CMDB relations
 - Separate typologies for **brand** and **model**
 - Device-to-model relation
 - Optional model filtering based on device class
+- Document and assign DICOM AE information to Medical Imaging Equipment
 - Full integration with iTop CMDB ecosystem
 - Easy extension for additional device types (via XML)
 
@@ -53,8 +55,9 @@ graph TD
   Dev --> MDA(MedicalDeviceAnalyser)
   Dev --> MDLHS(MedicalDeviceLiquidHandlingSystem)
   Dev --> MDPOCT(MedicalDevicePOCT)
-  Dev --> MDMIE(MedicalDeviceMIE)
   Dev --> MDother(...)
+  Dev --> MDMIE(MedicalDeviceMIE)
+  DAE(MedicalDicomApplicationEntity) --> MDMIE
 ```
 
 ## Installation

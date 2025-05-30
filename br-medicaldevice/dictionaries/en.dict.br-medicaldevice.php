@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024-2025 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2025-05-23
+ * @version     2025-05-30
  *
  * Localized data
  */
@@ -34,8 +34,8 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalBrand/Attribute:medicalmodels_list+' => 'All the medical models corresponding to this brand',
     'Class:MedicalBrand/Attribute:medicaldevices_list' => 'Medical Devices',
     'Class:MedicalBrand/Attribute:medicaldevices_list+' => 'All the medical devices corresponding to this brand',
-    'Class:MedicalBrand/UniquenessRule:name+' => 'The name must be unique',
     'Class:MedicalBrand/UniquenessRule:name' => 'This medical brand already exists',
+    'Class:MedicalBrand/UniquenessRule:name+' => 'The name must be unique',
     'Class:MedicalModel' => 'Medical Model',
     'Class:MedicalModel+' => '',
     'Class:MedicalModel/ComplementaryName' => 'Brand: %1$s',
@@ -96,7 +96,6 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Devices
 //
-
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceAnalyser' => 'Analyser',
     'Class:MedicalDeviceAnalyser+' => '',
@@ -110,6 +109,7 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceMicroscope+' => '',
     'Class:MedicalDeviceMIE' => 'Medical Imaging Equipment',
     'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, like CT, MRI, PET, X-ray',
+    'Class:MedicalDeviceMIE/Attribute:dicomae_list' => 'DICOM AE(s)',
     'Class:MedicalDevicePOCT' => 'POCT Device',
     'Class:MedicalDevicePOCT+' => 'Point of care testing device',
     'Class:MedicalDeviceRefrigerator' => 'Refrigerator',
@@ -120,4 +120,42 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceSamplePreparation+' => 'Devices for Sample Preparation',
     'Class:MedicalDeviceTubeSorter' => 'Tube Sorter',
     'Class:MedicalDeviceTubeSorter+' => '',
+));
+
+//
+// Class: MedicalDicomApplicationEntity
+//
+
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
+    'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'AE Title',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => 'Must be 1–16 characters: uppercase letters (A–Z), digits (0–9), or underscore (_). No spaces or special characters allowed.',
+    'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organization',
+    'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Medical Imaging Equipment',
+    'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'IP Address',
+    'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modality',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Computed Tomography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:MR' => 'MR - Magnetic Resonance',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:US' => 'US - Ultrasound',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:XA' => 'XA - Angiography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:NM' => 'NM - Nuclear Medicine',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CR' => 'CR - Computed Radiography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:DX' => 'DX - Digital Radiography',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:PT' => 'PT - PET',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:SC' => 'SC - Secondary Capture',
+    'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:OT' => 'OT - Other',
+    'Class:MedicalDicomApplicationEntity/Attribute:role' => 'Role',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:BOTH' => 'BOTH',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:BOTH+' => 'BOTH',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCP' => 'SCP',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCP+' => 'Service Class Provider',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU' => 'SCU',
+    'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU+' => 'Service Class User',
+    'Class:MedicalDicomApplicationEntity/Attribute:description' => 'Description',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle' => 'There is already an AE with the same title in the "$this->org_id_friendlyname$" organization',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle+' => 'The AE Title must be unique',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'There is already an AE with the same ip address and port in the "$this->org_id_friendlyname$" organization',
+    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port+' => 'The combination of IP address and port must be unique',
 ));

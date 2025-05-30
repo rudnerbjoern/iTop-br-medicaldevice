@@ -245,6 +245,265 @@
                 </summary>
             </presentation>
         </class>
+        <!-- ***************** DICOM ***************** -->
+        <class id="MedicalDicomApplicationEntity" _delta="define">
+            <parent>cmdbAbstractObject</parent>
+            <properties>
+                <category>bizmodel,searchable,configmgmt</category>
+                <abstract>false</abstract>
+                <key_type>autoincrement</key_type>
+                <db_table>medicaldicomapplicationentity</db_table>
+                <db_key_field>id</db_key_field>
+                <db_final_class_field />
+                <naming>
+                    <attributes>
+                        <attribute id="aetitle" />
+                    </attributes>
+                    <complementary_attributes>
+                        <attribute id="org_name" />
+                    </complementary_attributes>
+                </naming>
+                <style>
+                    <icon>images/dicom.png</icon>
+                </style>
+                <reconciliation>
+                    <attributes>
+                        <attribute id="aetitle" />
+                        <attribute id="org_id" />
+                        <attribute id="org_name" />
+                    </attributes>
+                </reconciliation>
+                <uniqueness_rules>
+                    <rule id="no_duplicate_aetitle">
+                        <attributes>
+                            <attribute id="org_id" />
+                            <attribute id="aetitle" />
+                        </attributes>
+                        <filter><![CDATA[]]></filter>
+                        <disabled>false</disabled>
+                        <is_blocking>true</is_blocking>
+                    </rule>
+                    <rule id="no_duplicate_ip_port">
+                        <attributes>
+                            <attribute id="org_id" />
+                            <attribute id="ipaddress_id" />
+                            <attribute id="port" />
+                        </attributes>
+                        <filter><![CDATA[]]></filter>
+                        <disabled>false</disabled>
+                        <is_blocking>true</is_blocking>
+                    </rule>
+                </uniqueness_rules>
+            </properties>
+            <fields>
+                <field id="aetitle" xsi:type="AttributeString">
+                    <sql>aetitle</sql>
+                    <mandatory>true</mandatory>
+                    <validation_pattern>^[A-Z0-9_]{1,16}$</validation_pattern>
+                </field>
+                <field id="org_id" xsi:type="AttributeExternalKey">
+                    <sql>org_id</sql>
+                    <target_class>Organization</target_class>
+                    <is_null_allowed>false</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="org_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>org_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
+                <field id="medicaldevicemie_id" xsi:type="AttributeExternalKey">
+                    <sql>medicaldevicemie_id</sql>
+                    <target_class>MedicalDeviceMIE</target_class>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT MedicalDeviceMIE AS mie WHERE mie.org_id = :this->org_id]]></filter>
+                    <is_null_allowed>true</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="medicaldevicemie_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>medicaldevicemie_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
+                <field id="ipaddress_id" xsi:type="AttributeExternalKey" _delta="define">
+                    <sql>ipaddress_id</sql>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT IPAddress AS ip JOIN Organization AS child ON ip.org_id = child.id JOIN Organization AS root ON child.parent_id BELOW root.id WHERE root.id = :this->org_id]]></filter>
+                    <is_null_allowed>true</is_null_allowed>
+                    <target_class>IPAddress</target_class>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="ipaddress_name" xsi:type="AttributeExternalField" _delta="define">
+                    <extkey_attcode>ipaddress_id</extkey_attcode>
+                    <target_attcode>fqdn</target_attcode>
+                </field>
+                <field id="port" xsi:type="AttributeInteger">
+                    <sql>port</sql>
+                    <mandatory>false</mandatory>
+                    <default_value>104</default_value>
+                </field>
+                <field id="modality" xsi:type="AttributeEnum">
+                    <sql>modality</sql>
+                    <values>
+                        <value id="CT">
+                            <code>CT</code>
+                            <rank>10</rank>
+                        </value>
+                        <value id="MR">
+                            <code>MR</code>
+                            <rank>20</rank>
+                        </value>
+                        <value id="US">
+                            <code>US</code>
+                            <rank>30</rank>
+                        </value>
+                        <value id="XA">
+                            <code>XA</code>
+                            <rank>40</rank>
+                        </value>
+                        <value id="NM">
+                            <code>NM</code>
+                            <rank>50</rank>
+                        </value>
+                        <value id="CR">
+                            <code>CR</code>
+                            <rank>60</rank>
+                        </value>
+                        <value id="DX">
+                            <code>DX</code>
+                            <rank>70</rank>
+                        </value>
+                        <value id="PT">
+                            <code>PT</code>
+                            <rank>80</rank>
+                        </value>
+                        <value id="SC">
+                            <code>SC</code>
+                            <rank>90</rank>
+                        </value>
+                        <value id="OT">
+                            <code>OT</code>
+                            <rank>100</rank>
+                        </value>
+                    </values>
+                    <sort_type>rank</sort_type>
+                    <mandatory>false</mandatory>
+                </field>
+                <field id="role" xsi:type="AttributeEnum">
+                    <sql>role</sql>
+                    <values>
+                        <value id="SCU">
+                            <code>SCU</code>
+                            <rank>10</rank>
+                        </value>
+                        <value id="SCP">
+                            <code>SCP</code>
+                            <rank>20</rank>
+                        </value>
+                        <value id="BOTH">
+                            <code>BOTH</code>
+                            <rank>30</rank>
+                        </value>
+                    </values>
+                    <sort_type>rank</sort_type>
+                    <mandatory>false</mandatory>
+                    <display_style>radio_horizontal</display_style>
+                </field>
+                <field id="description" xsi:type="AttributeText">
+                    <sql>description</sql>
+                    <default_value />
+                    <is_null_allowed>true</is_null_allowed>
+                </field>
+            </fields>
+            <methods />
+            <presentation>
+                <details>
+                    <items>
+                        <item id="aetitle">
+                            <rank>10</rank>
+                        </item>
+                        <item id="org_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="medicaldevicemie_id">
+                            <rank>30</rank>
+                        </item>
+                        <item id="ipaddress_id">
+                            <rank>40</rank>
+                        </item>
+                        <item id="port">
+                            <rank>50</rank>
+                        </item>
+                        <item id="modality">
+                            <rank>60</rank>
+                        </item>
+                        <item id="role">
+                            <rank>70</rank>
+                        </item>
+                        <item id="description">
+                            <rank>80</rank>
+                        </item>
+                    </items>
+                </details>
+                <default_search>
+                    <items>
+                        <item id="aetitle">
+                            <rank>10</rank>
+                        </item>
+                        <item id="org_id">
+                            <rank>30</rank>
+                        </item>
+                    </items>
+                </default_search>
+                <search>
+                    <items>
+                        <item id="aetitle">
+                            <rank>10</rank>
+                        </item>
+                        <item id="org_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="description">
+                            <rank>30</rank>
+                        </item>
+                    </items>
+                </search>
+                <list>
+                    <items>
+                        <item id="org_id">
+                            <rank>10</rank>
+                        </item>
+                        <item id="ipaddress_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="port">
+                            <rank>30</rank>
+                        </item>
+                        <item id="modality">
+                            <rank>40</rank>
+                        </item>
+                        <item id="role">
+                            <rank>50</rank>
+                        </item>
+                    </items>
+                </list>
+                <summary>
+                    <items>
+                        <item id="org_id">
+                            <rank>10</rank>
+                        </item>
+                        <item id="ipaddress_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="port">
+                            <rank>30</rank>
+                        </item>
+                    </items>
+                </summary>
+            </presentation>
+        </class>
         <!-- ***************** Medical Devices ***************** -->
         <class id="MedicalDevice" _delta="define">
             <parent>ConnectableCI</parent>
@@ -298,7 +557,7 @@
                     <dependencies>
                         <attribute id="medicalbrand_id" />
                     </dependencies>
-                    <filter><![CDATA[SELECT MedicalModel WHERE medicalbrand_id=:this->medicalbrand_id AND type=:this->finalclass]]></filter>
+                    <filter><![CDATA[SELECT MedicalModel WHERE medicalbrand_id = :this->medicalbrand_id AND type = :this->finalclass]]></filter>
                     <is_null_allowed>true</is_null_allowed>
                     <on_target_delete>DEL_MANUAL</on_target_delete>
                 </field>
@@ -2052,6 +2311,18 @@
                     </condition>
                 </obsolescence>
             </properties>
+            <fields>
+                <field id="dicomae_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>MedicalDicomApplicationEntity</linked_class>
+                    <ext_key_to_me>medicaldevicemie_id</ext_key_to_me>
+                    <edit_mode>add_remove</edit_mode>
+                    <count_min>0</count_min>
+                    <count_max>0</count_max>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                </field>
+            </fields>
             <presentation>
                 <details>
                     <items>
@@ -2123,6 +2394,9 @@
                                     </items>
                                 </item>
                             </items>
+                        </item>
+                        <item id="dicomae_list">
+                            <rank>105</rank>
                         </item>
                         <item id="contacts_list">
                             <rank>110</rank>
@@ -2979,6 +3253,10 @@
                                 <rank>220</rank>
                                 <class>MedicalModel</class>
                             </dashlet>
+                            <dashlet id="meddev-230" xsi:type="DashletBadge">
+                                <rank>230</rank>
+                                <class>MedicalDicomApplicationEntity</class>
+                            </dashlet>
                         </dashlets>
                     </cell>
                 </cells>
@@ -3011,6 +3289,11 @@
                     <class id="MedicalModel" />
                 </classes>
             </group>
+            <group id="MedicalDicom" _delta="define">
+                <classes>
+                    <class id="MedicalDicomApplicationEntity" />
+                </classes>
+            </group>
             <group id="MedicalDeviceDocumentAndLinks" _delta="define">
                 <classes>
                     <class id="Document" />
@@ -3024,6 +3307,14 @@
                 <description>Person dealing with medical devices</description>
                 <groups>
                     <group id="MedicalDevice">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:delete">allow</action>
+                        </actions>
+                    </group>
+                    <group id="MedicalDicom">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
@@ -3066,6 +3357,16 @@
                         </actions>
                     </group>
                     <group id="MedicalTypology">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:bulk write">allow</action>
+                            <action id="action:delete">allow</action>
+                            <action id="action:bulk delete">allow</action>
+                        </actions>
+                    </group>
+                    <group id="MedicalDicom">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
