@@ -18,6 +18,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Menu:MedicalDeviceSpace:Options' => 'Optionen',
     'Menu:MedicalDevice' => 'Medizingeräte',
     'Menu:MedicalDevice+' => 'Medizingeräte',
+    'Menu:MedicalDicomApplicationEntity' => 'DICOM AE',
+    'Menu:MedicalDicomApplicationEntity+' => 'DICOM AE',
     'Menu:MedicalDevice:Shortcuts' => 'Shortcuts',
     'Menu:MedicalDevice:Shortcuts+' => '',
 ));
