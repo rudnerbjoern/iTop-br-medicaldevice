@@ -128,8 +128,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Class: MedicalDicomApplicationEntity
 //
-
-Dict::Add('EN US', 'English', 'English', array(
+Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
     'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'AE-Titel',
