@@ -11,6 +11,7 @@
 //
 // Application Menu
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('EN US', 'English', 'English', array(
     'Menu:MedicalDeviceManagement' => 'Medical Device Management',
     'Menu:MedicalDeviceSpace' => 'Medical Device Space',
@@ -27,6 +28,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Typology
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalBrand' => 'Medical Brand',
     'Class:MedicalBrand+' => '',
@@ -82,6 +84,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Class: MedicalDevice
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDevice' => 'Medical Device',
     'Class:MedicalDevice+' => '',
@@ -98,6 +101,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Devices
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDeviceAnalyser' => 'Analyser',
     'Class:MedicalDeviceAnalyser+' => '',
@@ -127,7 +131,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 // Class: MedicalDicomApplicationEntity
 //
-
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
     'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',

@@ -11,6 +11,7 @@
 //
 // Application Menu
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Menu:MedicalDeviceManagement' => 'Medizingeräte Verwaltung',
     'Menu:MedicalDeviceSpace' => 'Medizingeräte Space',
@@ -27,6 +28,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Typology
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalBrand' => 'Medizinische Marke',
     'Class:MedicalBrand+' => '',
@@ -82,6 +84,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Class: MedicalDevice
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDevice' => 'Medizingerät',
     'Class:MedicalDevice+' => '',
@@ -98,6 +101,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Devices
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceAnalyser' => 'Analysegerät',
     'Class:MedicalDeviceAnalyser+' => '',
@@ -128,6 +132,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 //
 // Class: MedicalDicomApplicationEntity
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
     'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',
