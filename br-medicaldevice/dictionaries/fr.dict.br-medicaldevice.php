@@ -11,6 +11,7 @@
 //
 // Application Menu
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('FR FR', 'French', 'Français', array(
     'Menu:MedicalDeviceManagement' => 'Gestion des dispositifs médicaux',
     'Menu:MedicalDeviceSpace' => 'Espace dispositifs médicaux',
@@ -27,6 +28,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 // Typology
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalBrand' => 'Marque médicale',
     'Class:MedicalBrand+' => '',
@@ -82,6 +84,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 // Class: MedicalDevice
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDevice' => 'Dispositif médical',
     'Class:MedicalDevice+' => '',
@@ -98,6 +101,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 // Devices
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDeviceAnalyser' => 'Analyseur',
     'Class:MedicalDeviceAnalyser+' => '',
@@ -127,6 +131,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 //
 // Class: MedicalDicomApplicationEntity
 //
+/** @disregard P1009 Undefined type Dict */
 Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
     'Class:MedicalDicomApplicationEntity+' => 'Entité d’application DICOM',
