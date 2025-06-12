@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/rudnerbjoern/iTop-schema/refs/heads/main/3.2/itop_design.xsd"?>
-<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.2">
+<itop_design version="3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/rudnerbjoern/iTop-schema/refs/heads/main/3.2/itop_design.xsd">
     <!--
     * @copyright   Copyright (C) 2024-2025 Björn Rudner
     * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -3175,9 +3174,9 @@
     <menus>
         <menu id="MedicalDeviceManagement" xsi:type="MenuGroup" _delta="define">
             <rank>28</rank>
-            <enable_class _delta="define">MedicalDevice</enable_class>
-            <enable_admin_only _delta="define">0</enable_admin_only>
-            <enable_action _delta="define">UR_ACTION_MODIFY</enable_action>
+            <enable_class>MedicalDevice</enable_class>
+            <enable_admin_only>0</enable_admin_only>
+            <enable_action>UR_ACTION_MODIFY</enable_action>
             <style>
                 <decoration_classes>fas fa-vials</decoration_classes>
             </style>
