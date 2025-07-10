@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension format="1.0">
+<extension format="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://rudnerbjoern.github.io/iTop-schema/extension.xsd">
     <extension_code>
         <![CDATA[br-medicaldevice]]>
     </extension_code>
@@ -13,13 +13,13 @@
         <![CDATA[Datamodel: Medical Devices]]>
     </label>
     <description>
-        <![CDATA[Adds CIs to document Medical Devices]]>
+        <![CDATA[Add Classes to document Medical Device CIs]]>
     </description>
     <version>
-        <![CDATA[3.2.0]]>
+        <![CDATA[3.2.1]]>
     </version>
     <release_date>
-        <![CDATA[2025-06-12]]>
+        <![CDATA[2025-07-10]]>
     </release_date>
     <version_description>
         <![CDATA[]]>
