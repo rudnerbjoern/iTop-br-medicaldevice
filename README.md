@@ -76,7 +76,7 @@ The branch [main](https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/mai
 
 Versions starting with 2.7.x are kept compatible to iTop 2.7
 
-The extension was tested on iTop 2.7.10 and 3.2.1
+The extension was tested on iTop 2.7.10 and 3.2.2
 
 ## Attribution
 
