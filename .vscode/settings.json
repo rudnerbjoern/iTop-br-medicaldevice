@@ -49,5 +49,8 @@
         "Positronen",
         "providercontracts",
         "serialnumber"
-    ]
+    ],
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSaveMode": "file",
 }
