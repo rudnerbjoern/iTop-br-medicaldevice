@@ -3348,7 +3348,7 @@
             <profile id="117" _delta="if_exists">
                 <!-- SuperUser -->
                 <groups>
-                    <group id="MedicalDevice">
+                    <group id="MedicalDevice" _delta="define">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
@@ -3358,7 +3358,7 @@
                             <action id="action:bulk delete">allow</action>
                         </actions>
                     </group>
-                    <group id="MedicalTypology">
+                    <group id="MedicalTypology" _delta="define">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
@@ -3368,7 +3368,7 @@
                             <action id="action:bulk delete">allow</action>
                         </actions>
                     </group>
-                    <group id="MedicalDicom">
+                    <group id="MedicalDicom" _delta="define">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
@@ -3378,7 +3378,7 @@
                             <action id="action:bulk delete">allow</action>
                         </actions>
                     </group>
-                    <group id="MedicalDeviceDocumentAndLinks">
+                    <group id="MedicalDeviceDocumentAndLinks" _delta="define">
                         <actions>
                             <action id="action:read">allow</action>
                             <action id="action:bulk read">allow</action>
