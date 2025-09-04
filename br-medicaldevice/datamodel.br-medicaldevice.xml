@@ -3221,7 +3221,7 @@
                             <dashlet id="meddev-101" xsi:type="DashletHeaderStatic">
                                 <rank>101</rank>
                                 <title>Menu:MedicalDeviceSpace:Devices</title>
-                                <icon>iTop-br-medicaldevice/images/cardiogram.png</icon>
+                                <icon>br-medicaldevice/images/cardiogram.png</icon>
                             </dashlet>
                             <dashlet id="meddev-110" xsi:type="DashletBadge">
                                 <rank>110</rank>
@@ -3279,7 +3279,7 @@
                             <dashlet id="meddev-201" xsi:type="DashletHeaderStatic">
                                 <rank>201</rank>
                                 <title>Menu:MedicalDeviceSpace:Options</title>
-                                <icon>iTop-br-medicaldevice/images/cardiogram.png</icon>
+                                <icon>br-medicaldevice/images/cardiogram.png</icon>
                             </dashlet>
                             <dashlet id="meddev-210" xsi:type="DashletBadge">
                                 <rank>210</rank>
