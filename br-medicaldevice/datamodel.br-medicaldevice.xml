@@ -3221,7 +3221,7 @@
                             <dashlet id="meddev-101" xsi:type="DashletHeaderStatic">
                                 <rank>101</rank>
                                 <title>Menu:MedicalDeviceSpace:Devices</title>
-                                <icon>iTop-br-medicaldevice/images/cardiogram.png</icon>
+                                <icon>br-medicaldevice/images/cardiogram.png</icon>
                             </dashlet>
                             <dashlet id="meddev-110" xsi:type="DashletBadge">
                                 <rank>110</rank>
@@ -3279,7 +3279,7 @@
                             <dashlet id="meddev-201" xsi:type="DashletHeaderStatic">
                                 <rank>201</rank>
                                 <title>Menu:MedicalDeviceSpace:Options</title>
-                                <icon>iTop-br-medicaldevice/images/cardiogram.png</icon>
+                                <icon>br-medicaldevice/images/cardiogram.png</icon>
                             </dashlet>
                             <dashlet id="meddev-210" xsi:type="DashletBadge">
                                 <rank>210</rank>
@@ -3345,6 +3345,51 @@
             </group>
         </groups>
         <profiles>
+            <profile id="117" _delta="if_exists">
+                <!-- SuperUser -->
+                <groups>
+                    <group id="MedicalDevice" _delta="define">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:bulk write">allow</action>
+                            <action id="action:delete">allow</action>
+                            <action id="action:bulk delete">allow</action>
+                        </actions>
+                    </group>
+                    <group id="MedicalTypology" _delta="define">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:bulk write">allow</action>
+                            <action id="action:delete">allow</action>
+                            <action id="action:bulk delete">allow</action>
+                        </actions>
+                    </group>
+                    <group id="MedicalDicom" _delta="define">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:bulk write">allow</action>
+                            <action id="action:delete">allow</action>
+                            <action id="action:bulk delete">allow</action>
+                        </actions>
+                    </group>
+                    <group id="MedicalDeviceDocumentAndLinks" _delta="define">
+                        <actions>
+                            <action id="action:read">allow</action>
+                            <action id="action:bulk read">allow</action>
+                            <action id="action:write">allow</action>
+                            <action id="action:bulk write">allow</action>
+                            <action id="action:delete">allow</action>
+                            <action id="action:bulk delete">allow</action>
+                        </actions>
+                    </group>
+                </groups>
+            </profile>
             <profile id="122454" _delta="define">
                 <name>Medical Device User</name>
                 <description>Person dealing with medical devices</description>
