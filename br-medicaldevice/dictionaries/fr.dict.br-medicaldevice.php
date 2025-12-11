@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024-2025 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2025-07-10
+ * @version     2025-12-11
  *
  * Localized data
  */
@@ -140,8 +140,15 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
     'Class:MedicalDicomApplicationEntity+' => 'Entité d’application DICOM',
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'Titre AE',
-    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1 à 16 caractères : lettres majuscules (A–Z), chiffres (0–9) ou soulignement (_). Pas d’espaces ni de caractères spéciaux.',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1 à 16 caractères : lettres majuscules (A-Z), chiffres (0-9) ou soulignement (_). Pas d’espaces ni de caractères spéciaux.',
     'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organisation',
+    'Class:MedicalDicomApplicationEntity/Attribute:status' => 'Etat',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation' => 'Implémentation',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation+' => '',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:production' => 'Production',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:production+' => '',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete' => 'Obsolète',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete+' => '',
     'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Équipement d’imagerie médicale',
     'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'Adresse IP',
     'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',

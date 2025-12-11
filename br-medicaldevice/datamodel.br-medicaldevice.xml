@@ -287,6 +287,9 @@
                         <attribute id="org_name" />
                     </complementary_attributes>
                 </naming>
+                <fields_semantic>
+                    <state_attribute>status</state_attribute>
+                </fields_semantic>
                 <style>
                     <icon>images/dicom.png</icon>
                 </style>
@@ -318,6 +321,9 @@
                         <is_blocking>true</is_blocking>
                     </rule>
                 </uniqueness_rules>
+                <obsolescence>
+                    <condition><![CDATA[status = 'obsolete']]></condition>
+                </obsolescence>
             </properties>
             <fields>
                 <field id="aetitle" xsi:type="AttributeString">
@@ -334,6 +340,39 @@
                 <field id="org_name" xsi:type="AttributeExternalField">
                     <extkey_attcode>org_id</extkey_attcode>
                     <target_attcode>name</target_attcode>
+                </field>
+                <field id="status" xsi:type="AttributeEnum">
+                    <sql>status</sql>
+                    <values>
+                        <value id="implementation">
+                            <code>implementation</code>
+                            <rank>20</rank>
+                            <style>
+                                <main_color _delta="define">$ibo-lifecycle-waiting-state-primary-color</main_color>
+                                <complementary_color _delta="define">$ibo-lifecycle-waiting-state-secondary-color</complementary_color>
+                            </style>
+                        </value>
+                        <value id="production">
+                            <code>production</code>
+                            <rank>30</rank>
+                            <style>
+                                <main_color _delta="define">$ibo-lifecycle-success-state-primary-color</main_color>
+                                <complementary_color _delta="define">$ibo-lifecycle-success-state-secondary-color</complementary_color>
+                            </style>
+                        </value>
+                        <value id="obsolete">
+                            <code>obsolete</code>
+                            <rank>40</rank>
+                            <style>
+                                <main_color _delta="define">$ibo-lifecycle-frozen-state-primary-color</main_color>
+                                <complementary_color _delta="define">$ibo-lifecycle-frozen-state-secondary-color</complementary_color>
+                            </style>
+                        </value>
+                    </values>
+                    <display_style>list</display_style>
+                    <sort_type>rank</sort_type>
+                    <default_value>production</default_value>
+                    <is_null_allowed>false</is_null_allowed>
                 </field>
                 <field id="medicaldevicemie_id" xsi:type="AttributeExternalKey">
                     <sql>medicaldevicemie_id</sql>
@@ -451,7 +490,64 @@
                         <item id="org_id">
                             <rank>20</rank>
                         </item>
+                        <item id="status">
+                            <rank>30</rank>
+                        </item>
                         <item id="medicaldevicemie_id">
+                            <rank>40</rank>
+                        </item>
+                        <item id="ipaddress_id">
+                            <rank>50</rank>
+                        </item>
+                        <item id="port">
+                            <rank>60</rank>
+                        </item>
+                        <item id="modality">
+                            <rank>70</rank>
+                        </item>
+                        <item id="role">
+                            <rank>80</rank>
+                        </item>
+                        <item id="description">
+                            <rank>90</rank>
+                        </item>
+                    </items>
+                </details>
+                <default_search>
+                    <items>
+                        <item id="aetitle">
+                            <rank>10</rank>
+                        </item>
+                        <item id="status">
+                            <rank>20</rank>
+                        </item>
+                        <item id="org_id">
+                            <rank>30</rank>
+                        </item>
+                    </items>
+                </default_search>
+                <search>
+                    <items>
+                        <item id="aetitle">
+                            <rank>10</rank>
+                        </item>
+                        <item id="status">
+                            <rank>20</rank>
+                        </item>
+                        <item id="org_id">
+                            <rank>30</rank>
+                        </item>
+                        <item id="description">
+                            <rank>40</rank>
+                        </item>
+                    </items>
+                </search>
+                <list>
+                    <items>
+                        <item id="org_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="status">
                             <rank>30</rank>
                         </item>
                         <item id="ipaddress_id">
@@ -465,51 +561,6 @@
                         </item>
                         <item id="role">
                             <rank>70</rank>
-                        </item>
-                        <item id="description">
-                            <rank>80</rank>
-                        </item>
-                    </items>
-                </details>
-                <default_search>
-                    <items>
-                        <item id="aetitle">
-                            <rank>10</rank>
-                        </item>
-                        <item id="org_id">
-                            <rank>30</rank>
-                        </item>
-                    </items>
-                </default_search>
-                <search>
-                    <items>
-                        <item id="aetitle">
-                            <rank>10</rank>
-                        </item>
-                        <item id="org_id">
-                            <rank>20</rank>
-                        </item>
-                        <item id="description">
-                            <rank>30</rank>
-                        </item>
-                    </items>
-                </search>
-                <list>
-                    <items>
-                        <item id="org_id">
-                            <rank>10</rank>
-                        </item>
-                        <item id="ipaddress_id">
-                            <rank>20</rank>
-                        </item>
-                        <item id="port">
-                            <rank>30</rank>
-                        </item>
-                        <item id="modality">
-                            <rank>40</rank>
-                        </item>
-                        <item id="role">
-                            <rank>50</rank>
                         </item>
                     </items>
                 </list>
