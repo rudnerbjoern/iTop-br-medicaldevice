@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024-2025 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2025-07-10
+ * @version     2025-12-11
  *
  * Localized data
  */
@@ -141,8 +141,15 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity' => 'DICOM AE',
     'Class:MedicalDicomApplicationEntity+' => 'DICOM Application Entity',
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'AE-Titel',
-    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1–16 Zeichen: nur Großbuchstaben (A–Z), Ziffern (0–9) oder Unterstrich (_). Keine Leerzeichen oder Sonderzeichen erlaubt.',
+    'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1-16 Zeichen: nur Großbuchstaben (A-Z), Ziffern (0-9) oder Unterstrich (_). Keine Leerzeichen oder Sonderzeichen erlaubt.',
     'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organisation',
+    'Class:MedicalDicomApplicationEntity/Attribute:status' => 'Status',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation' => 'Implementierung',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation+' => '',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:production' => 'Produktiv',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:production+' => '',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete' => 'Obsolet',
+    'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete+' => '',
     'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Medizinisches Bildgebungsgerät',
     'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'IP-Adresse',
     'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
