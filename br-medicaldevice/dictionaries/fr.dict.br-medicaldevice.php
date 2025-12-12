@@ -189,4 +189,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle+' => 'Le titre AE doit être unique',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'Il existe déjà une AE avec la même adresse IP et le même port dans l’organisation "$this->org_id_friendlyname$"',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port+' => 'La combinaison adresse IP + port doit être unique',
+    'Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP' => 'Pour le rôle SCU ou LES DEUX, une adresse IP est requise.',
+    'Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort' => 'Pour le rôle SCU ou LES DEUX, un port est requis.',
+    'Class:MedicalDicomApplicationEntity/Error:PortOutOfRange' => 'Le port doit être compris entre 1 et 65535.',
+    'Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality' => 'Pour le rôle SCU ou LES DEUX, une modalité doit être renseignée.',
 ));

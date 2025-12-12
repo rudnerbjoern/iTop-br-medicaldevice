@@ -485,7 +485,8 @@
                         </value>
                     </values>
                     <sort_type>rank</sort_type>
-                    <is_null_allowed>true</is_null_allowed>
+                    <is_null_allowed>false</is_null_allowed>
+                    <default_value>SCP</default_value>
                     <display_style>radio_horizontal</display_style>
                 </field>
                 <field id="description" xsi:type="AttributeText">
@@ -494,7 +495,104 @@
                     <is_null_allowed>true</is_null_allowed>
                 </field>
             </fields>
-            <methods />
+            <event_listeners>
+                <event_listener id="OnMedicalDicomApplicationEntityCheckToWrite">
+                    <event>EVENT_DB_CHECK_TO_WRITE</event>
+                    <callback>OnMedicalDicomApplicationEntityCheckToWrite</callback>
+                    <rank>10</rank>
+                </event_listener>
+            </event_listeners>
+            <methods>
+                <method id="OnMedicalDicomApplicationEntityCheckToWrite">
+                    <static>false</static>
+                    <access>public</access>
+                    <type>EventListener</type>
+                    <code><![CDATA[
+/**
+ * Validates governance rules for DICOM Application Entities before persisting changes.
+ *
+ * This method enforces the DICOM governance policy at write time (EVENT_DB_CHECK_TO_WRITE).
+ * It ensures that DICOM Application Entities configured with an active communication role
+ * (SCU or BOTH) are technically complete and compliant with defined operational constraints.
+ *
+ * The validation is executed for all write operations, including:
+ * - Interactive UI changes
+ * - CSV imports
+ * - REST / JSON API operations
+ * - Data synchronization processes
+ *
+ * Governance rules enforced:
+ * 1) For role SCU or BOTH, a network endpoint (IP address and port) must be defined.
+ * 2) If a port is specified, it must be within the valid TCP/UDP port range (1-65535).
+ * 3) For role SCU or BOTH, a DICOM modality must be specified (optional but recommended).
+ *
+ * Validation issues raised by this method are blocking and will prevent the object
+ * from being persisted until compliance is restored.
+ *
+ * @param \Combodo\iTop\Service\Events\EventData $oEventData Event context provided by iTop
+ */
+public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service\Events\EventData $oEventData)
+{
+    // Retrieve current attribute values
+    // Role indicates whether the AE is passive (SCP) or actively communicating (SCU/BOTH)
+    $sRole = (string) $this->Get('role'); // Expected values: 'SCP', 'SCU', 'BOTH'
+
+    // Network endpoint attributes
+    $iIpId = (int) $this->Get('ipaddress_id');
+    $iPort = (int) $this->Get('port');
+
+    // DICOM modality (e.g. CT, MR, US)
+    $sMod  = $this->Get('modality');
+
+    // Determine whether the AE requires an active network endpoint
+    $bNeedsEndpoint = in_array($sRole, array('SCU', 'BOTH'), true);
+
+    /**
+     * Rule 1:
+     * DICOM Application Entities with an active role (SCU or BOTH)
+     * must have a defined IP address and port.
+     */
+    if ($bNeedsEndpoint) {
+        if ($iIpId <= 0) {
+            $this->AddCheckIssue(
+                Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP'),
+                'ipaddress_id'
+            );
+        }
+        if ($iPort <= 0) {
+            $this->AddCheckIssue(
+                Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort'),
+                'port'
+            );
+        }
+    }
+
+    /**
+     * Rule 2:
+     * If a port is specified, it must be within the valid TCP/UDP port range.
+     */
+    if ($iPort > 0 && ($iPort < 1 || $iPort > 65535)) {
+        $this->AddCheckIssue(
+            Dict::S('Class:MedicalDicomApplicationEntity/Error:PortOutOfRange'),
+            'port'
+        );
+    }
+
+    /**
+     * Rule 3 (optional governance rule):
+     * For active roles (SCU or BOTH), a DICOM modality must be specified
+     * to ensure correct clinical and technical classification.
+     */
+    if ($bNeedsEndpoint && ($sMod === '' || $sMod === null)) {
+        $this->AddCheckIssue(
+            Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality'),
+            'modality'
+        );
+    }
+}
+  ]]></code>
+                </method>
+            </methods>
             <presentation>
                 <details>
                     <items>
