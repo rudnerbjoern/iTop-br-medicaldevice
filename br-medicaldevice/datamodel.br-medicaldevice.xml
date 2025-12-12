@@ -388,6 +388,20 @@
                     <extkey_attcode>medicaldevicemie_id</extkey_attcode>
                     <target_attcode>name</target_attcode>
                 </field>
+                <field id="functionalci_id" xsi:type="AttributeExternalKey">
+                    <sql>functionalci_id</sql>
+                    <target_class>FunctionalCI</target_class>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT FunctionalCI AS f WHERE (f.finalclass = 'Server' OR f.finalclass = 'VirtualMachine') AND f.org_id = :this->org_id]]></filter>
+                    <is_null_allowed>true</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="functionalci_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>functionalci_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
                 <field id="ipaddress_id" xsi:type="AttributeExternalKey" _delta="define">
                     <sql>ipaddress_id</sql>
                     <dependencies>
@@ -496,20 +510,23 @@
                         <item id="medicaldevicemie_id">
                             <rank>40</rank>
                         </item>
-                        <item id="ipaddress_id">
+                        <item id="functionalci_id">
                             <rank>50</rank>
                         </item>
-                        <item id="port">
+                        <item id="ipaddress_id">
                             <rank>60</rank>
                         </item>
-                        <item id="modality">
+                        <item id="port">
                             <rank>70</rank>
                         </item>
-                        <item id="role">
+                        <item id="modality">
                             <rank>80</rank>
                         </item>
-                        <item id="description">
+                        <item id="role">
                             <rank>90</rank>
+                        </item>
+                        <item id="description">
+                            <rank>100</rank>
                         </item>
                     </items>
                 </details>
@@ -537,8 +554,14 @@
                         <item id="org_id">
                             <rank>30</rank>
                         </item>
-                        <item id="description">
+                        <item id="medicaldevicemie_id">
                             <rank>40</rank>
+                        </item>
+                        <item id="functionalci_id">
+                            <rank>50</rank>
+                        </item>
+                        <item id="description">
+                            <rank>60</rank>
                         </item>
                     </items>
                 </search>

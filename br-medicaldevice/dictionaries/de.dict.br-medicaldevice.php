@@ -3,7 +3,7 @@
 /**
  * @copyright   Copyright (C) 2024-2025 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * @version     2025-12-11
+ * @version     2025-12-12
  *
  * Localized data
  */
@@ -151,6 +151,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete' => 'Obsolet',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete+' => '',
     'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Medizinisches Bildgebungsgerät',
+    'Class:MedicalDicomApplicationEntity/Attribute:functionalci_id' => 'Functional CI',
+    'Class:MedicalDicomApplicationEntity/Attribute:functionalci_id+' => 'Technischer Host (Server oder virtuelle Maschine), auf dem die DICOM Application Entity betrieben wird.',
     'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'IP-Adresse',
     'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
     'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modalität',
