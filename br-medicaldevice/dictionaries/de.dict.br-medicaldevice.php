@@ -13,7 +13,7 @@
 //
 /** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
-    'Menu:MedicalDeviceManagement' => 'Medizingeräte Verwaltung',
+    'Menu:MedicalDeviceManagement' => 'Medizingeräte-Verwaltung',
     'Menu:MedicalDeviceSpace' => 'Medizingeräte Space',
     'Menu:MedicalDeviceSpace:Devices' => 'Medizingeräte',
     'Menu:MedicalDeviceSpace:Options' => 'Optionen',
@@ -26,7 +26,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
 ));
 
 //
-// Typology
+// Typology: MedicalBrand
 //
 /** @disregard P1009 Undefined type Dict */
 Dict::Add('DE DE', 'German', 'Deutsch', array(
@@ -40,11 +40,17 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalBrand/Attribute:medicalmodels_list+' => 'Alle Medizinprodukte dieser Marke',
     'Class:MedicalBrand/Attribute:medicaldevices_list' => 'Medizinische Geräte',
     'Class:MedicalBrand/Attribute:medicaldevices_list+' => 'Alle Medizingeräte dieser Marke',
-    'Class:MedicalBrand/UniquenessRule:name+' => 'Der Name muss einmalig sein',
     'Class:MedicalBrand/UniquenessRule:name' => 'Diese medizinische Marke existiert bereits',
+));
+
+//
+// Typology: MedicalModel
+//
+/** @disregard P1009 Undefined type Dict */
+Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalModel' => 'Medizinisches Produkt',
     'Class:MedicalModel+' => '',
-    'Class:MedicalModel/ComplementaryName' => 'Marke: %1$s',
+    'Class:MedicalModel/ComplementaryName' => 'Marke: %1$s, Typ: %2$s',
     'Class:MedicalModel/Attribute:name' => 'Name',
     'Class:MedicalModel/Attribute:name+' => '',
     'Class:MedicalModel/Attribute:medicalbrand_id' => 'Medizinische Marke',
@@ -55,8 +61,6 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalModel/Attribute:picture+' => '',
     'Class:MedicalModel/Attribute:medicaldevices_list' => 'Medizinische Geräte',
     'Class:MedicalModel/Attribute:medicaldevices_list+' => 'Alle Medizinprodukte, die diesem Modell entsprechen',
-    'Class:MedicalModel/UniquenessRule:name_brand+' => 'Der Name muss für die Marke einzigartig sein',
-    'Class:MedicalModel/UniquenessRule:name_brand' => 'dieses Modell existiert bereits für diese Marke',
     'Class:MedicalModel/Attribute:type' => 'Gerätetyp',
     'Class:MedicalModel/Attribute:type+' => '',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevice' => 'Medizinisches Gerät',
@@ -83,6 +87,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSamplePreparation+' => 'Gerät zur Probenvorbereitung',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter' => 'Probensortierer',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter+' => 'Probensortierer',
+    'Class:MedicalModel/UniquenessRule:name_medicalbrand' => 'Dieses Modell existiert bereits für diese Marke',
 ));
 
 //
@@ -120,8 +125,9 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceMIE' => 'Medizinisches Bildgebungsgerät',
     'Class:MedicalDeviceMIE+' => 'Medical Imaging Equipment, z. B. CT, MRT, PET, Röntgen',
     'Class:MedicalDeviceMIE/Attribute:dicomae_list' => 'DICOM AE(s)',
+    'Class:MedicalDeviceMIE/Attribute:dicomae_list+' => 'DICOM Application Entities, die diesem Bildgebungsgerät zugeordnet sind',
     'Class:MedicalDevicePOCT' => 'POCT Gerät',
-    'Class:MedicalDevicePOCT+' => 'Point of care testing',
+    'Class:MedicalDevicePOCT+' => 'Point-of-Care-Testing (POCT)',
     'Class:MedicalDeviceRefrigerator' => 'Kühlschrank',
     'Class:MedicalDeviceRefrigerator+' => 'Kühl- und Gefrierschrank',
     'Class:MedicalDeviceSafetyCabinet' => 'Sicherheitswerkbank',
@@ -131,7 +137,6 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDeviceTubeSorter' => 'Probensortierer',
     'Class:MedicalDeviceTubeSorter+' => 'Tube Sorter',
 ));
-
 
 //
 // Class: MedicalDicomApplicationEntity
@@ -143,6 +148,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'AE-Titel',
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1-16 Zeichen: nur Großbuchstaben (A-Z), Ziffern (0-9) oder Unterstrich (_). Keine Leerzeichen oder Sonderzeichen erlaubt.',
     'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organisation',
+    'Class:MedicalDicomApplicationEntity/Attribute:org_name' => 'Organisationsname',
     'Class:MedicalDicomApplicationEntity/Attribute:status' => 'Status',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation' => 'Implementierung',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation+' => '',
@@ -151,9 +157,12 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete' => 'Obsolet',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete+' => '',
     'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Medizinisches Bildgebungsgerät',
+    'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_name' => 'Medizinisches Bildgebungsgerät Name',
     'Class:MedicalDicomApplicationEntity/Attribute:functionalci_id' => 'Functional CI',
     'Class:MedicalDicomApplicationEntity/Attribute:functionalci_id+' => 'Technischer Host (Server oder virtuelle Maschine), auf dem die DICOM Application Entity betrieben wird.',
+    'Class:MedicalDicomApplicationEntity/Attribute:functionalci_name' => 'Functional CI Name',
     'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'IP-Adresse',
+    'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_name' => 'IP-Adresse Name',
     'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
     'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modalität',
     'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Computertomographie',
@@ -175,7 +184,5 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity/Attribute:role/Value:SCU+' => 'Service Class User (Sender)',
     'Class:MedicalDicomApplicationEntity/Attribute:description' => 'Beschreibung',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle' => 'Es existiert bereits eine AE mit demselben Titel in der Organisation "$this->org_id_friendlyname$"',
-    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle+' => 'Der AE-Titel muss eindeutig sein',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'Es existiert bereits eine AE mit derselben IP-Adresse und demselben Port in der Organisation "$this->org_id_friendlyname$"',
-    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port+' => 'Die Kombination aus IP-Adresse und Port muss eindeutig sein',
 ));

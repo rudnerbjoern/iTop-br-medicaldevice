@@ -26,7 +26,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
 ));
 
 //
-// Typology
+// Typology: MedicalBrand
 //
 /** @disregard P1009 Undefined type Dict */
 Dict::Add('FR FR', 'French', 'Français', array(
@@ -36,15 +36,22 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalBrand/Attribute:name+' => '',
     'Class:MedicalBrand/Attribute:logo' => 'Logo',
     'Class:MedicalBrand/Attribute:logo+' => '',
-    'Class:MedicalBrand/Attribute:medicalmodels_list' => 'Modèle médicals',
+    'Class:MedicalBrand/Attribute:medicalmodels_list' => 'Modèles médicaux',
     'Class:MedicalBrand/Attribute:medicalmodels_list+' => 'Tous les modèles médicaux correspondant à cette marque',
     'Class:MedicalBrand/Attribute:medicaldevices_list' => 'Dispositifs médicaux',
     'Class:MedicalBrand/Attribute:medicaldevices_list+' => 'Tous les dispositifs médicaux correspondant à cette marque',
     'Class:MedicalBrand/UniquenessRule:name' => 'Cette marque médicale existe déjà',
     'Class:MedicalBrand/UniquenessRule:name+' => 'Le nom doit être unique',
+));
+
+//
+// Typology: MedicalModel
+//
+/** @disregard P1009 Undefined type Dict */
+Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalModel' => 'Modèle médical',
     'Class:MedicalModel+' => '',
-    'Class:MedicalModel/ComplementaryName' => 'Marque: %1$s',
+    'Class:MedicalModel/ComplementaryName' => 'Marque: %1$s, Type: %2$s',
     'Class:MedicalModel/Attribute:name' => 'Nom',
     'Class:MedicalModel/Attribute:name+' => '',
     'Class:MedicalModel/Attribute:medicalbrand_id' => 'Marque médicale',
@@ -55,8 +62,6 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalModel/Attribute:picture+' => '',
     'Class:MedicalModel/Attribute:medicaldevices_list' => 'Dispositifs médicaux',
     'Class:MedicalModel/Attribute:medicaldevices_list+' => 'Tous les dispositifs médicaux correspondant à ce modèle',
-    'Class:MedicalModel/UniquenessRule:name_brand+' => 'Nom must be unique in the brand',
-    'Class:MedicalModel/UniquenessRule:name_brand' => 'ce modèle existe déjà pour cette marque',
     'Class:MedicalModel/Attribute:type' => 'Type de dispositif',
     'Class:MedicalModel/Attribute:type+' => '',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevice' => 'Dispositif médical',
@@ -76,13 +81,15 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT' => 'Appareil POCT',
     'Class:MedicalModel/Attribute:type/Value:MedicalDevicePOCT+' => 'Appareil de test au point de soin',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator' => 'Réfrigérateur',
-    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator+' => 'Réfrigérateur and Freezer',
+    'Class:MedicalModel/Attribute:type/Value:MedicalDeviceRefrigerator+' => 'Réfrigérateur et congélateur',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSafetyCabinet' => 'Armoire de sécurité',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSafetyCabinet+' => 'Armoire de sécurité',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSamplePreparation' => 'Appareil de préparation d’échantillons',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSamplePreparation+' => 'Appareil de préparation d’échantillons',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter' => 'Trieur de tubes',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter+' => 'Trieur de tubes',
+    'Class:MedicalModel/UniquenessRule:name_medicalbrand' => 'ce modèle existe déjà pour cette marque',
+    'Class:MedicalModel/UniquenessRule:name_medicalbrand+' => 'Le nom doit être unique au sein de la marque',
 ));
 
 //
@@ -120,7 +127,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDeviceMIE' => 'Équipement d’imagerie médicale',
     'Class:MedicalDeviceMIE+' => 'Équipement d’imagerie médicale, comme CT, IRM, TEP, rayon X',
     'Class:MedicalDeviceMIE/Attribute:dicomae_list' => 'DICOM AE(s)',
-    'Class:MedicalDevicePOCT' => 'POCT Device',
+    'Class:MedicalDeviceMIE/Attribute:dicomae_list+' => 'Entités d’application DICOM liées à cet équipement d’imagerie médicale',
+    'Class:MedicalDevicePOCT' => 'Appareil POCT',
     'Class:MedicalDevicePOCT+' => 'Appareil de test au point de soin',
     'Class:MedicalDeviceRefrigerator' => 'Réfrigérateur',
     'Class:MedicalDeviceRefrigerator+' => 'Réfrigérateur and Freezer',
@@ -142,6 +150,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle' => 'Titre AE',
     'Class:MedicalDicomApplicationEntity/Attribute:aetitle+' => '1 à 16 caractères : lettres majuscules (A-Z), chiffres (0-9) ou soulignement (_). Pas d’espaces ni de caractères spéciaux.',
     'Class:MedicalDicomApplicationEntity/Attribute:org_id' => 'Organisation',
+    'Class:MedicalDicomApplicationEntity/Attribute:org_name' => 'Nom de l’organisation',
     'Class:MedicalDicomApplicationEntity/Attribute:status' => 'Etat',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation' => 'Implémentation',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:implementation+' => '',
@@ -150,9 +159,12 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete' => 'Obsolète',
     'Class:MedicalDicomApplicationEntity/Attribute:status/Value:obsolete+' => '',
     'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_id' => 'Équipement d’imagerie médicale',
+    'Class:MedicalDicomApplicationEntity/Attribute:medicaldevicemie_name' => 'Nom de l’équipement d’imagerie médicale',
     'Class:MedicalDicomApplicationEntity/Attribute:functionalci_id' => 'Functional CI',
     'Class:MedicalDicomApplicationEntity/Attribute:functionalci_id+' => 'Hôte technique (serveur ou machine virtuelle) sur lequel l’entité d’application DICOM est exploitée',
+    'Class:MedicalDicomApplicationEntity/Attribute:functionalci_name' => 'Nom de la CI fonctionnelle',
     'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_id' => 'Adresse IP',
+    'Class:MedicalDicomApplicationEntity/Attribute:ipaddress_name' => 'Nom de l’adresse IP',
     'Class:MedicalDicomApplicationEntity/Attribute:port' => 'Port',
     'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modalité',
     'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Tomodensitométrie',
