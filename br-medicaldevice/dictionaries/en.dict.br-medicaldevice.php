@@ -16,6 +16,7 @@ Dict::Add('EN US', 'English', 'English', array(
     'Menu:MedicalDeviceManagement' => 'Medical Device Management',
     'Menu:MedicalDeviceSpace' => 'Medical Device Space',
     'Menu:MedicalDeviceSpace:Devices' => 'Medical Devices',
+    'Menu:MedicalDeviceSpace:Dicom' => 'DICOM',
     'Menu:MedicalDeviceSpace:Options' => 'Options',
     'Menu:MedicalDevice' => 'Medical Devices',
     'Menu:MedicalDevice+' => 'Medical Devices',
@@ -185,4 +186,44 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDicomApplicationEntity/Attribute:description' => 'Description',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle' => 'There is already an AE with the same title in the "$this->org_id_friendlyname$" organization',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'There is already an AE with the same IP address and port in the "$this->org_id_friendlyname$" organization',
+    'Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP' => 'For role SCU or BOTH, an IP address is required.',
+    'Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort' => 'For role SCU or BOTH, a port is required.',
+    'Class:MedicalDicomApplicationEntity/Error:PortOutOfRange' => 'The port must be in the range 1 to 65535.',
+    'Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality' => 'For role SCU or BOTH, a modality must be specified.',
+));
+
+
+//
+// Class: MedicalDicomCommunicationLink
+//
+/** @disregard P1009 Undefined type Dict */
+Dict::Add('EN US', 'English', 'English', array(
+    'Class:MedicalDicomCommunicationLink' => 'DICOM Communication Link',
+    'Class:MedicalDicomCommunicationLink+' => 'Defines an approved communication relationship between two DICOM Application Entities.',
+    'Class:MedicalDicomCommunicationLink/Attribute:org_id' => 'Organization',
+    'Class:MedicalDicomCommunicationLink/Attribute:org_id+' => 'Owning organization within which this DICOM communication link is governed.',
+    'Class:MedicalDicomCommunicationLink/Attribute:org_name' => 'Organization Name',
+    'Class:MedicalDicomCommunicationLink/Attribute:source_ae_id' => 'Source DICOM AE',
+    'Class:MedicalDicomCommunicationLink/Attribute:source_ae_id+' => 'DICOM Application Entity initiating the communication.',
+    'Class:MedicalDicomCommunicationLink/Attribute:source_ae_name' => 'Source AE Title',
+    'Class:MedicalDicomCommunicationLink/Attribute:target_ae_id' => 'Target DICOM AE',
+    'Class:MedicalDicomCommunicationLink/Attribute:target_ae_id+' => 'DICOM Application Entity receiving the communication.',
+    'Class:MedicalDicomCommunicationLink/Attribute:target_ae_name' => 'Target AE Title',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction' => 'Communication Direction',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction+' => 'Defines the communication pattern between source and target.',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction/Value:PUSH' => 'Push',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction/Value:PULL' => 'Pull',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction/Value:BIDIR' => 'Bidirectional',
+    'Class:MedicalDicomCommunicationLink/Attribute:status' => 'Status',
+    'Class:MedicalDicomCommunicationLink/Attribute:status+' => 'Lifecycle status of the DICOM communication link.',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:planned' => 'Planned',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:approved' => 'Approved',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:production' => 'Production',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:deprecated' => 'Deprecated',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:obsolete' => 'Obsolete',
+    'Class:MedicalDicomCommunicationLink/Attribute:description' => 'Description',
+    'Class:MedicalDicomCommunicationLink/UniquenessRule:unique_link_per_org' => 'This DICOM communication link already exists within the organization.',
+    'Class:MedicalDicomCommunicationLink/Error:SourceEqualsTarget' => 'Source and target must not be the same DICOM Application Entity.',
+    'Class:MedicalDicomCommunicationLink/Error:InvalidSourceRole' => 'The source DICOM Application Entity must not be configured as SCP-only.',
+    'Class:MedicalDicomCommunicationLink/Error:InvalidTargetRole' => 'The target DICOM Application Entity must not be configured as SCU-only.',
 ));
