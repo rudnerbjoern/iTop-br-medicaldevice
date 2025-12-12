@@ -515,6 +515,34 @@
                     </dependencies>
                 </field>
             </fields>
+            <relations>
+                <relation id="impacts">
+                    <neighbours>
+                        <neighbour id="MedicalDicomCommunicationLink (outgoing)">
+                            <direction>both</direction>
+                            <query_down><![CDATA[SELECT MedicalDicomCommunicationLink AS l WHERE l.source_ae_id = :this->id]]></query_down>
+                            <query_up><![CDATA[SELECT MedicalDicomApplicationEntity AS ae JOIN MedicalDicomCommunicationLink AS l ON l.source_ae_id = ae.id WHERE l.id = :this->id]]></query_up>
+                        </neighbour>
+                        <neighbour id="MedicalDicomCommunicationLink (incoming)">
+                            <direction>both</direction>
+                            <query_down><![CDATA[SELECT MedicalDicomCommunicationLink AS l WHERE l.target_ae_id = :this->id]]></query_down>
+                            <query_up><![CDATA[SELECT MedicalDicomApplicationEntity AS ae JOIN MedicalDicomCommunicationLink AS l ON l.target_ae_id = ae.id WHERE l.id = :this->id]]></query_up>
+                        </neighbour>
+                        <neighbour id="MedicalDeviceMIE">
+                            <attribute>medicaldevicemie_id</attribute>
+                            <direction>both</direction>
+                        </neighbour>
+                        <neighbour id="FunctionalCI">
+                            <attribute>functionalci_id</attribute>
+                            <direction>both</direction>
+                        </neighbour>
+                        <neighbour id="IPAddress">
+                            <attribute>ipaddress_id</attribute>
+                            <direction>both</direction>
+                        </neighbour>
+                    </neighbours>
+                </relation>
+            </relations>
             <event_listeners>
                 <event_listener id="OnMedicalDicomApplicationEntityCheckToWrite">
                     <event>EVENT_DB_CHECK_TO_WRITE</event>
@@ -869,6 +897,23 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
                     <is_null_allowed>true</is_null_allowed>
                 </field>
             </fields>
+            <relations>
+                <relation id="impacts">
+                    <neighbours>
+                        <!-- Source AE (downstream) -->
+                        <neighbour id="Source AE">
+                            <attribute>source_ae_id</attribute>
+                            <direction>both</direction>
+                        </neighbour>
+
+                        <!-- Target AE (downstream) -->
+                        <neighbour id="Target AE">
+                            <attribute>target_ae_id</attribute>
+                            <direction>both</direction>
+                        </neighbour>
+                    </neighbours>
+                </relation>
+            </relations>
             <event_listeners>
                 <event_listener id="OnMedicalDicomCommunicationLinkCheckToWrite">
                     <event>EVENT_DB_CHECK_TO_WRITE</event>
