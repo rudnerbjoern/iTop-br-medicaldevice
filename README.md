@@ -7,12 +7,15 @@ Copyright (c) 2024-2025 Björn Rudner
 
 This extension adds structured management for **medical devices** in iTop. It introduces specific classes and attributes to support laboratory and clinical equipment, including model hierarchy and type classification.
 
-### Core entities
+- [DICOM Governance and Usage](docs/DICOM.md)
 
-- **MedicalBrand**: Manufacturer or brand (e.g. Siemens, Roche)
+## Core entities
+
+- **MedicalBrand**: Manufacturer / brand (e.g. Siemens, Roche)
 - **MedicalModel**: Model name and type (e.g. Centrifuge, Incubator, Analyzer, Medical Imaging Equipment)
-- **MedicalDevice**: Individual device instance with location, status, and technical identifiers
-- **MedicalDicomApplicationEntity**: DICOM AE / Application Entity
+- **MedicalDevice**: Individual device instance with standard CMDB relations (location, contacts, contracts, network, etc.)
+- **MedicalDicomApplicationEntity**: DICOM AE (Application Entity), including modality/role and technical endpoint data
+- **MedicalDicomCommunicationLink**: Governed communication relationship between two DICOM AEs (source/target) with lifecycle status
 
 ### Subclasses of `MedicalDevice`
 
@@ -35,9 +38,11 @@ Each subclass inherits from `ConnectableCI` and supports standard CMDB relations
 - Separate typologies for **brand** and **model**
 - Device-to-model relation
 - Optional model filtering based on device class
-- Document and assign DICOM AE information to Medical Imaging Equipment
+- DICOM AE documentation for medical imaging equipment (MIE)
+- Governed DICOM communication links (source/target, direction, lifecycle status)
+- Validation rules for DICOM links (e.g. source != target; basic SCU/SCP role compatibility)
 - Full integration with iTop CMDB ecosystem
-- Easy extension for additional device types (via XML)
+- Easy extension for additional device types (XML)
 
 ## Relations
 
@@ -46,7 +51,7 @@ graph TD
 
   FCI(FunctionalCI) --> Phys
   Phys(PhysicalDevice) --> Con(ConnectableCI)
-  NetInt(NetWorkInterface) --> Con
+  NetInt(NetworkInterface) --> Con
   Con --> Dev(MedicalDevice)
   Brand(MedicalBrand) --> Dev
   Model(MedicalModel) --> Dev
@@ -58,6 +63,9 @@ graph TD
   Dev --> MDother(...)
   Dev --> MDMIE(MedicalDeviceMIE)
   DAE(MedicalDicomApplicationEntity) --> MDMIE
+  Link(MedicalDicomCommunicationLink)
+  DAE --> Link
+  Link --> DAE
 ```
 
 ## Installation
