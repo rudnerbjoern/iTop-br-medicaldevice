@@ -3825,7 +3825,7 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
                             <dashlet id="meddev-201" xsi:type="DashletHeaderStatic">
                                 <rank>201</rank>
                                 <title>Menu:MedicalDeviceSpace:Dicom</title>
-                                <icon>br-medicaldevice/images/dicom-ae.svg</icon>
+                                <icon>br-medicaldevice/images/dicom.svg</icon>
                             </dashlet>
                             <dashlet id="meddev-210" xsi:type="DashletBadge">
                                 <rank>210</rank>
