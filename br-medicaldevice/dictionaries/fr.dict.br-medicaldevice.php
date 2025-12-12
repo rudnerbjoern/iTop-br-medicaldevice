@@ -16,6 +16,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Menu:MedicalDeviceManagement' => 'Gestion des dispositifs médicaux',
     'Menu:MedicalDeviceSpace' => 'Espace dispositifs médicaux',
     'Menu:MedicalDeviceSpace:Devices' => 'Dispositifs médicaux',
+    'Menu:MedicalDeviceSpace:Dicom' => 'DICOM',
     'Menu:MedicalDeviceSpace:Options' => 'Options',
     'Menu:MedicalDevice' => 'Dispositifs médicaux',
     'Menu:MedicalDevice+' => 'Dispositifs médicaux',
@@ -88,8 +89,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceSamplePreparation+' => 'Appareil de préparation d’échantillons',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter' => 'Trieur de tubes',
     'Class:MedicalModel/Attribute:type/Value:MedicalDeviceTubeSorter+' => 'Trieur de tubes',
-    'Class:MedicalModel/UniquenessRule:name_medicalbrand' => 'ce modèle existe déjà pour cette marque',
-    'Class:MedicalModel/UniquenessRule:name_medicalbrand+' => 'Le nom doit être unique au sein de la marque',
+    'Class:MedicalModel/UniquenessRule:name_medicalbrand' => 'Le nom doit être unique au sein de la marque',
 ));
 
 //
@@ -131,7 +131,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDevicePOCT' => 'Appareil POCT',
     'Class:MedicalDevicePOCT+' => 'Appareil de test au point de soin',
     'Class:MedicalDeviceRefrigerator' => 'Réfrigérateur',
-    'Class:MedicalDeviceRefrigerator+' => 'Réfrigérateur and Freezer',
+    'Class:MedicalDeviceRefrigerator+' => 'Réfrigérateur et congélateur',
     'Class:MedicalDeviceSafetyCabinet' => 'Armoire de sécurité',
     'Class:MedicalDeviceSafetyCabinet+' => '',
     'Class:MedicalDeviceSamplePreparation' => 'Appareil de préparation d’échantillons',
@@ -193,4 +193,39 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort' => 'Pour le rôle SCU ou LES DEUX, un port est requis.',
     'Class:MedicalDicomApplicationEntity/Error:PortOutOfRange' => 'Le port doit être compris entre 1 et 65535.',
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality' => 'Pour le rôle SCU ou LES DEUX, une modalité doit être renseignée.',
+));
+
+//
+// Class: MedicalDicomCommunicationLink
+//
+/** @disregard P1009 Undefined type Dict */
+Dict::Add('FR FR', 'French', 'Français', array(
+    'Class:MedicalDicomCommunicationLink' => 'Lien de communication DICOM',
+    'Class:MedicalDicomCommunicationLink+' => 'Définit une relation de communication approuvée entre deux entités d’application DICOM.',
+    'Class:MedicalDicomCommunicationLink/Attribute:org_id' => 'Organisation',
+    'Class:MedicalDicomCommunicationLink/Attribute:org_id+' => 'Organisation dans laquelle ce lien de communication DICOM est gouverné.',
+    'Class:MedicalDicomCommunicationLink/Attribute:org_name' => 'Nom de l’organisation',
+    'Class:MedicalDicomCommunicationLink/Attribute:source_ae_id' => 'AE DICOM source',
+    'Class:MedicalDicomCommunicationLink/Attribute:source_ae_id+' => 'Entité d’application DICOM initiant la communication.',
+    'Class:MedicalDicomCommunicationLink/Attribute:source_ae_name' => 'Titre AE source',
+    'Class:MedicalDicomCommunicationLink/Attribute:target_ae_id' => 'AE DICOM cible',
+    'Class:MedicalDicomCommunicationLink/Attribute:target_ae_id+' => 'Entité d’application DICOM recevant la communication.',
+    'Class:MedicalDicomCommunicationLink/Attribute:target_ae_name' => 'Titre AE cible',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction' => 'Sens de communication',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction+' => 'Définit le mode de communication entre la source et la cible.',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction/Value:PUSH' => 'Push',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction/Value:PULL' => 'Pull',
+    'Class:MedicalDicomCommunicationLink/Attribute:direction/Value:BIDIR' => 'Bidirectionnel',
+    'Class:MedicalDicomCommunicationLink/Attribute:status' => 'Statut',
+    'Class:MedicalDicomCommunicationLink/Attribute:status+' => 'Statut du cycle de vie du lien de communication DICOM.',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:planned' => 'Planifié',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:approved' => 'Approuvé',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:production' => 'Production',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:deprecated' => 'Obsolescent',
+    'Class:MedicalDicomCommunicationLink/Attribute:status/Value:obsolete' => 'Obsolète',
+    'Class:MedicalDicomCommunicationLink/Attribute:description' => 'Description',
+    'Class:MedicalDicomCommunicationLink/UniquenessRule:unique_link_per_org' => 'Ce lien de communication DICOM existe déjà dans l’organisation.',
+    'Class:MedicalDicomCommunicationLink/Error:SourceEqualsTarget' => 'La source et la cible ne doivent pas être la même entité d’application DICOM.',
+    'Class:MedicalDicomCommunicationLink/Error:InvalidSourceRole' => 'L’entité DICOM source ne doit pas être configurée uniquement comme SCP.',
+    'Class:MedicalDicomCommunicationLink/Error:InvalidTargetRole' => 'L’entité DICOM cible ne doit pas être configurée uniquement comme SCU.',
 ));

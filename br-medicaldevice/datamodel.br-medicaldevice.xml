@@ -291,7 +291,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/dicom.png</icon>
+                    <icon>images/dicom-ae.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -494,6 +494,26 @@
                     <default_value />
                     <is_null_allowed>true</is_null_allowed>
                 </field>
+                <field id="outgoing_links_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>MedicalDicomCommunicationLink</linked_class>
+                    <ext_key_to_me>source_ae_id</ext_key_to_me>
+                    <edit_mode>in_place</edit_mode>
+                    <count_min>0</count_min>
+                    <count_max>0</count_max>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                </field>
+                <field id="incoming_links_list" xsi:type="AttributeLinkedSet">
+                    <linked_class>MedicalDicomCommunicationLink</linked_class>
+                    <ext_key_to_me>target_ae_id</ext_key_to_me>
+                    <edit_mode>in_place</edit_mode>
+                    <count_min>0</count_min>
+                    <count_max>0</count_max>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                </field>
             </fields>
             <event_listeners>
                 <event_listener id="OnMedicalDicomApplicationEntityCheckToWrite">
@@ -503,6 +523,20 @@
                 </event_listener>
             </event_listeners>
             <methods>
+                <method id="PrefillCreationForm">
+                    <static>false</static>
+                    <code><![CDATA[
+    public function PrefillCreationForm(&$aContextParam)
+    {
+        parent::PrefillCreationForm($aContextParam);
+
+        $oUser = UserRights::GetUserObject();
+        if ($oUser !== null) {
+            $this->Set('org_id', (int) $oUser->Get('org_id'));
+        }
+    }
+  ]]></code>
+                </method>
                 <method id="OnMedicalDicomApplicationEntityCheckToWrite">
                     <static>false</static>
                     <access>public</access>
@@ -554,16 +588,10 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
      */
     if ($bNeedsEndpoint) {
         if ($iIpId <= 0) {
-            $this->AddCheckIssue(
-                Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP'),
-                'ipaddress_id'
-            );
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP'));
         }
         if ($iPort <= 0) {
-            $this->AddCheckIssue(
-                Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort'),
-                'port'
-            );
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort'));
         }
     }
 
@@ -572,10 +600,7 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
      * If a port is specified, it must be within the valid TCP/UDP port range.
      */
     if ($iPort > 0 && ($iPort < 1 || $iPort > 65535)) {
-        $this->AddCheckIssue(
-            Dict::S('Class:MedicalDicomApplicationEntity/Error:PortOutOfRange'),
-            'port'
-        );
+        $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:PortOutOfRange'));
     }
 
     /**
@@ -584,10 +609,7 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
      * to ensure correct clinical and technical classification.
      */
     if ($bNeedsEndpoint && ($sMod === '' || $sMod === null)) {
-        $this->AddCheckIssue(
-            Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality'),
-            'modality'
-        );
+        $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality'));
     }
 }
   ]]></code>
@@ -625,6 +647,12 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
                         </item>
                         <item id="description">
                             <rank>100</rank>
+                        </item>
+                        <item id="outgoing_links_list">
+                            <rank>110</rank>
+                        </item>
+                        <item id="incoming_links_list">
+                            <rank>120</rank>
                         </item>
                     </items>
                 </details>
@@ -698,6 +726,352 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
                         </item>
                     </items>
                 </summary>
+            </presentation>
+        </class>
+        <class id="MedicalDicomCommunicationLink" _delta="define">
+            <parent>cmdbAbstractObject</parent>
+            <properties>
+                <category>bizmodel,searchable</category>
+                <abstract>false</abstract>
+                <key_type>autoincrement</key_type>
+                <db_table>medicaldicomcommunicationlink</db_table>
+                <db_key_field>id</db_key_field>
+                <db_final_class_field />
+                <naming>
+                    <attributes>
+                        <attribute id="source_ae_name" />
+                        <attribute id="target_ae_name" />
+                    </attributes>
+                    <complementary_attributes>
+                        <attribute id="direction" />
+                        <attribute id="status" />
+                    </complementary_attributes>
+                </naming>
+                <fields_semantic>
+                    <state_attribute>status</state_attribute>
+                </fields_semantic>
+                <style>
+                    <icon>images/dicom-link.svg</icon>
+                </style>
+                <reconciliation>
+                    <attributes>
+                        <attribute id="org_id" />
+                        <attribute id="source_ae_id" />
+                        <attribute id="target_ae_id" />
+                    </attributes>
+                </reconciliation>
+                <uniqueness_rules>
+                    <rule id="unique_link_per_org">
+                        <attributes>
+                            <attribute id="org_id" />
+                            <attribute id="source_ae_id" />
+                            <attribute id="target_ae_id" />
+                        </attributes>
+                        <is_blocking>true</is_blocking>
+                    </rule>
+                </uniqueness_rules>
+                <obsolescence>
+                    <condition><![CDATA[status = 'obsolete']]></condition>
+                </obsolescence>
+            </properties>
+            <fields>
+                <field id="org_id" xsi:type="AttributeExternalKey">
+                    <sql>org_id</sql>
+                    <target_class>Organization</target_class>
+                    <is_null_allowed>false</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="org_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>org_id</extkey_attcode>
+                    <target_attcode>name</target_attcode>
+                </field>
+                <field id="source_ae_id" xsi:type="AttributeExternalKey">
+                    <sql>source_ae_id</sql>
+                    <target_class>MedicalDicomApplicationEntity</target_class>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT MedicalDicomApplicationEntity WHERE org_id = :this->org_id]]></filter>
+                    <is_null_allowed>false</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="source_ae_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>source_ae_id</extkey_attcode>
+                    <target_attcode>aetitle</target_attcode>
+                </field>
+                <field id="target_ae_id" xsi:type="AttributeExternalKey">
+                    <sql>target_ae_id</sql>
+                    <target_class>MedicalDicomApplicationEntity</target_class>
+                    <dependencies>
+                        <attribute id="org_id" />
+                    </dependencies>
+                    <filter><![CDATA[SELECT MedicalDicomApplicationEntity WHERE org_id = :this->org_id]]></filter>
+                    <is_null_allowed>false</is_null_allowed>
+                    <on_target_delete>DEL_MANUAL</on_target_delete>
+                </field>
+                <field id="target_ae_name" xsi:type="AttributeExternalField">
+                    <extkey_attcode>target_ae_id</extkey_attcode>
+                    <target_attcode>aetitle</target_attcode>
+                </field>
+                <field id="direction" xsi:type="AttributeEnum">
+                    <sql>direction</sql>
+                    <values>
+                        <value id="PUSH">
+                            <code>PUSH</code>
+                            <rank>10</rank>
+                        </value>
+                        <value id="PULL">
+                            <code>PULL</code>
+                            <rank>20</rank>
+                        </value>
+                        <value id="BIDIR">
+                            <code>BIDIR</code>
+                            <rank>30</rank>
+                        </value>
+                    </values>
+                    <sort_type>rank</sort_type>
+                    <display_style>radio_horizontal</display_style>
+                    <default_value>PUSH</default_value>
+                    <is_null_allowed>false</is_null_allowed>
+                </field>
+                <field id="status" xsi:type="AttributeEnum">
+                    <sql>status</sql>
+                    <values>
+                        <value id="planned">
+                            <code>planned</code>
+                            <rank>10</rank>
+                        </value>
+                        <value id="approved">
+                            <code>approved</code>
+                            <rank>20</rank>
+                        </value>
+                        <value id="production">
+                            <code>production</code>
+                            <rank>30</rank>
+                        </value>
+                        <value id="deprecated">
+                            <code>deprecated</code>
+                            <rank>40</rank>
+                        </value>
+                        <value id="obsolete">
+                            <code>obsolete</code>
+                            <rank>50</rank>
+                        </value>
+                    </values>
+                    <sort_type>rank</sort_type>
+                    <display_style>list</display_style>
+                    <default_value>planned</default_value>
+                    <is_null_allowed>false</is_null_allowed>
+                </field>
+                <field id="description" xsi:type="AttributeText">
+                    <sql>description</sql>
+                    <default_value />
+                    <is_null_allowed>true</is_null_allowed>
+                </field>
+            </fields>
+            <event_listeners>
+                <event_listener id="OnMedicalDicomCommunicationLinkCheckToWrite">
+                    <event>EVENT_DB_CHECK_TO_WRITE</event>
+                    <callback>OnMedicalDicomCommunicationLinkCheckToWrite</callback>
+                    <rank>10</rank>
+                </event_listener>
+            </event_listeners>
+            <methods>
+                <method id="PrefillCreationForm">
+                    <static>false</static>
+                    <code><![CDATA[
+    /**
+    * Prefill default values when creating a new MedicalDicomCommunicationLink.
+    *
+    * The primary purpose of this method is to automatically determine and
+    * prefill the owning organization (org_id) based on the creation context.
+    *
+    * Resolution order:
+    *  1) Do not override org_id if it is already set (e.g. copy, explicit context).
+    *  2) Try to derive org_id from the source object (contextual creation).
+    *  3) Fallback to the current user's organization (console usage).
+    *
+    * This method is executed for all creation paths (UI, REST, CSV, etc.).
+    */
+    public function PrefillCreationForm(&$aContextParam)
+    {
+        // Always call the parent implementation first
+        parent::PrefillCreationForm($aContextParam);
+
+        // 1) Do not override org_id if it has already been prefilled
+        //    (e.g. object copy, explicit context parameter, or previous logic)
+        if ((int)$this->Get('org_id') > 0) {
+            return;
+        }
+
+        // Initialize organization identifier
+        $iOrgId = 0;
+
+        // 2) Attempt to derive org_id from the source object in the creation context
+        //    This typically applies when creating a link from a related object
+        //    (e.g. from a MedicalDicomApplicationEntity).
+        if ($iOrgId <= 0
+            && isset($aContextParam['source_obj'])
+            && is_object($aContextParam['source_obj']))
+        {
+            $oSourceObj = $aContextParam['source_obj'];
+
+            // Use org_id from the source object if the attribute exists
+            if (method_exists($oSourceObj, 'Get')
+                && MetaModel::IsValidAttCode(get_class($oSourceObj), 'org_id'))
+            {
+                $iOrgId = (int)$oSourceObj->Get('org_id');
+            }
+        }
+
+        // 3) Final fallback: use the current user's organization
+        //    This is mainly relevant for manual creation via the console
+        //    where no source object is provided.
+        if ($iOrgId <= 0) {
+            $oUser = UserRights::GetUserObject();
+            if ($oUser !== null) {
+                $iOrgId = (int)$oUser->Get('org_id');
+            }
+        }
+
+        // Apply the resolved organization to the new object
+        if ($iOrgId > 0) {
+            $this->Set('org_id', $iOrgId);
+        }
+    }
+  ]]></code>
+                </method>
+                <method id="OnMedicalDicomCommunicationLinkCheckToWrite">
+                    <type>EventListener</type>
+                    <static>false</static>
+                    <code><![CDATA[
+    /**
+    * Validate DICOM communication links before persistence.
+    *
+    * This method enforces basic DICOM governance rules to prevent
+    * invalid or non-compliant communication relationships between
+    * DICOM Application Entities (AEs).
+    *
+    * The validation is blocking and applies to all write paths:
+    *  - User interface (UI)
+    *  - CSV import
+    *  - REST API
+    *  - Synchronization sources
+    */
+    public function OnMedicalDicomCommunicationLinkCheckToWrite(
+        \Combodo\iTop\Service\Events\EventData $oEventData
+    ) {
+        // Retrieve source and target Application Entity identifiers
+        $iSourceId = (int) $this->Get('source_ae_id');
+        $iTargetId = (int) $this->Get('target_ae_id');
+
+        // If an endpoint is missing (e.g. UI is trying to "unlink"), do not run role governance checks
+        // (the nullability constraint will handle invalid states anyway).
+        if ($iSourceId <= 0 || $iTargetId <= 0) {
+            return;
+        }
+
+        // Rule 1: Source and target must not be identical
+        if ($iSourceId === $iTargetId) {
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomCommunicationLink/Error:SourceEqualsTarget'));
+            return;
+        }
+
+        // Rule 2: Source must not be SCP-only
+        $oSourceAe = MetaModel::GetObject('MedicalDicomApplicationEntity', $iSourceId, false);
+        if ($oSourceAe !== null && (string)$oSourceAe->Get('role') === 'SCP') {
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomCommunicationLink/Error:InvalidSourceRole'), 'source_ae_id');
+        }
+
+        // Rule 3: Target must not be SCU-only
+        $oTargetAe = MetaModel::GetObject('MedicalDicomApplicationEntity', $iTargetId, false);
+        if ($oTargetAe !== null && (string)$oTargetAe->Get('role') === 'SCU') {
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomCommunicationLink/Error:InvalidTargetRole'), 'target_ae_id');
+        }
+    }
+    ]]></code>
+                </method>
+            </methods>
+            <presentation>
+                <details>
+                    <items>
+                        <item id="org_id">
+                            <rank>10</rank>
+                        </item>
+                        <item id="status">
+                            <rank>20</rank>
+                        </item>
+                        <item id="source_ae_id">
+                            <rank>30</rank>
+                        </item>
+                        <item id="target_ae_id">
+                            <rank>40</rank>
+                        </item>
+                        <item id="direction">
+                            <rank>50</rank>
+                        </item>
+                        <item id="description">
+                            <rank>60</rank>
+                        </item>
+                    </items>
+                </details>
+                <default_search>
+                    <items>
+                        <item id="org_id">
+                            <rank>10</rank>
+                        </item>
+                        <item id="source_ae_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="target_ae_id">
+                            <rank>30</rank>
+                        </item>
+                        <item id="status">
+                            <rank>40</rank>
+                        </item>
+                        <item id="direction">
+                            <rank>50</rank>
+                        </item>
+                    </items>
+                </default_search>
+                <search>
+                    <items>
+                        <item id="org_id">
+                            <rank>10</rank>
+                        </item>
+                        <item id="source_ae_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="target_ae_id">
+                            <rank>30</rank>
+                        </item>
+                        <item id="status">
+                            <rank>40</rank>
+                        </item>
+                        <item id="direction">
+                            <rank>50</rank>
+                        </item>
+                    </items>
+                </search>
+                <list>
+                    <items>
+                        <item id="org_id">
+                            <rank>20</rank>
+                        </item>
+                        <item id="source_ae_id">
+                            <rank>30</rank>
+                        </item>
+                        <item id="target_ae_id">
+                            <rank>40</rank>
+                        </item>
+                        <item id="direction">
+                            <rank>50</rank>
+                        </item>
+                        <item id="status">
+                            <rank>60</rank>
+                        </item>
+                    </items>
+                </list>
             </presentation>
         </class>
         <!-- ***************** Medical Devices ***************** -->
@@ -3450,20 +3824,34 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
                         <dashlets>
                             <dashlet id="meddev-201" xsi:type="DashletHeaderStatic">
                                 <rank>201</rank>
-                                <title>Menu:MedicalDeviceSpace:Options</title>
-                                <icon>br-medicaldevice/images/cardiogram.png</icon>
+                                <title>Menu:MedicalDeviceSpace:Dicom</title>
+                                <icon>br-medicaldevice/images/dicom-ae.svg</icon>
                             </dashlet>
                             <dashlet id="meddev-210" xsi:type="DashletBadge">
                                 <rank>210</rank>
-                                <class>MedicalBrand</class>
+                                <class>MedicalDicomApplicationEntity</class>
                             </dashlet>
                             <dashlet id="meddev-220" xsi:type="DashletBadge">
                                 <rank>220</rank>
-                                <class>MedicalModel</class>
+                                <class>MedicalDicomCommunicationLink</class>
                             </dashlet>
-                            <dashlet id="meddev-230" xsi:type="DashletBadge">
-                                <rank>230</rank>
-                                <class>MedicalDicomApplicationEntity</class>
+                        </dashlets>
+                    </cell>
+                    <cell id="meddev-300">
+                        <rank>3</rank>
+                        <dashlets>
+                            <dashlet id="meddev-301" xsi:type="DashletHeaderStatic">
+                                <rank>301</rank>
+                                <title>Menu:MedicalDeviceSpace:Options</title>
+                                <icon>br-medicaldevice/images/cardiogram.png</icon>
+                            </dashlet>
+                            <dashlet id="meddev-310" xsi:type="DashletBadge">
+                                <rank>310</rank>
+                                <class>MedicalBrand</class>
+                            </dashlet>
+                            <dashlet id="meddev-320" xsi:type="DashletBadge">
+                                <rank>320</rank>
+                                <class>MedicalModel</class>
                             </dashlet>
                         </dashlets>
                     </cell>
@@ -3507,6 +3895,7 @@ public function OnMedicalDicomApplicationEntityCheckToWrite(Combodo\iTop\Service
             <group id="MedicalDicom" _delta="define">
                 <classes>
                     <class id="MedicalDicomApplicationEntity" />
+                    <class id="MedicalDicomCommunicationLink" />
                 </classes>
             </group>
             <group id="MedicalDeviceDocumentAndLinks" _delta="define">
