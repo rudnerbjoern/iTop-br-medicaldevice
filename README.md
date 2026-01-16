@@ -90,22 +90,22 @@ The extension was tested on iTop 2.7.10 and 3.2.2
 
 This Extension uses Icons from:
 
-![Cardiogram Icon](br-medicaldevice/images/cardiogram.png) [Cardiogram Icon](https://iconscout.com/icons/cardiogram) by IconScout Store
+![Cardiogram Icon](br-medicaldevice/images/cardiogram.svg){width=48} [Cardiogram Icon](https://iconscout.com/icons/cardiogram) by IconScout Store
 
-![Test-Tube Icon](br-medicaldevice/images/test-tube.png) [Test-Tube Icon](https://iconscout.com/icons/test-tube) by HJ Project
+![Test-Tube Icon](br-medicaldevice/images/test-tube.svg){width=48} [Test-Tube Icon](https://iconscout.com/icons/test-tube) by HJ Project
 
-![Microscope Icon](br-medicaldevice/images/microscope.png) [Microscope Icon](https://iconscout.com/icons/microscope) by Rank Sol on IconScout
+![Microscope Icon](br-medicaldevice/images/microscope.svg){width=48} [Microscope Icon](https://iconscout.com/icons/microscope) by Rank Sol on IconScout
 
-![Blood-Test Icon](br-medicaldevice/images/blood-test.png) [Blood-Test Icon](https://iconscout.com/icons/blood-test) by Surangkana Jomjunyong
+![Blood-Test Icon](br-medicaldevice/images/blood-test.png){width=48} [Blood-Test Icon](https://iconscout.com/icons/blood-test) by Surangkana Jomjunyong
 
-![Blood-Tube Icon](br-medicaldevice/images/blood-tube.png) [Blood-Tube Icon](https://iconscout.com/icons/blood-tube) by M. Faisal
+![Blood-Tube Icon](br-medicaldevice/images/blood-tube.png){width=48} [Blood-Tube Icon](https://iconscout.com/icons/blood-tube) by M. Faisal
 
-![Sample-Preparation Icon](br-medicaldevice/images/vortex-mixer.png) [Sample-Preparation Icon](https://www.vecteezy.com/free-vector/container) by Vecteezy
+![Sample-Preparation Icon](br-medicaldevice/images/vortex-mixer.png){width=48} [Sample-Preparation Icon](https://www.vecteezy.com/free-vector/container) by Vecteezy
 
-![Freezer Icon](br-medicaldevice/images/freezer.png) [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
+![Freezer Icon](br-medicaldevice/images/freezer.png){width=48} [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
 
-![Liquid Dropper Icon](br-medicaldevice/images/liquid-dropper.png) [Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
+![Liquid Dropper Icon](br-medicaldevice/images/liquid-dropper.png){width=48} [Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
 
-![Biosafety Cabinet Icon](br-medicaldevice/images/biosafety-cabinet.png) [Biosafety Cabinet Icon](https://www.freepik.com/icon/biosafety-cabinet_9569504) by Freepik
+![Biosafety Cabinet Icon](br-medicaldevice/images/biosafety-cabinet.png){width=48} [Biosafety Cabinet Icon](https://www.freepik.com/icon/biosafety-cabinet_9569504) by Freepik
 
-![CT Scanner Icon](br-medicaldevice/images/ct-scan.png) [CT Scanner Icon](https://iconscout.com/icons/ct-scan) by Pendimarfuad Adv
+![CT Scanner Icon](br-medicaldevice/images/ct-scan.svg){width=48} [CT Scanner Icon](https://iconscout.com/icons/ct-scan) by Pendimarfuad Adv
