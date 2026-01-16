@@ -296,6 +296,7 @@
                 </fields_semantic>
                 <style>
                     <icon>images/dicom-ae.svg</icon>
+                    <main_color>#1F5FA7</main_color>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -696,6 +697,7 @@
                 </fields_semantic>
                 <style>
                     <icon>images/dicom-link.svg</icon>
+                    <main_color>#1F5FA7</main_color>
                 </style>
                 <reconciliation>
                     <attributes>
