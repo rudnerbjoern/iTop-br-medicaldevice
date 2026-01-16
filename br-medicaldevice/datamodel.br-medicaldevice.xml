@@ -24,7 +24,8 @@
                     <image_attribute>logo</image_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/medical.png</icon>
+                    <icon>images/medical.svg</icon>
+                    <main_color>#8A5A83</main_color>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -120,7 +121,8 @@
                     <image_attribute>picture</image_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/medical.png</icon>
+                    <icon>images/medical.svg</icon>
+                    <main_color>#8A5A83</main_color>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -941,7 +943,8 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/medical.png</icon>
+                    <icon>images/medical.svg</icon>
+                    <main_color>#8A5A83</main_color>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -3615,7 +3618,7 @@
                             <dashlet id="meddev-101" xsi:type="DashletHeaderStatic">
                                 <rank>101</rank>
                                 <title>Menu:MedicalDeviceSpace:Devices</title>
-                                <icon>br-medicaldevice/images/cardiogram.png</icon>
+                                <icon>br-medicaldevice/images/cardiogram.svg</icon>
                             </dashlet>
                             <dashlet id="meddev-110" xsi:type="DashletBadge">
                                 <rank>110</rank>
@@ -3691,7 +3694,7 @@
                             <dashlet id="meddev-301" xsi:type="DashletHeaderStatic">
                                 <rank>301</rank>
                                 <title>Menu:MedicalDeviceSpace:Options</title>
-                                <icon>br-medicaldevice/images/cardiogram.png</icon>
+                                <icon>br-medicaldevice/images/cardiogram.svg</icon>
                             </dashlet>
                             <dashlet id="meddev-310" xsi:type="DashletBadge">
                                 <rank>310</rank>
