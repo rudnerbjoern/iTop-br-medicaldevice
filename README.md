@@ -102,8 +102,6 @@ This Extension uses Icons from:
 
 ![Sample-Preparation Icon](br-medicaldevice/images/vortex-mixer.png) [Sample-Preparation Icon](https://www.vecteezy.com/free-vector/container) by Vecteezy
 
-![Medical Icon](br-medicaldevice/images//medical.png) [Medical Icon](https://iconscout.com/icons/medical) by Jemis Mali
-
 ![Freezer Icon](br-medicaldevice/images/freezer.png) [Freezer Icon](https://iconscout.com/icons/freezer) by Mohit Gandhi
 
 ![Liquid Dropper Icon](br-medicaldevice/images/liquid-dropper.png) [Liquid Dropper Icon](https://iconscout.com/icons/liquid-dropper) by Rafiico Creative Studio
