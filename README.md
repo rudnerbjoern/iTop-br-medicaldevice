@@ -1,6 +1,6 @@
 # iTop-br-medicaldevice
 
-Copyright (c) 2024-2025 Björn Rudner
+Copyright (c) 2024-2026 Björn Rudner
 [![License](https://img.shields.io/github/license/rudnerbjoern/iTop-br-medicaldevice)](https://github.com/rudnerbjoern/iTop-br-medicaldevice/blob/main/LICENSE)
 
 ## What?
