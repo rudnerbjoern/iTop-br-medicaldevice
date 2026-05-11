@@ -32,16 +32,32 @@ Navigate to:
 
 Mandatory and recommended attributes:
 
-| Attribute                 | Description                                  |
-| ------------------------- | -------------------------------------------- |
-| AE Title                  | Unique DICOM AE identifier (1–16 characters) |
-| Organization              | Owning organization (governance scope)       |
-| Role                      | SCP, SCU, or BOTH                            |
-| IP Address                | Required for SCU / BOTH                      |
-| Port                      | Required for SCU / BOTH                      |
-| Modality                  | Recommended for SCU / BOTH                   |
-| Medical Imaging Equipment | Optional link to a physical device           |
-| Functional CI             | Technical host (server or VM)                |
+| Attribute                 | Description                                                            |
+| ------------------------- | ---------------------------------------------------------------------- |
+| AE Title                  | Unique DICOM AE identifier (1–16 characters)                           |
+| Organization              | Owning organization (governance scope)                                 |
+| Role                      | SCP, SCU, or BOTH                                                      |
+| IP Address                | Required for SCU / BOTH                                                |
+| Port                      | Required for SCU / BOTH                                                |
+| Port Type / Protocol      | Type of DICOM communication, e.g. DICOM, DICOM TLS, DICOMweb, or other |
+| Modality                  | Recommended for SCU / BOTH                                             |
+| Medical Imaging Equipment | Optional link to a physical device                                     |
+| Functional CI             | Technical host (server or VM)                                          |
+
+### Port Type / Protocol
+
+The protocol attribute describes the type of DICOM-related communication used by the AE endpoint.
+
+| Value     | Meaning                                      |
+| --------- | -------------------------------------------- |
+| DICOM     | Classic DICOM communication over TCP         |
+| DICOM TLS | DICOM communication over TLS-secured TCP     |
+| DICOMweb  | Web-based DICOM communication                |
+| Other     | Other or project-specific communication type |
+
+For classic DIMSE-based DICOM communication, use `DICOM`.
+For encrypted DIMSE communication, use `DICOM TLS`.
+For web-based DICOM services such as QIDO-RS, WADO-RS or STOW-RS, use `DICOMweb`.
 
 ### Role Semantics
 

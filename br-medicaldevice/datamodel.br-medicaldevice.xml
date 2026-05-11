@@ -428,6 +428,31 @@
                     <is_null_allowed>true</is_null_allowed>
                     <default_value>104</default_value>
                 </field>
+                <field id="protocol" xsi:type="AttributeEnum">
+                    <sql>protocol</sql>
+                    <values>
+                        <value id="dicom">
+                            <code>dicom</code>
+                            <rank>10</rank>
+                        </value>
+                        <value id="dicom_tls">
+                            <code>dicom_tls</code>
+                            <rank>20</rank>
+                        </value>
+                        <value id="dicomweb">
+                            <code>dicomweb</code>
+                            <rank>30</rank>
+                        </value>
+                        <value id="other">
+                            <code>other</code>
+                            <rank>40</rank>
+                        </value>
+                    </values>
+                    <sort_type>rank</sort_type>
+                    <display_style>list</display_style>
+                    <is_null_allowed>false</is_null_allowed>
+                    <default_value>dicom</default_value>
+                </field>
                 <field id="modality" xsi:type="AttributeEnum">
                     <sql>modality</sql>
                     <values>
@@ -582,20 +607,23 @@
                         <item id="port">
                             <rank>70</rank>
                         </item>
-                        <item id="modality">
+                        <item id="protocol">
                             <rank>80</rank>
                         </item>
-                        <item id="role">
+                        <item id="modality">
                             <rank>90</rank>
                         </item>
-                        <item id="description">
+                        <item id="role">
                             <rank>100</rank>
                         </item>
-                        <item id="outgoing_links_list">
+                        <item id="description">
                             <rank>110</rank>
                         </item>
-                        <item id="incoming_links_list">
+                        <item id="outgoing_links_list">
                             <rank>120</rank>
+                        </item>
+                        <item id="incoming_links_list">
+                            <rank>130</rank>
                         </item>
                     </items>
                 </details>
@@ -620,17 +648,26 @@
                         <item id="status">
                             <rank>20</rank>
                         </item>
-                        <item id="org_id">
+                        <item id="protocol">
                             <rank>30</rank>
                         </item>
-                        <item id="medicaldevicemie_id">
+                        <item id="modality">
                             <rank>40</rank>
                         </item>
-                        <item id="functionalci_id">
+                        <item id="role">
                             <rank>50</rank>
                         </item>
-                        <item id="description">
+                        <item id="org_id">
                             <rank>60</rank>
+                        </item>
+                        <item id="medicaldevicemie_id">
+                            <rank>70</rank>
+                        </item>
+                        <item id="functionalci_id">
+                            <rank>80</rank>
+                        </item>
+                        <item id="description">
+                            <rank>90</rank>
                         </item>
                     </items>
                 </search>
@@ -647,6 +684,9 @@
                         </item>
                         <item id="port">
                             <rank>50</rank>
+                        </item>
+                        <item id="protocol">
+                            <rank>55</rank>
                         </item>
                         <item id="modality">
                             <rank>60</rank>
