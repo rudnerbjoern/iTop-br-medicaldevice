@@ -59,17 +59,25 @@ class _MedicalDicomApplicationEntity extends cmdbAbstractObject
      * This method is intended to be bound to iTop's write-time validation event
      * (typically EVENT_DB_CHECK_TO_WRITE).
      *
-     * It ensures that Application Entities configured as *actively communicating*
-     * (role SCU or BOTH) have the required network endpoint configuration and
-     * basic operational correctness.
+     * It ensures that Application Entities configured as actively communicating
+     * endpoints have the required endpoint configuration and basic operational
+     * correctness.
+     *
+     * Classical DICOM and DICOM TLS endpoints are validated using IP address and
+     * port. DICOMweb endpoints are validated using an HTTP(S) endpoint URL.
      *
      * Applies to all write paths (UI, imports, API, sync), because it runs at
      * the database write validation stage.
      *
      * Governance rules:
-     * 1) If role is SCU or BOTH: IP address and port must be set.
-     * 2) If a port is set: it must be within the valid port range (1..65535).
-     * 3) If role is SCU or BOTH: modality must be set (governance/classification rule).
+     * 1) If role is SCU or BOTH and protocol is not DICOMweb:
+     *    IP address and port must be set.
+     * 2) If protocol is DICOMweb:
+     *    endpoint_url must be set.
+     * 3) If a port is set:
+     *    it must be within the valid port range (1..65535).
+     * 4) If role is SCU or BOTH:
+     *    modality must be set (governance/classification rule).
      *
      * Any issue added via AddCheckIssue() is blocking and prevents persistence.
      *
@@ -93,21 +101,35 @@ class _MedicalDicomApplicationEntity extends cmdbAbstractObject
         // Port used by the AE (DICOM commonly 104, 11112, etc., but governance allows any valid port)
         $iPort = (int) $this->Get('port');
 
+        // Port type / protocol.
+        // Expected values: 'dicom', 'dicom_tls', 'dicomweb', 'other'
+        $sProtocol = (string) $this->Get('protocol');
+
+        // DICOMweb endpoint URL.
+        // Relevant and required when protocol = dicomweb.
+        $sEndpointUrl = trim((string) $this->Get('endpoint_url'));
+
         // DICOM modality classification (e.g. CT, MR, US) - may be null depending on iTop storage
         $sMod = $this->Get('modality');
 
-        // Determine whether this AE is required to be "actively reachable/configured"
-        // (active roles must have endpoint data)
-        $bNeedsEndpoint = in_array($sRole, array('SCU', 'BOTH'), true);
+        // Determine whether this AE is configured with an active role.
+        $bHasActiveRole = in_array($sRole, array('SCU', 'BOTH'), true);
 
-        // --- Rule 1: Active roles require IP and port --------------------------------------
+        // Determine whether the endpoint is DICOMweb-based.
+        // DICOMweb uses an HTTP(S) base URL instead of a classical DICOM TCP endpoint.
+        $bIsDicomweb = ($sProtocol === 'dicomweb');
 
-        // For SCU/BOTH we enforce that the endpoint is fully specified.
-        // This prevents "active" AEs that cannot actually be used operationally.
-        if ($bNeedsEndpoint) {
+        // Non-DICOMweb endpoints need IP + port for active roles.
+        // DICOMweb is validated separately by requiring endpoint_url instead.
+        $bNeedsClassicalEndpoint = $bHasActiveRole && !$bIsDicomweb;
+
+        // --- Rule 1: Non-DICOMweb active roles require IP and port --------------------------
+
+        // For non-DICOMweb protocols with role SCU/BOTH we enforce IP address and port.
+        // For DICOMweb, endpoint_url is used instead and IP/port are not mandatory.
+        if ($bNeedsClassicalEndpoint) {
             // ipaddress_id must reference a valid IP object (id > 0)
             if ($iIpId <= 0) {
-                // Use Dict::S() for translatable iTop messages (defined in the dictionary)
                 $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP'));
             }
 
@@ -125,14 +147,22 @@ class _MedicalDicomApplicationEntity extends cmdbAbstractObject
             $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:PortOutOfRange'));
         }
 
-        // --- Rule 3: Active roles should have a modality -----------------------------------
+        // --- Rule 3: DICOMweb requires endpoint URL ----------------------------------------
+
+        // For DICOMweb, IP address and port alone are not sufficient.
+        // A DICOMweb endpoint is identified by a base HTTP(S) URL.
+        if ($bIsDicomweb && $sEndpointUrl === '') {
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:DicomwebRequiresEndpointUrl'));
+        }
+
+        // --- Rule 4: Active roles should have a modality -----------------------------------
 
         // Governance/classification rule:
         // For active roles (SCU/BOTH), modality must be provided to support correct
         // clinical/technical classification and downstream governance/reporting.
         //
         // Note: Checking both empty string and null because iTop attributes may return either.
-        if ($bNeedsEndpoint && ($sMod === '' || $sMod === null)) {
+        if ($bHasActiveRole && ($sMod === '' || $sMod === null)) {
             $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality'));
         }
 

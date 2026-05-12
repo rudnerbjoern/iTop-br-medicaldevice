@@ -176,6 +176,8 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity/Attribute:protocol/Value:dicomweb+' => 'Webbasierte DICOM-Kommunikation, z. B. QIDO-RS, WADO-RS oder STOW-RS.',
     'Class:MedicalDicomApplicationEntity/Attribute:protocol/Value:other' => 'Sonstiges',
     'Class:MedicalDicomApplicationEntity/Attribute:protocol/Value:other+' => 'Sonstiger oder projektspezifischer Kommunikationstyp.',
+    'Class:MedicalDicomApplicationEntity/Attribute:endpoint_url' => 'Endpunkt-URL',
+    'Class:MedicalDicomApplicationEntity/Attribute:endpoint_url+' => 'Basis-URL des DICOMweb-Endpunkts. Nur relevant, wenn als Protokoll DICOMweb verwendet wird.',
     'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modalität',
     'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Computertomographie',
     'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:MR' => 'MR - Magnetresonanztomographie',
@@ -208,6 +210,7 @@ Dict::Add('DE DE', 'German', 'Deutsch', array(
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort' => 'Für die Rolle SCU bzw. BEIDES ist ein Port erforderlich.',
     'Class:MedicalDicomApplicationEntity/Error:PortOutOfRange' => 'Der Port muss im Bereich 1 bis 65535 liegen.',
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality' => 'Für die Rolle SCU bzw. BEIDES ist eine Modalität anzugeben.',
+    'Class:MedicalDicomApplicationEntity/Error:DicomwebRequiresEndpointUrl' => 'Für DICOMweb muss eine Endpunkt-URL angegeben werden.',
 ));
 
 //

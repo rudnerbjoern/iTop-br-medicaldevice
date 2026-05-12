@@ -21,6 +21,7 @@
         "DICOM",
         "dicomae",
         "dicomweb",
+        "DIMSE",
         "extkey",
         "fieldset",
         "finalclass",
@@ -54,9 +55,12 @@
         "physicalinterface",
         "Pipettierroboter",
         "POCT",
+        "Porttyp",
         "Positronen",
         "providercontracts",
-        "serialnumber"
+        "QIDO",
+        "serialnumber",
+        "WADO"
     ],
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
