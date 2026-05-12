@@ -7,7 +7,7 @@
  * - Enforces governance checks before persistence to avoid invalid AE-to-AE relationships.
  *
  * @copyright   Copyright (C) 2024-2026 Björn Rudner
- * @license     https://www.gnu.org/licenses/agpl-3.0.en.html
+ * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
  * @version     2026-01-16
  */
 
