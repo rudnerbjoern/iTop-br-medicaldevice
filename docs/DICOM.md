@@ -6,9 +6,9 @@ The DICOM elements in this extension are designed to document and govern **DICOM
 
 They allow you to:
 
-- Explicitly document **DICOM Application Entities (AE)**
-- Define and govern **DICOM communication paths** between systems
-- Enforce **basic DICOM governance rules** (roles, endpoints, uniqueness)
+* Explicitly document **DICOM Application Entities (AE)**
+* Define and govern **DICOM communication paths** between systems
+* Enforce **basic DICOM governance rules** (roles, endpoints, uniqueness)
 
 This extension does **not** perform DICOM communication itself.
 
@@ -18,11 +18,13 @@ This extension does **not** perform DICOM communication itself.
 
 A **MedicalDicomApplicationEntity** represents a logical DICOM endpoint, identified by:
 
-- AE Title
-- Network endpoint (IP address and port)
-- DICOM role (SCU / SCP / BOTH)
-- Optional modality
-- Optional link to medical imaging equipment and technical host
+* AE Title
+* DICOM role (SCU / SCP / BOTH)
+* Port type / protocol
+* Classical network endpoint for DICOM / DICOM TLS (IP address and port)
+* DICOMweb endpoint URL for web-based DICOM communication
+* Optional modality
+* Optional link to medical imaging equipment and technical host
 
 ### Creating a DICOM AE
 
@@ -37,9 +39,10 @@ Mandatory and recommended attributes:
 | AE Title                  | Unique DICOM AE identifier (1–16 characters)                           |
 | Organization              | Owning organization (governance scope)                                 |
 | Role                      | SCP, SCU, or BOTH                                                      |
-| IP Address                | Required for SCU / BOTH                                                |
-| Port                      | Required for SCU / BOTH                                                |
 | Port Type / Protocol      | Type of DICOM communication, e.g. DICOM, DICOM TLS, DICOMweb, or other |
+| IP Address                | Required for SCU / BOTH when using DICOM or DICOM TLS                  |
+| Port                      | Required for SCU / BOTH when using DICOM or DICOM TLS                  |
+| Endpoint URL              | Required when using DICOMweb                                           |
 | Modality                  | Recommended for SCU / BOTH                                             |
 | Medical Imaging Equipment | Optional link to a physical device                                     |
 | Functional CI             | Technical host (server or VM)                                          |
@@ -56,8 +59,36 @@ The protocol attribute describes the type of DICOM-related communication used by
 | Other     | Other or project-specific communication type |
 
 For classic DIMSE-based DICOM communication, use `DICOM`.
+
 For encrypted DIMSE communication, use `DICOM TLS`.
+
 For web-based DICOM services such as QIDO-RS, WADO-RS or STOW-RS, use `DICOMweb`.
+
+When `DICOMweb` is selected, the **Endpoint URL** must be documented. IP address and port are not mandatory for DICOMweb endpoints, because the relevant technical endpoint is the HTTP(S) base URL.
+
+Example DICOMweb endpoint URLs:
+
+```text
+https://pacs.example.org/dicomweb
+https://orthanc.example.org/dicom-web
+https://server.example.org/api/dicom
+```
+
+### Endpoint URL
+
+The **Endpoint URL** documents the base URL of a DICOMweb endpoint.
+
+It is only required when the selected protocol is `DICOMweb`.
+
+Examples:
+
+| Endpoint URL                            | Description                           |
+| --------------------------------------- | ------------------------------------- |
+| `https://pacs.example.org/dicomweb`     | PACS DICOMweb base endpoint           |
+| `https://orthanc.example.org/dicom-web` | Orthanc DICOMweb endpoint             |
+| `https://server.example.org/api/dicom`  | Vendor-specific DICOMweb API endpoint |
+
+Do not use this field for classic DICOM or DICOM TLS endpoints unless a project-specific reason exists.
 
 ### Role Semantics
 
@@ -69,9 +100,12 @@ For web-based DICOM services such as QIDO-RS, WADO-RS or STOW-RS, use `DICOMweb`
 
 Governance rules enforced:
 
-- SCU and BOTH require IP address and port
-- AE Title must be unique per organization
-- IP + port must be unique per organization
+* For SCU and BOTH with protocol `DICOM` or `DICOM TLS`, IP address and port are required
+* For protocol `DICOMweb`, Endpoint URL is required
+* If a port is specified, it must be within the valid port range `1..65535`
+* For SCU and BOTH, modality is required as a governance/classification rule
+* AE Title must be unique per organization
+* Classical endpoint uniqueness is based on organization, IP address, port and protocol
 
 ## MedicalDicomCommunicationLink
 
@@ -131,32 +165,62 @@ The lifecycle status supports governance and change management:
 | deprecated | Planned for removal           |
 | obsolete   | No longer valid               |
 
-## Example Modeling Pattern
+## Example Modeling Patterns
 
-CT Scanner communicating with PACS
+### CT Scanner communicating with PACS using classic DICOM
 
-1. Create DICOM AE for CT (Role: SCU, Modality: CT)
-2. Create DICOM AE for PACS (Role: SCP)
+1. Create DICOM AE for CT:
+
+   * Protocol: DICOM
+   * Role: SCU
+   * Modality: CT
+   * IP Address and Port documented
+2. Create DICOM AE for PACS:
+
+   * Protocol: DICOM
+   * Role: SCP
+   * IP Address and Port documented if applicable
 3. Create Communication Link:
-   - Source: CT AE
-   - Target: PACS AE
-   - Direction: PUSH
-   - Status: production
+
+   * Source: CT AE
+   * Target: PACS AE
+   * Direction: PUSH
+   * Status: production
+
+### System exposing a DICOMweb endpoint
+
+1. Create DICOM AE for the DICOMweb-capable system:
+
+   * Protocol: DICOMweb
+   * Role: SCP or BOTH
+   * Endpoint URL documented
+2. Create Communication Link if the communication path should be governed:
+
+   * Source: consuming AE or system
+   * Target: DICOMweb AE
+   * Direction: PULL or BIDIR
+   * Status: production
 
 ## Best Practices
 
-- Model one AE per logical endpoint
-- Use BOTH only when technically justified
-- Always assign an organization
-- Prefer deprecating links over deleting them
-- Use descriptions for clinical context
+* Model one AE per logical endpoint
+* Use `DICOM` for classic DIMSE-based DICOM communication
+* Use `DICOM TLS` for TLS-secured DIMSE communication
+* Use `DICOMweb` only for HTTP(S)-based DICOMweb services
+* Document the Endpoint URL for all DICOMweb endpoints
+* Use BOTH only when technically justified
+* Always assign an organization
+* Prefer deprecating links over deleting them
+* Use descriptions for clinical context or vendor-specific details
 
 ## Limitations
 
 This model does not:
 
-- Monitor live DICOM traffic
-- Validate DICOM protocol conformance
-- Perform automatic discovery
+* Monitor live DICOM traffic
+* Validate DICOM protocol conformance
+* Test endpoint availability
+* Perform automatic discovery
+* Store credentials, tokens or API keys
 
 It is a CMDB and governance model only.

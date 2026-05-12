@@ -184,6 +184,8 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity/Attribute:protocol/Value:dicomweb+' => 'Communication DICOM basée sur le Web, par exemple QIDO-RS, WADO-RS ou STOW-RS.',
     'Class:MedicalDicomApplicationEntity/Attribute:protocol/Value:other' => 'Autre',
     'Class:MedicalDicomApplicationEntity/Attribute:protocol/Value:other+' => 'Autre type de communication ou type spécifique au projet.',
+    'Class:MedicalDicomApplicationEntity/Attribute:endpoint_url' => 'URL du point de terminaison',
+    'Class:MedicalDicomApplicationEntity/Attribute:endpoint_url+' => 'URL de base du point de terminaison DICOMweb. Uniquement pertinente lorsque DICOMweb est utilisé comme protocole.',
     'Class:MedicalDicomApplicationEntity/Attribute:modality' => 'Modalité',
     'Class:MedicalDicomApplicationEntity/Attribute:modality+' => 'Modalité DICOM fournie ou utilisée par cette entité d’application.',
     'Class:MedicalDicomApplicationEntity/Attribute:modality/Value:CT' => 'CT - Tomodensitométrie',
@@ -228,6 +230,7 @@ Dict::Add('FR FR', 'French', 'Français', array(
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort' => 'Pour le rôle SCU ou LES DEUX, un port est requis.',
     'Class:MedicalDicomApplicationEntity/Error:PortOutOfRange' => 'Le port doit être compris entre 1 et 65535.',
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresModality' => 'Pour le rôle SCU ou LES DEUX, une modalité doit être renseignée.',
+    'Class:MedicalDicomApplicationEntity/Error:DicomwebRequiresEndpointUrl' => 'Une URL de point de terminaison doit être indiquée pour DICOMweb.',
 ));
 
 //

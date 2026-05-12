@@ -453,6 +453,10 @@
                     <is_null_allowed>false</is_null_allowed>
                     <default_value>dicom</default_value>
                 </field>
+                <field id="endpoint_url" xsi:type="AttributeURL">
+                    <sql>endpoint_url</sql>
+                    <is_null_allowed>true</is_null_allowed>
+                </field>
                 <field id="modality" xsi:type="AttributeEnum">
                     <sql>modality</sql>
                     <values>
@@ -610,20 +614,23 @@
                         <item id="protocol">
                             <rank>80</rank>
                         </item>
-                        <item id="modality">
+                        <item id="endpoint_url">
                             <rank>90</rank>
                         </item>
-                        <item id="role">
+                        <item id="modality">
                             <rank>100</rank>
                         </item>
-                        <item id="description">
+                        <item id="role">
                             <rank>110</rank>
                         </item>
-                        <item id="outgoing_links_list">
+                        <item id="description">
                             <rank>120</rank>
                         </item>
-                        <item id="incoming_links_list">
+                        <item id="outgoing_links_list">
                             <rank>130</rank>
+                        </item>
+                        <item id="incoming_links_list">
+                            <rank>140</rank>
                         </item>
                     </items>
                 </details>
@@ -651,23 +658,26 @@
                         <item id="protocol">
                             <rank>30</rank>
                         </item>
-                        <item id="modality">
+                        <item id="endpoint_url">
                             <rank>40</rank>
                         </item>
-                        <item id="role">
+                        <item id="modality">
                             <rank>50</rank>
                         </item>
-                        <item id="org_id">
+                        <item id="role">
                             <rank>60</rank>
                         </item>
-                        <item id="medicaldevicemie_id">
+                        <item id="org_id">
                             <rank>70</rank>
                         </item>
-                        <item id="functionalci_id">
+                        <item id="medicaldevicemie_id">
                             <rank>80</rank>
                         </item>
-                        <item id="description">
+                        <item id="functionalci_id">
                             <rank>90</rank>
+                        </item>
+                        <item id="description">
+                            <rank>100</rank>
                         </item>
                     </items>
                 </search>
