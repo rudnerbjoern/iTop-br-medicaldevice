@@ -15,10 +15,11 @@
         "criticity",
         "dashlet",
         "dashlets",
+        "datacenter",
         "datamodel",
+        "DICOM",
         "dicom",
         "Dicom",
-        "DICOM",
         "dicomae",
         "dicomweb",
         "DIMSE",
@@ -28,6 +29,7 @@
         "Français",
         "friendlyname",
         "functionalci",
+        "itop",
         "meddev",
         "medicalbrand",
         "medicaldevice",
@@ -59,10 +61,11 @@
         "Positronen",
         "providercontracts",
         "QIDO",
+        "Rudner",
         "serialnumber",
         "WADO"
     ],
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
-    "editor.formatOnSaveMode": "file",
+    "editor.formatOnSaveMode": "modificationsIfAvailable"
 }

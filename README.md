@@ -72,6 +72,11 @@ graph TD
 
 Place this extension in the `extensions` folder of your iTop installation and run the setup again. Be sure to enable the extension during setup.
 
+## Development
+
+- [Local tests and XML schema validation](tests/README.md)
+- [Release preparation and packaging](scripts/README.md)
+
 ## Status
 
 This extension is under active development. Feedback and contributions are welcome.
