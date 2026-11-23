@@ -1,5 +1,9 @@
 ## 📦 Installation
 
+These packages require iTop 3.3.0 or later. Enable Configuration Management
+and a Service Management option for the service and contract tabs. Install
+TeemIP Core IP Management with `teemip-ip-mgmt` 3.3.1 or later for DICOM endpoints.
+
 1. Download the `br-medicaldevice-vX.Y.Z.zip` asset attached to this release.
 2. Extract its contents into your iTop installation's `extensions/` directory,
    preserving the included folder structure. The package creates a single

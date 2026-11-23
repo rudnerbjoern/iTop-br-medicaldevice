@@ -5,8 +5,8 @@ declare(strict_types=1);
 $schemaDirectory = getenv('ITOP_SCHEMA_DIR') ?: __DIR__ . '/../.tmp/schemas';
 $documents = [
     'extension manifest matches its XSD' => ['extension.xml', 'extension.xsd'],
-    'Medical device data model matches the iTop 3.2 XSD' => [
-        'br-medicaldevice/datamodel.br-medicaldevice.xml', '3.2/itop_design.xsd',
+    'Medical device data model matches the iTop 3.3 XSD' => [
+        'br-medicaldevice/datamodel.br-medicaldevice.xml', '3.3/itop_design.xsd',
     ],
 ];
 

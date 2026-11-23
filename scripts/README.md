@@ -4,18 +4,18 @@ Set up the local schemas as described in [the test instructions](../tests/README
 then run from the repository root:
 
 ```sh
-php scripts/prepare-release.php 3.2.7
+php scripts/prepare-release.php 3.3.0
 ```
 
 This updates the extension manifest version, module registration version, and
 manifest release date together, then runs `tests/run.php`.
 Only `extension.xml` and `br-medicaldevice/module.br-medicaldevice.php` are
-updated. The iTop minimum version, XML design version, and documentation examples
-are compatibility information, not release versions, and remain unchanged. The default date uses
-Europe/Berlin. Supply a date explicitly when needed:
+updated. The test suite checks the iTop 3.3.0 minimum, required module versions,
+and the data model against the iTop 3.3 schema before publication. The default
+date uses Europe/Berlin. Supply a date explicitly when needed:
 
 ```sh
-php scripts/prepare-release.php 3.2.7 2026-11-06
+php scripts/prepare-release.php 3.3.0 2026-11-23
 ```
 
 The version must be newer than the existing version and use `X.Y.Z` format.
@@ -28,7 +28,7 @@ If tests fail, the command exits unsuccessfully and retains the version edits
 for inspection. Resolve failures before publishing. The script does not stage,
 commit, push, tag, or publish anything.
 
-Use a release branch named `release/<version>`, for example `release/3.2.7`,
+Use a release branch named `release/<version>`, for example `release/3.3.0`,
 for this preparation. Review the diff, commit on that branch, and open a PR
 into `main`. PR CI requires the branch version to match both project versions.
 

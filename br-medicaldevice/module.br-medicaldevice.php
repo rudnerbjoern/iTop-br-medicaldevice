@@ -19,7 +19,10 @@ SetupWebPage::AddModule(
         // Setup
         //
         'dependencies' => array(
-            'itop-config-mgmt/3.2.0',
+            'itop-structure/3.3.0',
+            'itop-config-mgmt/3.3.0',
+            'itop-bridge-cmdb-services/3.3.0',
+            'teemip-ip-mgmt/3.3.1',
         ),
         'mandatory' => false,
         'visible' => true,

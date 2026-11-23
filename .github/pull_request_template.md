@@ -20,11 +20,11 @@
 Please confirm the following (or remove if not applicable):
 
 - [ ] Code style and structure follow project conventions
-- [ ] XML definitions validate without errors
+- [ ] The manifest and data model pass the extension and iTop 3.3 XSD checks
 - [ ] All new fields and classes are documented
 - [ ] No unintended changes to existing behavior
 - [ ] Changes are tested (manually or automatically)
-- [ ] Compatible with existing iTop installations
+- [ ] The change supports iTop 3.3.0 and the documented module dependencies
 
 ## :test_tube: Test Instructions
 <!-- If applicable, describe how to test the changes -->

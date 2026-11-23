@@ -224,8 +224,6 @@ Dict::Add('EN US', 'English', 'English', array(
     'Class:MedicalDicomApplicationEntity/Attribute:incoming_links_list+' => 'Approved DICOM communication links targeting this application entity.',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle' => 'There is already an AE with the same title in the "$this->org_id_friendlyname$" organization',
     'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_aetitle+' => 'The AE title must be unique within the organization.',
-    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port' => 'There is already an AE with the same IP address and port in the "$this->org_id_friendlyname$" organization',
-    'Class:MedicalDicomApplicationEntity/UniquenessRule:no_duplicate_ip_port+' => 'The combination of IP address and port must be unique within the organization.',
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP' => 'For role SCU or BOTH, an IP address is required.',
     'Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort' => 'For role SCU or BOTH, a port is required.',
     'Class:MedicalDicomApplicationEntity/Error:PortOutOfRange' => 'The port must be in the range 1 to 65535.',
