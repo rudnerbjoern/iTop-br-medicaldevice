@@ -145,11 +145,7 @@ class _MedicalDicomCommunicationLink extends cmdbAbstractObject
 
         // SCP-only AEs are server/passive endpoints and cannot be the initiating side of a link.
         if ($oSourceAe !== null && (string) $oSourceAe->Get('role') === 'SCP') {
-            // Attach the issue to the source_ae_id field so the UI can highlight it
-            $this->AddCheckIssue(
-                Dict::S('Class:MedicalDicomCommunicationLink/Error:InvalidSourceRole'),
-                'source_ae_id'
-            );
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomCommunicationLink/Error:InvalidSourceRole'));
         }
 
         // --- Rule 3: Target must not be SCU-only -------------------------------------------
@@ -159,11 +155,7 @@ class _MedicalDicomCommunicationLink extends cmdbAbstractObject
 
         // SCU-only AEs are client/active endpoints and cannot be the receiving "server" side of a link.
         if ($oTargetAe !== null && (string) $oTargetAe->Get('role') === 'SCU') {
-            // Attach the issue to the target_ae_id field so the UI can highlight it
-            $this->AddCheckIssue(
-                Dict::S('Class:MedicalDicomCommunicationLink/Error:InvalidTargetRole'),
-                'target_ae_id'
-            );
+            $this->AddCheckIssue(Dict::S('Class:MedicalDicomCommunicationLink/Error:InvalidTargetRole'));
         }
 
         // $oEventData is currently unused, but kept for iTop event signature compatibility.

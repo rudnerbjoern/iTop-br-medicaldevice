@@ -30,8 +30,7 @@ class _MedicalDicomApplicationEntity extends cmdbAbstractObject
      * Prefill default values when opening the creation form.
      *
      * iTop calls this hook when the user creates a new object via the UI.
-     * Here we prefill the organization (`org_id`) with the current user's org,
-     * which reduces manual input and keeps ownership consistent.
+     * Use the current user's organization only if the form has no organization yet.
      *
      * Note: This is a convenience/defaulting feature; users may still change
      * the value depending on iTop configuration and permissions.
@@ -41,14 +40,14 @@ class _MedicalDicomApplicationEntity extends cmdbAbstractObject
      */
     public function PrefillCreationForm(&$aContextParam): void
     {
-        // Keep the standard iTop behavior first (important for compatibility)
         parent::PrefillCreationForm($aContextParam);
+        if ((int) $this->Get('org_id') > 0) {
+            return;
+        }
 
-        // Get the currently authenticated iTop user object (may be null in some contexts)
-        $oUser = UserRights::GetUserObject();
-        if ($oUser !== null) {
-            // Assign the user's organization to the new AE record
-            $this->Set('org_id', (int) $oUser->Get('org_id'));
+        $iUserOrgId = (int) UserRights::GetUserObject()?->Get('org_id');
+        if ($iUserOrgId > 0) {
+            $this->Set('org_id', $iUserOrgId);
         }
     }
 
@@ -132,17 +131,15 @@ class _MedicalDicomApplicationEntity extends cmdbAbstractObject
                 $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresIP'));
             }
 
-            // Port must be set to a positive number
-            if ($iPort <= 0) {
+            // Zero represents an unset port.
+            if ($iPort === 0) {
                 $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:RoleRequiresPort'));
             }
         }
 
         // --- Rule 2: Port must be within valid range ---------------------------------------
 
-        // Only validate range when a port is specified (>0).
-        // Valid TCP/UDP ports are 1..65535.
-        if ($iPort > 0 && ($iPort < 1 || $iPort > 65535)) {
+        if ($iPort < 0 || $iPort > 65535) {
             $this->AddCheckIssue(Dict::S('Class:MedicalDicomApplicationEntity/Error:PortOutOfRange'));
         }
 

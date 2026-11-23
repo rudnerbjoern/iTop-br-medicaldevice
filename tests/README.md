@@ -45,8 +45,12 @@ detail views, and the XML wiring of DICOM write checks to their PHP callbacks.
 
 The tests load the two local DICOM PHP classes with minimal iTop substitutes.
 They cover classic and DICOMweb endpoint requirements, active-role modality,
-port boundaries, self-links, and source/target role compatibility.
+port boundaries, self-links, and source/target role compatibility. Creation-form tests
+verify that an AE keeps its organization and only defaults to a valid user organization.
 Add validation cases to `dicom.php`.
+
+The module tests verify the AE title uniqueness rule and the direction-aware
+uniqueness and import reconciliation keys for DICOM communication links.
 
 Release preparation tests check matching version updates, formatting preservation,
 preservation of compatibility versions, single- and double-quoted module
@@ -58,7 +62,5 @@ Missing schemas fail the tests with setup instructions. Tests run offline after
 setup; refresh the cached schemas explicitly when needed. Results apply to the
 schema versions present locally.
 
-These tests do not test iTop event dispatch, creation-form prefilling, attribute
-filters, database uniqueness, persistence, or installation. The substitutes only
-exercise the extension's validation callbacks; verify integration in an installed
-iTop instance separately.
+Verify the creation form in the iTop UI, event dispatch, attribute filters, database
+uniqueness, persistence, and installation separately in an installed iTop instance.

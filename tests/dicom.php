@@ -9,7 +9,7 @@ namespace Combodo\iTop\Service\Events {
 }
 
 namespace {
-    // Minimal iTop substitutes; only the extension's validation callbacks are exercised.
+    // Minimal iTop substitutes for the local DICOM model tests.
     class cmdbAbstractObject
     {
         public array $values = [];
@@ -20,9 +20,32 @@ namespace {
             return $this->values[$attribute] ?? null;
         }
 
-        public function AddCheckIssue(string $message, ?string $attribute = null): void
+        public function Set(string $attribute, mixed $value): void
         {
-            $this->issues[] = $message;
+            $this->values[$attribute] = $value;
+        }
+
+        public function PrefillCreationForm(&$aContextParam): void
+        {
+        }
+
+        final public function AddCheckIssue(string $sIssue)
+        {
+            // PHP accepts extra positional arguments, but iTop only uses the message.
+            if (func_num_args() !== 1) {
+                throw new \ArgumentCountError('AddCheckIssue expects only the issue message.');
+            }
+            $this->issues[] = $sIssue;
+        }
+    }
+
+    class UserRights
+    {
+        public static ?cmdbAbstractObject $user = null;
+
+        public static function GetUserObject(): ?cmdbAbstractObject
+        {
+            return self::$user;
         }
     }
 
@@ -48,10 +71,40 @@ namespace {
     require_once __DIR__ . '/../br-medicaldevice/src/Model/_MedicalDicomCommunicationLink.php';
 
     $tests = [];
+    $prefillCases = [
+        'keep the AE organization when the user belongs to another organization' => [11, 22, 11],
+        'keep the AE organization when the user has no organization' => [11, 0, 11],
+        'default an empty AE organization to the user organization' => [0, 22, 22],
+        'leave the AE organization unset when the user has no organization' => [null, 0, null],
+        'leave the AE organization unset without a current user' => [null, null, null],
+    ];
+    foreach ($prefillCases as $name => [$existingOrg, $userOrg, $expectedOrg]) {
+        $tests[$name] = static function () use ($existingOrg, $userOrg, $expectedOrg): void {
+            $ae = new \BR\Extension\Medicaldevice\Model\_MedicalDicomApplicationEntity();
+            $ae->Set('org_id', $existingOrg);
+            if ($userOrg !== null) {
+                UserRights::$user = new cmdbAbstractObject();
+                UserRights::$user->Set('org_id', $userOrg);
+            }
+            $context = [];
+            try {
+                $ae->PrefillCreationForm($context);
+            } finally {
+                UserRights::$user = null;
+            }
+            if ($ae->Get('org_id') !== $expectedOrg) {
+                throw new \RuntimeException('Unexpected AE organization: ' . var_export($ae->Get('org_id'), true));
+            }
+        };
+    }
+
     $aeCases = [
         'accept a complete classic SCU endpoint' => [[], []],
         'require an IP address for classic SCU' => [['ipaddress_id' => 0], ['RoleRequiresIP']],
         'require a port for classic SCU' => [['port' => 0], ['RoleRequiresPort']],
+        'reject a negative port for passive SCP' => [['role' => 'SCP', 'port' => -1], ['PortOutOfRange']],
+        'report a negative classic SCU port as out of range' => [['port' => -1], ['PortOutOfRange']],
+        'accept the minimum port' => [['port' => 1], []],
         'accept the maximum port' => [['port' => 65535], []],
         'reject a port above the maximum' => [['port' => 65536], ['PortOutOfRange']],
         'require modality for active roles' => [['modality' => null], ['RoleRequiresModality']],
