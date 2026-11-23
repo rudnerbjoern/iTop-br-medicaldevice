@@ -148,7 +148,7 @@ jobs:
             --prefix=br-medicaldevice/ \
             --output=".tmp/br-medicaldevice-${RELEASE_TAG}.zip" \
             HEAD -- \
-            br-medicaldevice extension.xml LICENSE
+            br-medicaldevice br-medicaldevice-bridge-for-dataflows extension.xml LICENSE
           cd .tmp
           sha256sum "br-medicaldevice-${RELEASE_TAG}.zip" \
             > "br-medicaldevice-${RELEASE_TAG}.zip.sha256"

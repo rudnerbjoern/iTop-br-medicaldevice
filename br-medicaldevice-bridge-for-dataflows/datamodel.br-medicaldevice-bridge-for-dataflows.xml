@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3">
+  <classes>
+    <class id="DataFlow" _delta="must_exist">
+      <fields>
+        <field id="execution_frequency">
+          <values>
+            <value id="unspecified" _delta="define">
+              <code>unspecified</code>
+              <rank>80</rank>
+            </value>
+          </values>
+        </field>
+      </fields>
+    </class>
+    <class id="MedicalDicomDataFlow" _delta="define">
+      <parent>DataFlow</parent>
+      <php_parent>
+        <name>BR\Extension\Medicaldevice\DataFlows\Model\_MedicalDicomDataFlow</name>
+        <file>src/Model/_MedicalDicomDataFlow.php</file>
+      </php_parent>
+      <properties>
+        <category>bizmodel,searchable</category>
+        <abstract>false</abstract>
+        <db_table>medicaldicomdataflow</db_table>
+        <reconciliation>
+          <attributes>
+            <attribute id="dicom_link_id"/>
+            <attribute id="dicom_leg"/>
+          </attributes>
+        </reconciliation>
+        <uniqueness_rules>
+          <rule id="link_leg">
+            <attributes>
+              <attribute id="dicom_link_id"/>
+              <attribute id="dicom_leg"/>
+            </attributes>
+            <is_blocking>true</is_blocking>
+          </rule>
+        </uniqueness_rules>
+      </properties>
+      <fields>
+        <field id="dicom_link_id" xsi:type="AttributeExternalKey">
+          <sql>dicom_link_id</sql>
+          <target_class>MedicalDicomCommunicationLink</target_class>
+          <is_null_allowed>false</is_null_allowed>
+          <on_target_delete>DEL_AUTO</on_target_delete>
+        </field>
+        <field id="dicom_leg" xsi:type="AttributeEnum">
+          <sql>dicom_leg</sql>
+          <values>
+            <value id="forward">
+              <code>forward</code>
+            </value>
+            <value id="reverse">
+              <code>reverse</code>
+            </value>
+          </values>
+          <is_null_allowed>false</is_null_allowed>
+        </field>
+      </fields>
+      <event_listeners>
+        <event_listener id="CheckDicomFlowOwner" _delta="define">
+          <event>EVENT_DB_CHECK_TO_WRITE</event>
+          <callback>CheckDicomFlowOwner</callback>
+          <rank>30</rank>
+        </event_listener>
+        <event_listener id="CheckDicomFlowDelete" _delta="define">
+          <event>EVENT_DB_CHECK_TO_DELETE</event>
+          <callback>CheckDicomFlowDelete</callback>
+          <rank>30</rank>
+        </event_listener>
+        <event_listener id="SetDicomFlowFlags" _delta="define">
+          <event>EVENT_DB_SET_ATTRIBUTES_FLAGS</event>
+          <callback>SetDicomFlowFlags</callback>
+          <rank>30</rank>
+        </event_listener>
+      </event_listeners>
+      <methods/>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1">
+              <items>
+                <item id="fieldset:ConfigMgmt:baseinfo">
+                  <items>
+                    <item id="dicom_link_id" _delta="define">
+                      <rank>50</rank>
+                    </item>
+                    <item id="dicom_leg" _delta="define">
+                      <rank>60</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="MedicalDicomCommunicationLink" _delta="must_exist">
+      <fields>
+        <field id="dicom_dataflows" xsi:type="AttributeDashboard" _delta="define">
+          <is_user_editable>false</is_user_editable>
+          <definition>
+            <layout>DashboardLayoutOneCol</layout>
+            <title>DicomFlow:Tab</title>
+            <cells>
+              <cell id="0">
+                <rank>0</rank>
+                <dashlets>
+                  <dashlet id="flows" xsi:type="DashletObjectList">
+                    <rank>0</rank>
+                    <title>DicomFlow:Tab</title>
+                    <query>SELECT MedicalDicomDataFlow WHERE dicom_link_id = :this-&gt;id</query>
+                    <menu>false</menu>
+                  </dashlet>
+                </dashlets>
+              </cell>
+            </cells>
+          </definition>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="dicom_dataflows" _delta="define">
+              <rank>250</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="MedicalDicomApplicationEntity" _delta="must_exist">
+      <fields>
+        <field id="dicom_dataflows" xsi:type="AttributeDashboard" _delta="define">
+          <is_user_editable>false</is_user_editable>
+          <definition>
+            <layout>DashboardLayoutOneCol</layout>
+            <title>DicomFlow:Tab</title>
+            <cells>
+              <cell id="0">
+                <rank>0</rank>
+                <dashlets>
+                  <dashlet id="flows" xsi:type="DashletObjectList">
+                    <rank>0</rank>
+                    <title>DicomFlow:Tab</title>
+                    <query>SELECT MedicalDicomDataFlow AS f JOIN MedicalDicomCommunicationLink AS l ON f.dicom_link_id = l.id WHERE l.source_ae_id = :this-&gt;id OR l.target_ae_id = :this-&gt;id</query>
+                    <menu>false</menu>
+                  </dashlet>
+                </dashlets>
+              </cell>
+            </cells>
+          </definition>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="dicom_dataflows" _delta="define">
+              <rank>250</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+  </classes>
+  <user_rights>
+    <groups>
+      <group id="Configuration">
+        <classes>
+          <class id="MedicalDicomDataFlow" _delta="define_if_not_exists"/>
+        </classes>
+      </group>
+    </groups>
+  </user_rights>
+</itop_design>

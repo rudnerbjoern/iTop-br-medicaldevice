@@ -1,34 +1,43 @@
 <?php
 
+/**
+ * Tests DICOM form defaults and write checks with in-memory iTop objects.
+ */
+
 declare(strict_types=1);
 
 namespace Combodo\iTop\Service\Events {
+    /** Supplies the event type expected by the DICOM write-check callbacks. */
     class EventData
     {
     }
 }
 
 namespace {
-    // Minimal iTop substitutes for the local DICOM model tests.
+    /** Stores field values and validation messages for one in-memory test object. */
     class cmdbAbstractObject
     {
         public array $values = [];
         public array $issues = [];
 
+        /** Reads a fixture field, returning null for an unset value. */
         public function Get(string $attribute): mixed
         {
             return $this->values[$attribute] ?? null;
         }
 
+        /** Assigns a fixture field for a model callback to read. */
         public function Set(string $attribute, mixed $value): void
         {
             $this->values[$attribute] = $value;
         }
 
+        /** Provides the parent form hook invoked by both DICOM models. */
         public function PrefillCreationForm(&$aContextParam): void
         {
         }
 
+        /** Records a validation message and rejects calls that pass extra arguments. */
         final public function AddCheckIssue(string $sIssue)
         {
             // PHP accepts extra positional arguments, but iTop only uses the message.
@@ -39,28 +48,34 @@ namespace {
         }
     }
 
+    /** Holds the current user fixture for organization defaulting tests. */
     class UserRights
     {
         public static ?cmdbAbstractObject $user = null;
 
+        /** Returns the user selected for the current test case. */
         public static function GetUserObject(): ?cmdbAbstractObject
         {
             return self::$user;
         }
     }
 
+    /** Preserves dictionary keys so validation messages can be asserted without translations. */
     class Dict
     {
+        /** Returns the message key used by the callback. */
         public static function S(string $key): string
         {
             return $key;
         }
     }
 
+    /** Provides in-memory endpoint lookup for communication link validation. */
     class MetaModel
     {
         public static array $objects = [];
 
+        /** Looks up the fixture by object ID and returns null for an unknown ID. */
         public static function GetObject(string $class, int $id, bool $mustExist = true): ?cmdbAbstractObject
         {
             return self::$objects[$id] ?? null;

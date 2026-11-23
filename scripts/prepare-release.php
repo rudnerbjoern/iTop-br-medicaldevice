@@ -1,8 +1,17 @@
 <?php
 
+/**
+ * Prepares the manifest and base module for a release and runs the native test suite.
+ */
+
 declare(strict_types=1);
 
-/** Validate all inputs before producing either updated file. */
+/**
+ * Validates the release version and date before updating the manifest and base module in memory.
+ *
+ * @return array{string, string} Updated manifest XML followed by the updated module PHP.
+ * @throws RuntimeException If the release inputs or existing version metadata are invalid.
+ */
 function prepareReleaseContents(string $manifest, string $module, string $version, string $date): array
 {
     if (!preg_match('/^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/D', $version)) {
@@ -46,12 +55,17 @@ function prepareReleaseContents(string $manifest, string $module, string $versio
             '~<' . $element . '>.*?</' . $element . '>~s',
             static fn (): string => "<$element><![CDATA[$value]]></$element>",
             $manifest,
-            -1,
+            1,
             $count
         );
         if ($manifest === null || $count !== 1) {
             throw new RuntimeException('Expected exactly one editable ' . $element . ' element.');
         }
+    }
+    $moduleEntry = '~(<module>\s*<id>br-medicaldevice</id>\s*<version>)' . preg_quote($currentVersion, '~') . '(</version>)~';
+    $manifest = preg_replace_callback($moduleEntry, static fn (array $m): string => $m[1] . $version . $m[2], $manifest, -1, $entries);
+    if ($entries !== 1) {
+        throw new RuntimeException('Expected one matching base module in the bundle inventory.');
     }
     $module = preg_replace_callback(
         $modulePattern,

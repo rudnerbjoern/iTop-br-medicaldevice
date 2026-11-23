@@ -62,5 +62,11 @@ Missing schemas fail the tests with setup instructions. Tests run offline after
 setup; refresh the cached schemas explicitly when needed. Results apply to the
 schema versions present locally.
 
-Verify the creation form in the iTop UI, event dispatch, attribute filters, database
-uniqueness, persistence, and installation separately in an installed iTop instance.
+Run the database integration suite from the sibling iTop development project with
+`./scripts/tests/Invoke-Tests.ps1 -Suite Extensions -ExtensionPath ../iTop-br-medicaldevice -ExtensionSuite Integration -Profile Vanilla -DependencyPath extensions/teemip-core-ip-mgmt`.
+The runner requires the reserved disposable database and iTop Flow Management.
+It exercises setup, flow persistence, AE remapping, direction changes, protected
+fields, cascade deletion, and reconciliation on stored links.
+
+The standalone PHP suite uses iTop substitutes. Check visual layout and interactive
+form behavior separately in an installed instance.

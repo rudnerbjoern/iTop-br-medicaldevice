@@ -43,18 +43,18 @@ Treat MUST and MUST NOT as mandatory requirements.
   format above. You MUST NOT use `build/` or `chore/` for release preparation.
 - You MUST select exactly one prefix according to the primary task outcome:
 
-  | Prefix | Primary outcome |
-  | --- | --- |
-  | `feat/` | New extension capability |
-  | `fix/` | Corrected behavior |
-  | `doc/` | Documentation-only change |
-  | `ci/` | GitHub Actions or CI infrastructure |
-  | `refactor/` | Restructuring without intended behavior changes |
-  | `perf/` | Performance improvement |
-  | `test/` | Test coverage or validation behavior |
-  | `build/` | Dependencies, packaging, or build tooling |
-  | `release/` | Prepare a specific release version and its metadata |
-  | `chore/` | Maintenance that fits none of the preceding outcomes |
+  | Prefix      | Primary outcome                                      |
+  | ----------- | ---------------------------------------------------- |
+  | `feat/`     | New extension capability                             |
+  | `fix/`      | Corrected behavior                                   |
+  | `doc/`      | Documentation-only change                            |
+  | `ci/`       | GitHub Actions or CI infrastructure                  |
+  | `refactor/` | Restructuring without intended behavior changes      |
+  | `perf/`     | Performance improvement                              |
+  | `test/`     | Test coverage or validation behavior                 |
+  | `build/`    | Dependencies, packaging, or build tooling            |
+  | `release/`  | Prepare a specific release version and its metadata  |
+  | `chore/`    | Maintenance that fits none of the preceding outcomes |
 
 - For branches other than `release/<version>`, you MUST make the description
   identify the affected project capability or

@@ -1,11 +1,14 @@
 <?php
 
+/**
+ * Runs the native test suites and reports failures through the process exit status.
+ */
+
 declare(strict_types=1);
 
-// Test local extension code without an iTop installation or database.
 try {
     $tests = require __DIR__ . '/dicom.php';
-    $tests = array_merge($tests, require __DIR__ . '/module.php');
+    $tests = array_merge($tests, require __DIR__ . '/module.php', require __DIR__ . '/dataflows.php');
     $tests = array_merge($tests, require __DIR__ . '/schemas.php');
     $tests = array_merge($tests, require __DIR__ . '/prepare-release.php');
     if (!is_array($tests) || $tests === []) {

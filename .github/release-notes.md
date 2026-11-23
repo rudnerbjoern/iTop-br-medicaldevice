@@ -7,8 +7,8 @@ TeemIP Core IP Management with `teemip-ip-mgmt` 3.3.1 or later for DICOM endpoin
 1. Download the `br-medicaldevice-vX.Y.Z.zip` asset attached to this release.
 2. Extract its contents into your iTop installation's `extensions/` directory,
    preserving the included folder structure. The package creates a single
-   `extensions/br-medicaldevice/` folder containing the manifest and module.
-3. Run iTop setup and select **Datamodel: Medical Devices** to activate the extension.
+   `extensions/br-medicaldevice/` folder containing the manifest, the base module, and the optional DICOM flow bridge.
+3. Run iTop setup and select **Datamodel: Medical Devices**. Selecting **Applications data flows** as well enables the DICOM flow bridge.
 
 ### Verify your download
 
