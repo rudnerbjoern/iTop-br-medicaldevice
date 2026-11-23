@@ -1,24 +1,24 @@
 # PHP tests
 
 Run from the repository root with PHP 8.0 or later, SimpleXML, and DOM enabled.
-First download the two standalone schemas used by the project's XML files:
+CI and local tests use the extension descriptor schema and the standalone iTop 3.3 design schema. Download them from the repository root:
 
 ```sh
-mkdir -p .tmp/schemas/3.2
+mkdir -p .tmp/schemas/3.3
 curl --fail --location https://rudnerbjoern.github.io/iTop-schema/extension.xsd -o .tmp/schemas/extension.xsd
-curl --fail --location https://rudnerbjoern.github.io/iTop-schema/3.2/itop_design.xsd -o .tmp/schemas/3.2/itop_design.xsd
+curl --fail --location https://rudnerbjoern.github.io/iTop-schema/dist/3.3/itop_design.xsd -o .tmp/schemas/3.3/itop_design.xsd
 ```
 
 PowerShell alternative:
 
 ```powershell
-New-Item -ItemType Directory -Force .tmp/schemas/3.2 | Out-Null
+New-Item -ItemType Directory -Force .tmp/schemas/3.3 | Out-Null
 Invoke-WebRequest https://rudnerbjoern.github.io/iTop-schema/extension.xsd -OutFile .tmp/schemas/extension.xsd
-Invoke-WebRequest https://rudnerbjoern.github.io/iTop-schema/3.2/itop_design.xsd -OutFile .tmp/schemas/3.2/itop_design.xsd
+Invoke-WebRequest https://rudnerbjoern.github.io/iTop-schema/dist/3.3/itop_design.xsd -OutFile .tmp/schemas/3.3/itop_design.xsd
 ```
 
 Alternatively, set `ITOP_SCHEMA_DIR` to an existing iTop-schema checkout containing
-`extension.xsd` and `3.2/itop_design.xsd`. Then run:
+`extension.xsd` and `3.3/itop_design.xsd`. Then run:
 
 ```sh
 php tests/run.php
@@ -38,9 +38,10 @@ approval before a fork workflow can start.
 For `release/*` PRs, CI also validates the `release/X.Y.Z` branch name against
 the manifest and module versions, and includes that result in `PR checks`.
 
-Three module smoke tests in `module.php` execute the real module registration,
-check device classes against selectable model types, and verify the XML wiring
-of DICOM write checks to their PHP callbacks.
+The module tests execute the real module registration and verify the minimum
+iTop version and the required iTop and TeemIP modules. They also check device
+classes against selectable model types, the four ConfigMgmt fieldsets in device
+detail views, and the XML wiring of DICOM write checks to their PHP callbacks.
 
 The tests load the two local DICOM PHP classes with minimal iTop substitutes.
 They cover classic and DICOMweb endpoint requirements, active-role modality,

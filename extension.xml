@@ -21,7 +21,7 @@
         <![CDATA[]]>
     </version_description>
     <itop_version_min>
-        <![CDATA[3.2.0]]>
+        <![CDATA[3.3.0]]>
     </itop_version_min>
     <status>stable</status>
     <mandatory>false</mandatory>
