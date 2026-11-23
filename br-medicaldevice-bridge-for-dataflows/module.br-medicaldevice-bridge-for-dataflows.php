@@ -10,7 +10,7 @@ SetupWebPage::AddModule(
     [
         'label' => 'Medical Devices - DICOM data flows',
         'category' => 'business',
-        'dependencies' => ['br-medicaldevice/3.2.7', 'itop-flow-map/3.3.0'],
+        'dependencies' => ['br-medicaldevice/3.3.0', 'itop-flow-map/3.3.0'],
         'mandatory' => false,
         'visible' => true,
         'auto_select' => 'SetupInfo::ModuleIsSelected("br-medicaldevice") && SetupInfo::ModuleIsSelected("itop-flow-map")',
