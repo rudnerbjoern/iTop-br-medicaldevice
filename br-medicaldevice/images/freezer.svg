@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+    <title id="title">Glass-door laboratory refrigerator</title>
+    <rect x="12" y="4" width="40" height="55" rx="5" fill="#cbebed" stroke="#214c61" stroke-width="3"/>
+    <rect x="18" y="11" width="25" height="39" rx="2" fill="#f4fcfc" stroke="#387f8c" stroke-width="2.5"/>
+    <g fill="#6bbec7" stroke="#285c6d" stroke-width="1.7" stroke-linejoin="round">
+        <path d="M22 17h5v10h-5zM32 17h5v10h-5z"/>
+        <path d="M24 35h11v10H24z"/>
+    </g>
+    <path d="M19 28h23m-23 18h23m-16-13h11" stroke="#285c6d" stroke-width="2.5"/>
+    <path d="M47 24v12m-23 18h16" stroke="#214c61" stroke-width="3" stroke-linecap="round"/>
+</svg>

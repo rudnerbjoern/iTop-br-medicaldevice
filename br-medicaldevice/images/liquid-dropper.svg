@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+    <title id="title">Automated liquid handler with a pipetting head and microplate</title>
+    <g stroke="#244755" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 53v5m40-5v5" stroke-width="4"/>
+        <path d="M9 46V12q0-3 3-3h42v8H17v29z" fill="#9ac8c8" stroke-width="2.8"/>
+        <path d="M21 13h9" stroke="#47767c" stroke-width="2"/>
+        <path d="M34 15h15v10l-2 3H36l-2-3z" fill="#5e9095" stroke-width="2.4"/>
+        <path d="M37 28v6l1 2m4-8v6l1 2m4-8v6l1 2" fill="none" stroke-width="2"/>
+        <rect x="7" y="46" width="50" height="8" rx="2" fill="#c9e1dc" stroke-width="2.7"/>
+        <path d="m26 43 5-4h19l3 4v3H26z" fill="#f5c288" stroke-width="2.1"/>
+        <path d="M33 42h2m4 0h2m4 0h2" stroke="#815e43" stroke-width="1.7"/>
+    </g>
+</svg>

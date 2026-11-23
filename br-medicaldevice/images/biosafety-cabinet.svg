@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+    <title id="title">Front view of a biosafety cabinet with airflow arrows</title>
+    <g stroke="#214c61" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M13 47v11m38-11v11M14 53h36" fill="none" stroke-width="3.5"/>
+        <path d="M9 18h46v26l3 4H6l3-4z" fill="#d7ecec" stroke-width="3"/>
+        <path d="M14 19h36v22H14z" fill="#f6fcfa" stroke-width="2"/>
+        <rect x="6" y="6" width="52" height="13" rx="3" fill="#92c5c8" stroke-width="3"/>
+        <path d="M13 12h16" stroke-width="2.6"/>
+        <circle cx="50" cy="12" r="1.7" fill="#214c61" stroke="none"/>
+        <path d="M14 41h36" stroke-width="2.5"/>
+    </g>
+    <path d="M25 24v11m-4-4 4 4 4-4m10-7v11m-4-4 4 4 4-4" fill="none" stroke="#247789" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

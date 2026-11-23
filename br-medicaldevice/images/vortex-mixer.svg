@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+    <title id="title">Vortex mixer with a sample tube</title>
+    <g stroke="#244755" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 54v4m33-4v4" fill="none" stroke-width="5"/>
+        <path d="M18 33h28q4 0 5 4l4 13q1 5-4 5H13q-5 0-4-5l4-13q1-4 5-4z" fill="#c5e0dc" stroke-width="2.8"/>
+        <path d="M14 39h36" fill="none" stroke="#638f92" stroke-width="2"/>
+        <rect x="17" y="44" width="10" height="4" rx="2" fill="#447d80" stroke="none"/>
+        <circle cx="42" cy="46" r="5" fill="#fff8e8" stroke-width="2.5"/>
+        <path d="m42 46 2-2" fill="none" stroke-width="1.8"/>
+        <g transform="rotate(20 31 27)">
+            <path d="M27 6h8v18l-4 5-4-5z" fill="#edf7f6" stroke-width="2.4"/>
+            <path d="M28.3 17h5.4v6.6L31 27l-2.7-3.4z" fill="#db8638" stroke="none"/>
+            <rect x="25.6" y="3.5" width="10.8" height="4.8" rx="1.3" fill="#609ca1" stroke-width="2.1"/>
+        </g>
+        <path d="M21 25q10 4 21 0l-5 8H26z" fill="#355661" stroke-width="2.5"/>
+    </g>
+    <path d="M15 23q-3 2-3 5m35-6q3 2 4 5" fill="none" stroke="#54868a" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
