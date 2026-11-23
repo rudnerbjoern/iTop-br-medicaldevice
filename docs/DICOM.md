@@ -105,7 +105,10 @@ Governance rules enforced:
 * If a port is specified, it must be within the valid port range `1..65535`
 * For SCU and BOTH, modality is required as a governance/classification rule
 * AE Title must be unique per organization
-* Classical endpoint uniqueness is based on organization, IP address, port and protocol
+
+Different AE titles can share the same IP address and TCP port, even with the same
+protocol. For example, `PACS_ARCHIVE` and `PACS_RESEARCH` can both accept classic
+DICOM connections at `192.0.2.10:104`. See [DICOM PS3.8, C.2](https://dicom.nema.org/medical/dicom/current/output/chtml/part08/sect_C.2.html).
 
 ## MedicalDicomCommunicationLink
 
@@ -126,8 +129,8 @@ Define the following attributes:
 | Attribute    | Description                                         |
 | ------------ | --------------------------------------------------- |
 | Organization | Governance scope                                    |
-| Source AE    | Sending or initiating AE                            |
-| Target AE    | Receiving AE                                        |
+| Source AE    | AE initiating the documented operation              |
+| Target AE    | AE receiving the request                            |
 | Direction    | PUSH, PULL, or BIDIR                                |
 | Status       | planned, approved, production, deprecated, obsolete |
 | Description  | Optional clinical or technical notes                |
@@ -148,6 +151,15 @@ The following validations are enforced:
 2. Source AE must not be SCP-only
 3. Target AE must not be SCU-only
 4. Only one identical link per organization, source, target, and direction
+
+A workstation can have both a `PUSH` and a `PULL` link to the same PACS, each
+with its own status. The workstation is the source in both records. `BIDIR` is a
+separate direction and can coexist with either entry.
+
+For imports using the default reconciliation key, include the organization,
+source AE, target AE, and direction to match the intended link. When upgrading
+an existing import that matches by endpoint pair, add the direction before
+importing multiple links for that pair.
 
 These rules apply to all write paths (UI, CSV import, REST API, synchronization).
 

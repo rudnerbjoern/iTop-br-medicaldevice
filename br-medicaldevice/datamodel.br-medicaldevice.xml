@@ -317,16 +317,6 @@
                         <disabled>false</disabled>
                         <is_blocking>true</is_blocking>
                     </rule>
-                    <rule id="no_duplicate_ip_port">
-                        <attributes>
-                            <attribute id="org_id" />
-                            <attribute id="ipaddress_id" />
-                            <attribute id="port" />
-                        </attributes>
-                        <filter><![CDATA[]]></filter>
-                        <disabled>false</disabled>
-                        <is_blocking>true</is_blocking>
-                    </rule>
                 </uniqueness_rules>
                 <obsolescence>
                     <condition><![CDATA[status = 'obsolete']]></condition>
@@ -756,6 +746,7 @@
                         <attribute id="org_id" />
                         <attribute id="source_ae_id" />
                         <attribute id="target_ae_id" />
+                        <attribute id="direction" />
                     </attributes>
                 </reconciliation>
                 <uniqueness_rules>
@@ -764,6 +755,7 @@
                             <attribute id="org_id" />
                             <attribute id="source_ae_id" />
                             <attribute id="target_ae_id" />
+                            <attribute id="direction" />
                         </attributes>
                         <is_blocking>true</is_blocking>
                     </rule>

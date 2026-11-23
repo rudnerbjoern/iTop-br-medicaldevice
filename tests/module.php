@@ -60,4 +60,27 @@ return [
             }
         }
     },
+    'allow distinct AE titles to share a network endpoint within an organization' => static function (): void {
+        $model = simplexml_load_file(__DIR__ . '/../br-medicaldevice/datamodel.br-medicaldevice.xml');
+        $rules = $model->xpath('//class[@id="MedicalDicomApplicationEntity"]/properties/uniqueness_rules/rule');
+        if (count($rules) !== 1 || (string) $rules[0]->is_blocking !== 'true'
+            || (string) $rules[0]->disabled === 'true'
+            || array_map('strval', $rules[0]->xpath('attributes/attribute/@id')) !== ['org_id', 'aetitle']) {
+            throw new RuntimeException('AE uniqueness must be based on organization and AE title.');
+        }
+    },
+    'distinguish link directions in uniqueness checks and import matching' => static function (): void {
+        $model = simplexml_load_file(__DIR__ . '/../br-medicaldevice/datamodel.br-medicaldevice.xml');
+        $properties = $model->xpath('//class[@id="MedicalDicomCommunicationLink"]/properties')[0];
+        $rules = $properties->xpath('uniqueness_rules/rule');
+        $expected = ['org_id', 'source_ae_id', 'target_ae_id', 'direction'];
+        if (count($rules) !== 1 || (string) $rules[0]->is_blocking !== 'true'
+            || (string) $rules[0]->disabled === 'true'
+            || array_map('strval', $rules[0]->xpath('attributes/attribute/@id')) !== $expected) {
+            throw new RuntimeException('Link uniqueness must include organization, source, target and direction.');
+        }
+        if (array_map('strval', $properties->xpath('reconciliation/attributes/attribute/@id')) !== $expected) {
+            throw new RuntimeException('Import matching must use the full communication link key.');
+        }
+    },
 ];
