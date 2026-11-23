@@ -1,12 +1,17 @@
 <?php
 
+/**
+ * Checks module registration, data model constraints and form layouts against the extension definitions.
+ */
+
 declare(strict_types=1);
 
-// Capture the real module registration without starting iTop setup.
+/** Captures module registrations for inspection by the native tests. */
 class SetupWebPage
 {
     public static array $modules = [];
 
+    /** Records the module file, identifier and settings supplied by the extension. */
     public static function AddModule(string $file, string $id, array $settings): void
     {
         self::$modules[] = [$file, $id, $settings];
@@ -33,6 +38,16 @@ return [
             || array_diff($requiredDependencies, $settings['dependencies']) !== []
             || $settings['mandatory'] !== false || $settings['visible'] !== true) {
             throw new RuntimeException('Module identity, dependency or installation flags do not match the project.');
+        }
+    },
+    'load the CT and PACS example only as optional demo data' => static function (): void {
+        SetupWebPage::$modules = [];
+        require __DIR__ . '/../br-medicaldevice/module.br-medicaldevice.php';
+        [$moduleFile, , $settings] = SetupWebPage::$modules[0];
+        $sample = 'data/data.sample.ct-pacs.xml';
+        if (!in_array($sample, $settings['data.sample'], true) || in_array($sample, $settings['data.struct'], true)
+            || !is_file(dirname($moduleFile) . '/' . $sample)) {
+            throw new RuntimeException('The CT and PACS sample must ship with the base module as optional demo data.');
         }
     },
     'offer a matching model type for every medical device class' => static function (): void {

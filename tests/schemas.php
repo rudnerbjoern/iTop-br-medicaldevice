@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Validates the extension manifest and both module data models against their XML schemas.
+ */
+
 declare(strict_types=1);
 
 $schemaDirectory = getenv('ITOP_SCHEMA_DIR') ?: __DIR__ . '/../.tmp/schemas';
@@ -7,6 +11,10 @@ $documents = [
     'extension manifest matches its XSD' => ['extension.xml', 'extension.xsd'],
     'Medical device data model matches the iTop 3.3 XSD' => [
         'br-medicaldevice/datamodel.br-medicaldevice.xml', '3.3/itop_design.xsd',
+    ],
+    'DICOM flow bridge matches the iTop 3.3 XSD' => [
+        'br-medicaldevice-bridge-for-dataflows/datamodel.br-medicaldevice-bridge-for-dataflows.xml',
+        '3.3/itop_design.xsd',
     ],
 ];
 

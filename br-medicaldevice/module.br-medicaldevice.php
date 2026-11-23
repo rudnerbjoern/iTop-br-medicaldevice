@@ -1,9 +1,10 @@
 <?php
 
 /**
+ * Registers the medical device module and its iTop dependencies.
+ *
  * @copyright   Copyright (C) 2024-2026 Björn Rudner
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
- * iTop module definition file
  */
 
 /** @disregard P1009 Undefined type SetupWebPage */
@@ -35,7 +36,7 @@ SetupWebPage::AddModule(
             // add your 'structure' definition XML files here,
         ),
         'data.sample' => array(
-            // add your sample data XML files here,
+            'data/data.sample.ct-pacs.xml',
         ),
 
         // Documentation

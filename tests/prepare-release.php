@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Tests release metadata updates and validation using the current manifest and module registration.
+ */
+
 declare(strict_types=1);
 
 require_once __DIR__ . '/../scripts/prepare-release.php';
@@ -16,6 +20,8 @@ $tests = [
         [$updatedManifest, $updatedModule] = prepareReleaseContents($manifest, $module, $next, '2028-02-29');
         $xml = simplexml_load_string($updatedManifest);
         if ((string) $xml->version !== $next || (string) $xml->release_date !== '2028-02-29'
+            || (string) $xml->modules->module[0]->version !== $next
+            || (string) $xml->modules->module[1]->version !== (string) simplexml_load_string($manifest)->modules->module[1]->version
             || $updatedModule !== str_replace("'br-medicaldevice/$current'", "'br-medicaldevice/$next'", $module)
             || preg_replace('~<(version|release_date)>.*?</\1>~s', '', $updatedManifest)
                 !== preg_replace('~<(version|release_date)>.*?</\1>~s', '', $manifest)) {

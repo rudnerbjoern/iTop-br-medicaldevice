@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Set>
+    <!-- IDs are XML import keys. Keep referenced objects ahead of their dependants. -->
+    <Organization id="733001">
+        <name>Demo Radiology</name>
+        <code>DEMO-RAD</code>
+        <status>active</status>
+    </Organization>
+    <MedicalDeviceMIE id="733002">
+        <name>Demo CT Scanner</name>
+        <org_id>733001</org_id>
+        <status>production</status>
+    </MedicalDeviceMIE>
+    <Server id="733003">
+        <name>Demo PACS Server</name>
+        <org_id>733001</org_id>
+        <status>production</status>
+    </Server>
+    <MedicalDicomApplicationEntity id="733004">
+        <aetitle>DEMO_CT</aetitle>
+        <org_id>733001</org_id>
+        <medicaldevicemie_id>733002</medicaldevicemie_id>
+        <role>SCU</role>
+        <modality>CT</modality>
+        <protocol>dicomweb</protocol>
+        <endpoint_url>https://ct.example.org/dicom-web</endpoint_url>
+        <status>production</status>
+    </MedicalDicomApplicationEntity>
+    <MedicalDicomApplicationEntity id="733005">
+        <aetitle>DEMO_PACS</aetitle>
+        <org_id>733001</org_id>
+        <functionalci_id>733003</functionalci_id>
+        <role>SCP</role>
+        <protocol>dicomweb</protocol>
+        <endpoint_url>https://pacs.example.org/dicom-web</endpoint_url>
+        <status>production</status>
+    </MedicalDicomApplicationEntity>
+    <MedicalDicomCommunicationLink id="733006">
+        <org_id>733001</org_id>
+        <source_ae_id>733004</source_ae_id>
+        <target_ae_id>733005</target_ae_id>
+        <direction>PUSH</direction>
+        <status>production</status>
+        <description>The CT scanner sends images to the PACS using DICOMweb STOW-RS.</description>
+    </MedicalDicomCommunicationLink>
+</Set>

@@ -117,7 +117,7 @@ DICOM connections at `192.0.2.10:104`. See [DICOM PS3.8, C.2](https://dicom.nema
 
 ## MedicalDicomCommunicationLink
 
-### Concept
+### Communication Link Purpose
 
 A **MedicalDicomCommunicationLink** documents a governed DICOM communication relationship between two AEs.
 
@@ -142,11 +142,11 @@ Define the following attributes:
 
 ### Direction Semantics
 
-| Direction | Interpretation                    |
-| --------- | --------------------------------- |
-| PUSH      | Source sends data to target       |
-| PULL      | Source retrieves data from target |
-| BIDIR     | Bidirectional communication       |
+| Direction | Interpretation                    | Payload arrows on the optional CI flow map |
+| --------- | --------------------------------- | ------------------------------------------ |
+| PUSH      | Source sends data to target       | Source → target                            |
+| PULL      | Source retrieves data from target | Target → source                            |
+| BIDIR     | Bidirectional communication       | One arrow in each direction                |
 
 ### Governance Rules
 
@@ -174,13 +174,83 @@ These rules apply to all write paths (UI, CSV import, REST API, synchronization)
 
 The lifecycle status supports governance and change management:
 
-| Status     | Meaning                       |
-| ---------- | ----------------------------- |
-| planned    | Intended but not yet approved |
-| approved   | Approved for implementation   |
-| production | Active clinical use           |
-| deprecated | Planned for removal           |
-| obsolete   | No longer valid               |
+| Link status | Meaning                       | Status of generated flows |
+| ----------- | ----------------------------- | ------------------------- |
+| planned     | Intended but not yet approved | Inactive                  |
+| approved    | Approved for implementation   | Inactive                  |
+| production  | Active clinical use           | Active                    |
+| deprecated  | Planned for removal           | Active                    |
+| obsolete    | No longer valid               | Inactive                  |
+
+## DICOM data flows
+
+When Medical Devices and **Applications data flows** are selected in iTop setup,
+the optional bridge maps each eligible DICOM link onto the native CI flow map.
+Open the **DICOM data flows** tab on a communication link or an AE to inspect
+its flows. Follow a flow's **DICOM communication link** field to open the
+governing record. To see inactive flows in views that filter obsolete objects,
+enable the display of obsolete objects.
+
+### Endpoint assignments
+
+Assign each AE to a technical host (server or VM) or to a medical imaging
+device. Each AE must resolve to one CI, the two CIs must be distinct, and both
+AEs and CIs must belong to the link's organization. If an assignment is
+missing, ambiguous or outside that organization, or both AEs share a host,
+the bridge keeps the DICOM link, removes its generated flows and logs the link
+ID for review. Correcting the assignments restores the applicable flows.
+
+### Editing and deleting flows
+
+Edit the communication link to change the endpoints, direction, organization,
+description or status. The bridge maintains these values on the corresponding
+flows and generates their names. On a generated flow, you can set the
+execution frequency, source and destination impact, type and protocol.
+New flows start with unspecified frequency and both impact flags set to *No*.
+
+Each flow belongs to one link and one payload direction. Changing a link from
+BIDIR to PULL, for example, keeps the reverse flow's ID and its manually
+entered values and removes the forward flow. Deleting a link removes its flows
+through iTop's standard deletion plan. The usual CI reference and cascade
+rules apply. Separately maintained flows and flows owned by parallel links
+keep their own records. [Native iTop flow model](https://github.com/Combodo/iTop/blob/3.3.0-1/datamodels/2.x/itop-flow-map/datamodel.itop-flow-map.xml)
+
+### Setup and recovery
+
+Back up the database before upgrading. Deploy the bundle and run iTop setup
+with both `br-medicaldevice` and `itop-flow-map` selected.
+After schema creation, the bridge installer reconciles existing links and
+writes the totals to the setup log. Saving a link or changing an AE's host or
+organization triggers the same reconciliation. The bridge locks each link and
+applies all changes to its flows in one transaction. Repeating the operation
+preserves matching records.
+
+With iTop cron running, the bridge checks up to 100 links every 15 minutes and
+resumes at the last processed ID. If an update fails, use the link ID in the iTop
+log to inspect endpoint assignments or blocking references. Cron can retry the
+change after the cause is corrected.
+
+To preview the counts of flows to create, update or delete and links requiring
+review, run the following in an initialized administrative iTop context.
+Calling `MedicalDicomFlowSync::reconcileAll()` applies the changes.
+
+```php
+use BR\Extension\Medicaldevice\DataFlows\Service\MedicalDicomFlowSync;
+
+MedicalDicomFlowSync::reconcileAll(true);
+```
+
+## Installed CT and PACS example
+
+On a fresh installation, select the demo data option in iTop setup. In the
+**Demo Radiology** organization, open **Medical Devices → DICOM → DICOM
+Communication Links**. The production PUSH link connects the scanner endpoint
+**DEMO_CT** to the archive endpoint **DEMO_PACS** using DICOMweb (STOW-RS).
+The base module supplies both endpoints and their CIs.
+
+With **Applications data flows** and the bridge enabled, the link's **DICOM
+data flows** tab shows one active flow from **Demo CT Scanner** to **Demo PACS
+Server**. Production installations that omit demo data skip the example.
 
 ## Example Modeling Patterns
 

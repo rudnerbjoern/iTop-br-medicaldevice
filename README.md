@@ -72,16 +72,21 @@ graph TD
 
 This branch requires **iTop 3.3.0 or later**.
 
-| Required module | Minimum version | Used for |
-| --- | --- | --- |
-| `itop-structure` | 3.3.0 | Organizations, typologies, and documents |
-| `itop-config-mgmt` | 3.3.0 | Connectable devices and network interfaces |
-| `itop-bridge-cmdb-services` | 3.3.0 | Service and provider contract tabs on medical devices |
-| `teemip-ip-mgmt` | 3.3.1 | IP addresses for DICOM application entities |
+| Required module             | Minimum version | Used for                                              |
+| --------------------------- | --------------- | ----------------------------------------------------- |
+| `itop-structure`            | 3.3.0           | Organizations, typologies, and documents              |
+| `itop-config-mgmt`          | 3.3.0           | Connectable devices and network interfaces            |
+| `itop-bridge-cmdb-services` | 3.3.0           | Service and provider contract tabs on medical devices |
+| `teemip-ip-mgmt`            | 3.3.1           | IP addresses for DICOM application entities           |
 
 1. Make TeemIP Core IP Management and this extension available in the iTop `extensions/` directory.
 2. Run iTop setup with Configuration Management and either Service Management option to include the CMDB and Services bridge.
 3. Select TeemIP IP Management and **Datamodel: Medical Devices**, then complete setup.
+
+With iTop Flow Management enabled, the optional [DICOM flow bridge](docs/DICOM.md#dicom-data-flows) maps DICOM approvals onto the native CI flow map.
+
+For a working example, choose demo data during installation and open the CT-to-PACS link
+in the **Demo Radiology** organization. [CT and PACS example](docs/DICOM.md#installed-ct-and-pacs-example)
 
 ## Development
 
@@ -94,11 +99,11 @@ This extension is under active development. Feedback and contributions are welco
 
 ## iTop Compatibility
 
-| iTop version | Extension branch |
-| --- | --- |
-| 3.3 | Compatibility update in development |
-| 3.2 | [itop/3.2][itop-32] |
-| 2.7 or 3.1 | [itop/2.7][itop-27] |
+| iTop version | Extension branch                    |
+| ------------ | ----------------------------------- |
+| 3.3          | Compatibility update in development |
+| 3.2          | [itop/3.2][itop-32]                 |
+| 2.7 or 3.1   | [itop/2.7][itop-27]                 |
 
 [itop-32]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/3.2
 [itop-27]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/2.7

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension format="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://rudnerbjoern.github.io/iTop-schema/extension.xsd">
-    <extension_code>
-        <![CDATA[br-medicaldevice]]>
-    </extension_code>
+    <extension_code>br-medicaldevice</extension_code>
     <company>
         <![CDATA[]]>
     </company>
@@ -16,6 +14,10 @@
         <![CDATA[Add Classes to document Medical Device CIs]]>
     </description>
     <version><![CDATA[3.2.7]]></version>
+    <modules>
+        <module><id>br-medicaldevice</id><version>3.2.7</version></module>
+        <module><id>br-medicaldevice-bridge-for-dataflows</id><version>1.0.0</version></module>
+    </modules>
     <release_date><![CDATA[2026-11-06]]></release_date>
     <version_description>
         <![CDATA[]]>

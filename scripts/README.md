@@ -8,7 +8,9 @@ php scripts/prepare-release.php 3.3.0
 ```
 
 This updates the extension manifest version, module registration version, and
-manifest release date together, then runs `tests/run.php`.
+manifest release date together, then runs `tests/run.php`. The base module entry in the
+bundle tracks the release. The optional DICOM flow bridge has its own module version;
+when that module changes for release, update its registration and matching inventory entry.
 Only `extension.xml` and `br-medicaldevice/module.br-medicaldevice.php` are
 updated. The test suite checks the iTop 3.3.0 minimum, required module versions,
 and the data model against the iTop 3.3 schema before publication. The default
@@ -39,7 +41,7 @@ ZIP package, and GitHub Release. Closing an unmerged PR, merging another branch
 prefix, or merging a fork's PR does not publish a release.
 
 The ZIP contains a single top-level `br-medicaldevice/` folder. Inside it,
-`extension.xml`, `LICENSE`, and the `br-medicaldevice/` module folder retain their
+`extension.xml`, `LICENSE`, and both runtime module directories retain their
 project-relative structure. Extracting into iTop's `extensions/` directory keeps
 all package files under `extensions/br-medicaldevice/`.
 
