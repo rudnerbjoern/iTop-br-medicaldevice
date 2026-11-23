@@ -5,8 +5,8 @@ Treat MUST and MUST NOT as mandatory requirements.
 
 ## Project identity and scope
 
-- You MUST treat this repository as `iTop-br-medicaldevice`, an iTop 3.2
-  extension for medical device brands, models, device classes, DICOM Application
+- You MUST treat this repository as `iTop-br-medicaldevice`, an iTop 3.3.0+ extension
+  for medical device brands, models, device classes, DICOM Application
   Entities, and governed DICOM communication links.
 - You MUST derive branch names, commit messages, and pull request content from
   the actual changes in this repository and the authorized task.
@@ -39,7 +39,7 @@ Treat MUST and MUST NOT as mandatory requirements.
   letters, digits, and hyphens in the description.
 - For release preparation, you MUST instead use `release/<version>`, where
   `<version>` is the target version in `X.Y.Z` format without a `v` prefix,
-  for example `release/3.2.7`. This is an explicit exception to the description
+  for example `release/3.3.0`. This is an explicit exception to the description
   format above. You MUST NOT use `build/` or `chore/` for release preparation.
 - You MUST select exactly one prefix according to the primary task outcome:
 

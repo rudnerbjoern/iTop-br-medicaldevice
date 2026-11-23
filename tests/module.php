@@ -22,8 +22,15 @@ return [
             throw new RuntimeException('Expected one module registration and a readable manifest.');
         }
         [, $id, $settings] = SetupWebPage::$modules[0];
+        $requiredDependencies = [
+            'itop-structure/3.3.0',
+            'itop-config-mgmt/3.3.0',
+            'itop-bridge-cmdb-services/3.3.0',
+            'teemip-ip-mgmt/3.3.1',
+        ];
         if ($id !== trim((string) $manifest->extension_code) . '/' . trim((string) $manifest->version)
-            || !in_array('itop-config-mgmt/3.2.0', $settings['dependencies'], true)
+            || trim((string) $manifest->itop_version_min) !== '3.3.0'
+            || array_diff($requiredDependencies, $settings['dependencies']) !== []
             || $settings['mandatory'] !== false || $settings['visible'] !== true) {
             throw new RuntimeException('Module identity, dependency or installation flags do not match the project.');
         }
@@ -39,6 +46,19 @@ return [
         if ($classNames === [] || $classNames !== $typeNames
             || (string) $model->classes->xpath('class[@id="MedicalDevice"]/parent')[0] !== 'ConnectableCI') {
             throw new RuntimeException('Medical device inheritance and selectable model types are inconsistent.');
+        }
+    },
+    'use iTop 3.3 fieldsets in medical device detail views' => static function (): void {
+        $model = simplexml_load_file(__DIR__ . '/../br-medicaldevice/datamodel.br-medicaldevice.xml');
+        $devices = $model->xpath('/itop_design/classes/class[@id="MedicalDevice" or parent="MedicalDevice"]');
+        foreach ($devices as $device) {
+            $items = $device->xpath('presentation/details//item[starts-with(@id, "fieldset:")]');
+            $ids = array_map(static fn (SimpleXMLElement $item): string => (string) $item['id'], $items);
+            foreach (['baseinfo', 'moreinfo', 'dates', 'otherinfo'] as $group) {
+                if (!in_array('fieldset:ConfigMgmt:' . $group, $ids, true)) {
+                    throw new RuntimeException($device['id'] . ' is missing the ConfigMgmt fieldset ' . $group);
+                }
+            }
         }
     },
     'wire DICOM write checks to the implemented PHP callbacks' => static function (): void {

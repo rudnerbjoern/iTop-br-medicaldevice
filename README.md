@@ -70,7 +70,18 @@ graph TD
 
 ## Installation
 
-Place this extension in the `extensions` folder of your iTop installation and run the setup again. Be sure to enable the extension during setup.
+This branch requires **iTop 3.3.0 or later**.
+
+| Required module | Minimum version | Used for |
+| --- | --- | --- |
+| `itop-structure` | 3.3.0 | Organizations, typologies, and documents |
+| `itop-config-mgmt` | 3.3.0 | Connectable devices and network interfaces |
+| `itop-bridge-cmdb-services` | 3.3.0 | Service and provider contract tabs on medical devices |
+| `teemip-ip-mgmt` | 3.3.1 | IP addresses for DICOM application entities |
+
+1. Make TeemIP Core IP Management and this extension available in the iTop `extensions/` directory.
+2. Run iTop setup with Configuration Management and either Service Management option to include the CMDB and Services bridge.
+3. Select TeemIP IP Management and **Datamodel: Medical Devices**, then complete setup.
 
 ## Development
 
@@ -83,11 +94,14 @@ This extension is under active development. Feedback and contributions are welco
 
 ## iTop Compatibility
 
-The branch [2.7](https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/2.7) is compatible to iTop 2.7 and iTop 3.1.
+| iTop version | Extension branch |
+| --- | --- |
+| 3.3 | Compatibility update in development |
+| 3.2 | [itop/3.2][itop-32] |
+| 2.7 or 3.1 | [itop/2.7][itop-27] |
 
-The branch [main](https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/main) will only be compatible to iTop 3.2 and above.
-
-Versions starting with 2.7.x are kept compatible to iTop 2.7
+[itop-32]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/3.2
+[itop-27]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/2.7
 
 The extension was tested on iTop 2.7.10 and 3.2.2
 

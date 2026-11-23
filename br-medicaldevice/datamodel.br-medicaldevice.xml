@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<itop_design version="3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://rudnerbjoern.github.io/iTop-schema/3.2/itop_design.xsd">
+<itop_design version="3.3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://rudnerbjoern.github.io/iTop-schema/dist/3.3/itop_design.xsd">
     <!--
     * @copyright   Copyright (C) 2024-2026 Björn Rudner
     * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -1034,7 +1034,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -1054,7 +1054,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="finalclass">
@@ -1079,7 +1079,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -1093,7 +1093,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -1261,7 +1261,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -1281,7 +1281,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -1303,7 +1303,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -1317,7 +1317,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -1479,7 +1479,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -1499,7 +1499,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -1521,7 +1521,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -1535,7 +1535,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -1697,7 +1697,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -1717,7 +1717,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -1739,7 +1739,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -1753,7 +1753,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -1915,7 +1915,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -1935,7 +1935,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -1957,7 +1957,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -1971,7 +1971,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -2133,7 +2133,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -2153,7 +2153,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -2175,7 +2175,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -2189,7 +2189,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -2351,7 +2351,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -2371,7 +2371,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -2393,7 +2393,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -2407,7 +2407,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -2569,7 +2569,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -2589,7 +2589,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -2611,7 +2611,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -2625,7 +2625,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -2799,7 +2799,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -2819,7 +2819,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -2841,7 +2841,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -2855,7 +2855,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -3020,7 +3020,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -3040,7 +3040,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -3062,7 +3062,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -3076,7 +3076,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -3238,7 +3238,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -3258,7 +3258,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -3280,7 +3280,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -3294,7 +3294,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">
@@ -3456,7 +3456,7 @@
                         <item id="col:col1">
                             <rank>10</rank>
                             <items>
-                                <item id="fieldset:Server:baseinfo">
+                                <item id="fieldset:ConfigMgmt:baseinfo">
                                     <rank>10</rank>
                                     <items>
                                         <item id="name">
@@ -3476,7 +3476,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:moreinfo">
+                                <item id="fieldset:ConfigMgmt:moreinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="medicalbrand_id">
@@ -3498,7 +3498,7 @@
                         <item id="col:col2">
                             <rank>130</rank>
                             <items>
-                                <item id="fieldset:Server:Date">
+                                <item id="fieldset:ConfigMgmt:dates">
                                     <rank>10</rank>
                                     <items>
                                         <item id="move2production">
@@ -3512,7 +3512,7 @@
                                         </item>
                                     </items>
                                 </item>
-                                <item id="fieldset:Server:otherinfo">
+                                <item id="fieldset:ConfigMgmt:otherinfo">
                                     <rank>20</rank>
                                     <items>
                                         <item id="description">

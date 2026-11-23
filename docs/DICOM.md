@@ -58,6 +58,11 @@ The protocol attribute describes the type of DICOM-related communication used by
 | DICOMweb  | Web-based DICOM communication                |
 | Other     | Other or project-specific communication type |
 
+The IP Address field selects an `IPAddress` from TeemIP IP Management.
+The selector includes addresses owned by the AE's organization or its
+child organizations. Install `teemip-ip-mgmt` 3.3.1 or later so setup
+can resolve this field, including on installations that only use DICOMweb.
+
 For classic DIMSE-based DICOM communication, use `DICOM`.
 
 For encrypted DIMSE communication, use `DICOM TLS`.
