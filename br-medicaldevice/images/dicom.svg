@@ -1,24 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 56 56"
-    width="56" height="56">
-
-    <!-- Background -->
-    <rect x="6" y="6" width="44" height="44" rx="6"
-        fill="#1f5fa7" stroke="#0d3f7a" stroke-width="2" />
-
-    <!-- Inner panel -->
-    <rect x="12" y="12" width="32" height="32" rx="4"
-        fill="#ffffff" opacity="0.95" />
-
-    <!-- DICOM label -->
-    <rect x="14" y="16" width="28" height="12" rx="3"
-        fill="#0d3f7a" />
-    <text x="28" y="25"
-        text-anchor="middle"
-        font-family="Arial, Helvetica, sans-serif"
-        font-size="8"
-        font-weight="700"
-        fill="#ffffff">DICOM</text>
-
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+    <title id="title">DICOM imaging studies</title>
+    <g stroke="#264957" stroke-width="2.8" stroke-linejoin="round">
+        <rect x="6" y="17" width="42" height="38" rx="4" fill="#7ea7ab"/>
+        <rect x="11" y="12" width="42" height="38" rx="4" fill="#c3dcd7"/>
+        <rect x="16" y="7" width="42" height="38" rx="4" fill="#eff5ec"/>
+        <rect x="21" y="12" width="32" height="24" rx="2" fill="#385f6a" stroke="none"/>
+    </g>
+    <ellipse cx="37" cy="24" rx="11.5" ry="9" fill="#c6ded6"/>
+    <path d="M36 19c-3-3-9 4-6 8 3 4 6-1 6-8zm2 0c3-3 9 4 6 8-3 4-6-1-6-8z" fill="#47727a"/>
+    <circle cx="37" cy="30.5" r="1.5" fill="#e7b96c"/>
 </svg>

@@ -1676,7 +1676,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/vortex-mixer.png</icon>
+                    <icon>images/vortex-mixer.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -1894,7 +1894,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/liquid-dropper.png</icon>
+                    <icon>images/liquid-dropper.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -2112,7 +2112,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/blood-tube.png</icon>
+                    <icon>images/blood-tube.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -2330,7 +2330,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/freezer.png</icon>
+                    <icon>images/freezer.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -2548,7 +2548,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/incubator.png</icon>
+                    <icon>images/incubator.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -2999,7 +2999,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/blood-test.png</icon>
+                    <icon>images/blood-test.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
@@ -3435,7 +3435,7 @@
                     <state_attribute>status</state_attribute>
                 </fields_semantic>
                 <style>
-                    <icon>images/biosafety-cabinet.png</icon>
+                    <icon>images/biosafety-cabinet.svg</icon>
                 </style>
                 <reconciliation>
                     <attributes>
