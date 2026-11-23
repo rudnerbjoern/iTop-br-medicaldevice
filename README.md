@@ -99,13 +99,14 @@ This extension is under active development. Feedback and contributions are welco
 
 ## iTop Compatibility
 
-| iTop version | Extension branch                    |
-| ------------ | ----------------------------------- |
-| 3.3          | Compatibility update in development |
-| 3.2          | [itop/3.2][itop-32]                 |
-| 2.7 or 3.1   | [itop/2.7][itop-27]                 |
+| iTop version | Extension branch               |
+| ------------ | ------------------------------ |
+| 3.3          | [main][itop-main] (from 3.3.0) |
+| 3.2          | [itop/3.2][itop-32]            |
+| 2.7 or 3.1   | [itop/2.7][itop-27]            |
 
+[itop-main]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/main
 [itop-32]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/3.2
 [itop-27]: https://github.com/rudnerbjoern/iTop-br-medicaldevice/tree/itop/2.7
 
-The extension was tested on iTop 2.7.10 and 3.2.2
+The 3.3 series has been tested on iTop 3.3.0. Earlier versions were tested on iTop 2.7.10 and 3.2.2.

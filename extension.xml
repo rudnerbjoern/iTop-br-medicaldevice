@@ -13,14 +13,14 @@
     <description>
         <![CDATA[Add Classes to document Medical Device CIs]]>
     </description>
-    <version><![CDATA[3.2.7]]></version>
+    <version><![CDATA[3.3.0]]></version>
     <modules>
-        <module><id>br-medicaldevice</id><version>3.2.7</version></module>
+        <module><id>br-medicaldevice</id><version>3.3.0</version></module>
         <module><id>br-medicaldevice-bridge-for-dataflows</id><version>1.0.0</version></module>
     </modules>
-    <release_date><![CDATA[2026-11-06]]></release_date>
+    <release_date><![CDATA[2026-11-23]]></release_date>
     <version_description>
-        <![CDATA[]]>
+        <![CDATA[Updates medical device forms and icons for iTop 3.3 and improves DICOM endpoint and link validation. The optional Flow Management bridge maps DICOM links to native CI flows and keeps them synchronized. Demo installations include a CT-to-PACS example.]]>
     </version_description>
     <itop_version_min>
         <![CDATA[3.3.0]]>
