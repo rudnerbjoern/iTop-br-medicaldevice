@@ -1,6 +1,6 @@
 # Commit-message generation
 
-Generate a message only for the staged change in this iTop 3.2 medical device extension project.
+Generate a message only for the staged change in this medical device extension for iTop 3.3.0 and later.
 Use English and this header:
 
 ```text
